@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 .navbar-lewagon {
   display: none;
 }
+=======
+>>>>>>> master
 
 .neon {
   font-family: 'Marquee Moon';
@@ -74,6 +77,16 @@
   font-size: 4vw;
   line-height: 78px;
   text-transform: uppercase;
+ 
+// Specific CSS for your home-page
+.top-rated-title {
+  color: $white;
+  padding: 20px;
+  font-size: 48px;
+}
+
+.homepage-card-link {
+  color: $white;
 }
 
 .signup-btn {
