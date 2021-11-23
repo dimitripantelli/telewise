@@ -1,8 +1,12 @@
+.navbar-lewagon {
+  display: none;
+}
+
 .neon {
   font-family: 'Marquee Moon';
-  font-size: 12vw;
+  font-size: 11vw;
   position: absolute;
-  top: 17.5%;
+  top: 12.5%;
   left: 30%;
   right: 30%;
   transform: translate(-50%, -50%);
@@ -60,7 +64,7 @@
   height: 83px;
   left: 20%;
   right: 20%;
-  top: 434px;
+  top: 370px;
   color: white;
   text-align: center;
 
@@ -70,4 +74,31 @@
   font-size: 4vw;
   line-height: 78px;
   text-transform: uppercase;
+}
+
+.signup-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 40px;
+  text-transform: uppercase;
+  font-weight: 700;
+
+  position: absolute;
+  left: 43.96%;
+  right: 44.03%;
+  top: 75%;
+  bottom: 18.78%;
+
+  background: #7FFB50;
+  border-radius: 4px;
+  color: white;
+  transition: transform .4s;
+
+  &:hover {
+    color: white;
+    text-decoration: none;
+    transform: scale(1.025);
+  }
 }
