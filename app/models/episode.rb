@@ -1,3 +1,3 @@
 class Episode < ApplicationRecord
-  belongs_to :show_id
+  belongs_to :show
 end
