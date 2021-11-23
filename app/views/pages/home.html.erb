@@ -1,2 +1,6 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<% @shows.each do |show| %>
+  <a href="<%= show_path(show) %>">
+    <h3> <%= show.name %> </h3>
+    <p> <%= '⭐' * (show.rating / 2) %> </p>
+  </a>
+<% end %>
