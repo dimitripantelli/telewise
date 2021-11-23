@@ -10,10 +10,61 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_22_164751) do
+ActiveRecord::Schema.define(version: 2021_11_22_173920) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "episodes", force: :cascade do |t|
+    t.bigint "show_id", null: false
+    t.integer "season_number"
+    t.date "airing_date"
+    t.string "name"
+    t.integer "episode_number"
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["show_id"], name: "index_episodes_on_show_id"
+  end
+
+  create_table "followed_shows", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "show_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["show_id"], name: "index_followed_shows_on_show_id"
+    t.index ["user_id"], name: "index_followed_shows_on_user_id"
+  end
+
+  create_table "progresses", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "episode_id", null: false
+    t.boolean "watched"
+    t.float "rating"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["episode_id"], name: "index_progresses_on_episode_id"
+    t.index ["user_id"], name: "index_progresses_on_user_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "show_id", null: false
+    t.float "rating"
+    t.text "content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["show_id"], name: "index_reviews_on_show_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
+  create_table "shows", force: :cascade do |t|
+    t.string "name"
+    t.text "summary"
+    t.integer "number_of_seasons"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,4 +78,11 @@ ActiveRecord::Schema.define(version: 2021_11_22_164751) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "episodes", "shows"
+  add_foreign_key "followed_shows", "shows"
+  add_foreign_key "followed_shows", "users"
+  add_foreign_key "progresses", "episodes"
+  add_foreign_key "progresses", "users"
+  add_foreign_key "reviews", "shows"
+  add_foreign_key "reviews", "users"
 end
