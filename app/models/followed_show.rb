@@ -1,4 +1,4 @@
 class FollowedShow < ApplicationRecord
-  belongs_to :user_id
-  belongs_to :show_id
+  belongs_to :user
+  belongs_to :show
 end
