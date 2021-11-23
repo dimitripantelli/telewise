@@ -6,19 +6,13 @@
 
   <div class="row justify-content-center">
     <% @shows.each do |show| %>
-      <div class="col-lg-6 mb-5">
-        <div class="hover hover-3 text-white rounded">
-          <img src="https://cdn.pixabay.com/photo/2016/11/14/05/21/children-1822688_1280.jpg" alt="" class="placeholder">
-          <div class="hover-overlay"></div>
-          <div class="hover-3-content px-5 py-4">
-            <a href="<%= show_path(show) %>" class="homepage-card-link">
-              <h3> <%= show.name.upcase %> </h3>
-              <p> <%= '⭐' * (show.rating.round / 2) %> </p>
-              <%# EBI star ratings show decimals %>
-            </a>
-          </div>
+      <a href="<%= show_path(show) %>" class="homepage-card-link card bg-dark w-75">
+        <div class="col-sm-6">
+          <h3 class="hover-3-title text-uppercase font-weight-bold mb-1"> <%= show.name.upcase %> </h3>
+          <p class="hover-3-rating small text-uppercase mb-0"> <%= '⭐' * (show.rating.round / 2) %> </p>
+          <%# EBI star ratings show decimals %>
         </div>
-      </div>
+      </a>
     <% end %>
   </div>
 </div>
