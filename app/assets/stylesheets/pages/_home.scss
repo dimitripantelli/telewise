@@ -1,3 +1,13 @@
+.landingpage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  padding: 55px;
+  height: 100vh;
+}
+
+
 .navbar-lewagon {
   display: none;
 }
@@ -5,10 +15,7 @@
 .neon {
   font-family: 'Marquee Moon';
   font-size: 11vw;
-  position: absolute;
-  top: 12.5%;
-  left: 30%;
-  right: 30%;
+
   transform: translate(-50%, -50%);
   transform: rotate(-4deg);
   font-weight: 400;
@@ -59,19 +66,15 @@
 }
 
 .quote {
-  position: absolute;
   max-width: 70vw;
   height: 83px;
-  left: 20%;
-  right: 20%;
-  top: 370px;
   color: white;
   text-align: center;
 
   font-family: Ruda;
   font-style: normal;
   font-weight: normal;
-  font-size: 4vw;
+  font-size: 3.75vw;
   line-height: 78px;
   text-transform: uppercase;
 }
@@ -94,12 +97,6 @@
   padding: 16px 40px;
   text-transform: uppercase;
   font-weight: 700;
-
-  position: absolute;
-  left: 43.96%;
-  right: 44.03%;
-  top: 75%;
-  bottom: 18.78%;
 
   border-radius: 4px;
   color: white;
