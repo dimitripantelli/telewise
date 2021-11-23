@@ -1,9 +1,6 @@
-<<<<<<< HEAD
 .navbar-lewagon {
   display: none;
 }
-=======
->>>>>>> master
 
 .neon {
   font-family: 'Marquee Moon';
@@ -77,8 +74,8 @@
   font-size: 4vw;
   line-height: 78px;
   text-transform: uppercase;
- 
-// Specific CSS for your home-page
+}
+
 .top-rated-title {
   color: $white;
   padding: 20px;
@@ -104,14 +101,16 @@
   top: 75%;
   bottom: 18.78%;
 
-  background: #7FFB50;
   border-radius: 4px;
   color: white;
   transition: transform .4s;
+  border: 1px solid white;
+  opacity: 0.6;
+}
 
-  &:hover {
-    color: white;
-    text-decoration: none;
-    transform: scale(1.025);
-  }
+.signup-btn:hover {
+  color: white;
+  text-decoration: none;
+  // transform: scale(1.025);
+  opacity: 1;
 }
