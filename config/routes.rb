@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   get 'user/show'
   devise_for :users
-  resources :users, only: :show
+  resources :users, only: :show do
+    resources :followed_shows, only: :index
+  end
   get 'account', to: 'user#show'
   root to: 'pages#home'
   resources :shows
