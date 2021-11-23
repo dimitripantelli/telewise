@@ -1,6 +1,18 @@
-<% @shows.each do |show| %>
-  <a href="<%= show_path(show) %>">
-    <h3> <%= show.name %> </h3>
-    <p> <%= '⭐' * (show.rating / 2) %> </p>
-  </a>
-<% end %>
+<div class="banner">
+</div>
+
+<div class="container">
+  <h2 class="text-center top-rated-title">TOP RATED TV-SHOWS</h2>
+
+  <div class="row justify-content-center">
+    <% @shows.each do |show| %>
+      <div class="col-lg-6 mb-5">
+        <a href="<%= show_path(show) %>" class="homepage-card-link">
+          <h3> <%= show.name.upcase %> </h3>
+          <p> <%= '⭐' * (show.rating.round / 2) %> </p>
+          <%# EBI star ratings show decimals %>
+        </a>
+      </div>
+    <% end %>
+  </div>
+</div>
