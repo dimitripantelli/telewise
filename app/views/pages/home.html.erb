@@ -1,2 +1,18 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner">
+</div>
+
+<div class="container">
+  <h2 class="text-center top-rated-title">TOP RATED TV-SHOWS</h2>
+
+  <div class="row justify-content-center">
+    <% @shows.each do |show| %>
+      <a href="<%= show_path(show) %>" class="homepage-card-link card bg-dark w-75">
+        <div class="col-sm-6">
+          <h3 class="hover-3-title text-uppercase font-weight-bold mb-1"> <%= show.name.upcase %> </h3>
+          <p class="hover-3-rating small text-uppercase mb-0"> <%= '⭐' * (show.rating.round / 2) %> </p>
+          <%# EBI star ratings show decimals %>
+        </div>
+      </a>
+    <% end %>
+  </div>
+</div>
