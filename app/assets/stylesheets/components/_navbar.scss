@@ -1,12 +1,97 @@
+.home-navbar {
+  background-color: rgb(0, 0, 0);
+  // /* Black background color */
+  position: fixed;
+  // /* Make it stick/fixed */
+  // top: -100px;
+  z-index: 1;
+  // /* Hide the navbar 50 px outside of the top view */
+  width: 100%;
+  // /* Full width */
+  transition: top 0.6s;
+  /* Transition effect when sliding down (and up) */
+}
+
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background-color: rgb(0, 0, 0);
+  padding-right: 4%;
+  padding-left: 4%;
+  height: 8vh;
+
+  .avatar {
+    display: flex;
+    justify-content: space-around;
+    height: 100%;
+    padding-top: 7px;
+  }
+
+  .avatar i {
+    font-size: 28px;
+    color: white;
+  }
+}
+
+.bell {
+  font-size: 28px;
+  padding-right: 14px;
+  color: rgb(122, 122, 122);
+  opacity: 0.8;
+  transition: ease-in-out 0.25s;
+}
+
+.bell:hover {
+  transform: rotate(+15deg);
+}
+
+.dropdown-toggle::after {
+  display: none;
 }
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+#neon-logo {
+  font-size: 21px;
+  position: absolute;
+  transform: rotate(0deg);
+  text-shadow: 1px 0px 4px #dbffce;
+}
+
+#neon-logo:hover {
+  text-decoration: none;
+  color: #a6fd87;
+  text-shadow: 1px 0px 4px #dbffce,
+  2px 0px 4px #dbffce,
+  3px 0px 4px #dbffce,
+  2px 0px 3px #7FFB50,
+  2px 3px 15px #7FFB50,
+  2px 0px 15px,
+  5px 0px 125px,
+  20px 0vw 200px #7FFB50,
+  40px 0vw 200px #7FFB50;
+}
+
+.login-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 40px;
+  text-transform: uppercase;
+  font-weight: 700;
+  width: 8vw;
+
+  border-radius: 4px;
+  color: white;
+  transition: transform .4s;
+  border: 1px solid white;
+  opacity: 0.6;
+  font-size: 14px;
+}
+
+.login-btn:hover {
+  color: white;
+  opacity: 1;
 }

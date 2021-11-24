@@ -1,1 +1,117 @@
-// Specific CSS for your home-page
+
+.landingpage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  padding: 55px;
+  height: 100vh;
+}
+
+.neon {
+  font-family: 'Marquee Moon';
+  font-size: 11vw;
+
+  transform: translate(-50%, -50%);
+  transform: rotate(-4deg);
+  font-weight: 400;
+  letter-spacing: 8px;
+  text-shadow: 1px 0px 4px #dbffce,
+  2px 0px 4px #dbffce,
+  3px 0px 4px #dbffce,
+  2px 0px 3px #7FFB50,
+  2px 3px 15px #7FFB50,
+  2px 0px 15px,
+  5px 0px 125px,
+  20px 0vw 200px #7FFB50,
+  40px 0vw 200px #7FFB50;
+  color: #a6fd87;
+}
+
+#neon-big-logo:hover {
+  text-decoration: none;
+}
+
+#top-rated {
+  padding: 50px;
+}
+
+.flicker-slow {
+  animation: flicker 3s linear infinite;
+}
+
+.flicker-fast {
+  animation: flicker 1s linear infinite;
+}
+
+@keyframes flicker {
+
+  0%,
+  19.999%,
+  22%,
+  62.999%,
+  64%,
+  64.999%,
+  70%,
+  100% {
+    //text-shadow: none;
+    opacity: .99;
+
+  }
+
+  20%,
+  21.999%,
+  63%,
+  63.999%,
+  65%,
+  69.999% {
+    opacity: 0.4;
+  }
+}
+
+.quote {
+  max-width: 70vw;
+  height: 83px;
+  color: white;
+  text-align: center;
+
+  font-family: Ruda;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 3.75vw;
+  line-height: 78px;
+  text-transform: uppercase;
+}
+
+.top-rated-title {
+  color: $white;
+  padding: 20px;
+  font-size: 48px;
+}
+
+.homepage-card-link {
+  color: $white;
+}
+
+.signup-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 40px;
+  text-transform: uppercase;
+  font-weight: 700;
+
+  border-radius: 4px;
+  color: white;
+  transition: transform .4s;
+  border: 1px solid white;
+  opacity: 0.6;
+}
+
+.signup-btn:hover {
+  color: white;
+  text-decoration: none;
+  // transform: scale(1.025);
+  opacity: 1;
+}

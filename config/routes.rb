@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   end
   get 'account', to: 'user#show'
   root to: 'pages#home'
-  resources :shows
+  resources :shows, only: [:index, :show]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
+# For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
