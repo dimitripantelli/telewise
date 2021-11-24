@@ -22,34 +22,34 @@ show_ids.each do |id|
   http_us.use_ssl = true
   http_us.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
-  request_gb = Net::HTTP::Get.new(url_gb)
+  request_gb = Net::HTTP::Get.new("/get/basic?country=gb&imdb_id=#{imdb_id}&output_language=en")
   request_gb["x-rapidapi-host"] = 'streaming-availability.p.rapidapi.com'
   request_gb["x-rapidapi-key"] = ENV["RAPID_API_KEY"]
-  request_us = Net::HTTP::Get.new(url_us)
+  request_us = Net::HTTP::Get.new("/get/basic?country=us&imdb_id=#{imdb_id}&output_language=en")
   request_us["x-rapidapi-host"] = 'streaming-availability.p.rapidapi.com'
   request_us["x-rapidapi-key"] = ENV["RAPID_API_KEY"]
 
-  response_gb = http.request(request_gb)
-  response_us = http.request(request_us)
+  response_gb = JSON.parse(http_gb.request(request_gb).read_body)
+  response_us = JSON.parse(http_us.request(request_us).read_body)
 
   streaming = []
-  streaming << response_gb[:streamingInfo]
-  if response_gb[:streamingInfo].first[0] != response_us[:streamingInfo].first[0]
-    streaming << response_us[:streamingInfo]
+  p streaming << response_gb['streamingInfo']
+  if response_gb['streamingInfo'] && response_gb['streamingInfo'].first[0] != response_us['streamingInfo'].first[0]
+    streaming << response_us['streamingInfo']
   end
 
   # Create show using JSON
   new_show = Show.create(
     name: show['name'],
-    summary: response_gb[:overview],
+    summary: response_gb['overview'],
     number_of_seasons: show['_embedded']['seasons'].count,
     streaming: streaming,
     rating: show['rating']['average']
   )
 
   # Add poster to asset file
-  download = open(show['image']['original'])
-  IO.copy_stream(download, "app/assets/images/#{show['name'].gsub(/\s+/, "")}.jpg")
+  download = URI.open(show['image']['original'])
+  IO.copy_stream(download, "app/assets/images/#{show['name'].gsub(/\s+/, '')}.jpg")
 
   # Check new show was saved
   next unless new_show.persisted?
