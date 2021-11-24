@@ -1,12 +1,66 @@
+#navbar {
+  background-color: #333;
+  /* Black background color */
+  position: fixed;
+  /* Make it stick/fixed */
+  top: -100px;
+  /* Hide the navbar 50 px outside of the top view */
+  width: 100%;
+  /* Full width */
+  transition: top 0.6s;
+  /* Transition effect when sliding down (and up) */
+}
+
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: rgba(0, 0, 0, 0.527);
+
+  .avatar {
+    display: flex;
+    justify-content: space-around;
+    height: 100%;
+    padding-top: 7px;
+  }
+
+  .avatar i {
+    font-size: 28px;
+    color: white;
+  }
+}
+
+.bell {
+  font-size: 28px;
+  padding-right: 14px;
+  color: #000;
+  opacity: 0.8;
+}
+
+.dropdown-toggle::after {
+  display: none;
 }
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+#neon-logo {
+  font-size: 21px;
+  position: absolute;
+  left: 4%;
+  transform: rotate(0deg);
+  text-shadow: 1px 0px 4px #dbffce;
+}
+
+#neon-logo:hover {
+  text-decoration: none;
+  color: #a6fd87;
+  text-shadow: 1px 0px 4px #dbffce,
+  2px 0px 4px #dbffce,
+  3px 0px 4px #dbffce,
+  2px 0px 3px #7FFB50,
+  2px 3px 15px #7FFB50,
+  2px 0px 15px,
+  5px 0px 125px,
+  20px 0vw 200px #7FFB50,
+  40px 0vw 200px #7FFB50;
 }
