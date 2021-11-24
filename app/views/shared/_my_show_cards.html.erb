@@ -1,5 +1,11 @@
 <% @followed_shows.each do |show| %>
   <a href="<%= show_path(show)%>">
     <p><%= show.show.name %></p>
+    <% @my_progresses.each do |progress| %>
+      <p>
+        Season <%= progress.episode.season_number %>
+        Episode <%= progress.episode.episode_number %>
+      </p>
+    <% end %>
   </a>
 <% end %>
