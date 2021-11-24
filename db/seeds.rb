@@ -43,10 +43,24 @@ show_ids.each do |id|
     name: show['name'],
     summary: response_gb[:overview],
     number_of_seasons: show['_embedded']['seasons'].count,
-    streaming: streaming
+    streaming: streaming,
+    rating: show['rating']['average']
   )
+
+  # Add poster to asset file
+  download = open(show['image']['original'])
+  IO.copy_stream(download, "app/assets/images/#{show['name'].gsub(/\s+/, "")}.jpg")
+
   # Check new show was saved
   next unless new_show.persisted?
+
+  # Add season summaries
+  show['_embedded']['seasons'].each do |season|
+    new_show.season_summaries.create(
+      season_number: season['number'],
+      summary: season['summary']
+    )
+  end
 
   # For that show, associate these episodes
   episodes.each do |ep|
