@@ -7,7 +7,7 @@ Show.destroy_all
 Episode.destroy_all
 SeasonSummary.destroy_all
 
-show_ids = %w[23470 175 169 73 525 58 32 527 826 139]
+show_ids = %w[23470 175 169 73 525 58 32 527 139]
 
 puts 'Adding shows and episodes...'
 
@@ -33,8 +33,8 @@ show_ids.each do |id|
   request_us["x-rapidapi-host"] = 'streaming-availability.p.rapidapi.com'
   request_us["x-rapidapi-key"] = ENV["RAPID_API_KEY"]
 
-  response_gb = JSON.parse(http_gb.request(request_gb).read_body)
-  response_us = JSON.parse(http_us.request(request_us).read_body)
+  p response_gb = JSON.parse(http_gb.request(request_gb).read_body)
+  p response_us = JSON.parse(http_us.request(request_us).read_body)
 
   streaming = []
   streaming << response_gb['streamingInfo']
