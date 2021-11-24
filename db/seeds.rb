@@ -3,6 +3,10 @@ require 'json'
 require 'net/http'
 require 'openssl'
 
+Show.destroy_all
+Episode.destroy_all
+SeasonSummary.destroy_all
+
 show_ids = %w[23470 175 169 73 525 58 32 527 826 139]
 
 puts 'Adding shows and episodes...'
@@ -33,7 +37,7 @@ show_ids.each do |id|
   response_us = JSON.parse(http_us.request(request_us).read_body)
 
   streaming = []
-  p streaming << response_gb['streamingInfo']
+  streaming << response_gb['streamingInfo']
   if response_gb['streamingInfo'] && response_gb['streamingInfo'].first[0] != response_us['streamingInfo'].first[0]
     streaming << response_us['streamingInfo']
   end
@@ -72,6 +76,8 @@ show_ids.each do |id|
       airing_date: ep['airdate']
     )
   end
+
+  puts "added #{new_show.name}"
 end
 
 puts '...Finished!'
