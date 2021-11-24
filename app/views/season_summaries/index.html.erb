@@ -1,1 +1,5 @@
-<%= @show %>
+<% @show.episodes.each do |episode| %>
+  <%=  episode.name %>
+  <%=  episode.episode_number %>
+  <%=  sanitize episode.description %>
+<% end %>
