@@ -45,7 +45,7 @@ class ShowsController < ApplicationController
   private
 
   def show_params
-    params.require(:show).permit(:name, :summary, :number_of_seasons, :photo)
+    params.require(:show).permit(:name, :summary, :number_of_seasons, :rating, :photo)
   end
 
   def find_show

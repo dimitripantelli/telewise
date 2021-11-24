@@ -2,7 +2,7 @@
 
 </div>
 
-<div class="bg-white">
+<div class="text-white">
   <div class="container py-3">
     <div class="row">
       <div class="col-md-4">
@@ -10,6 +10,7 @@
       </div>
       <div class="col-md-8">
         <h1><%= @show.name %></h1>
+          <p class="hover-3-rating small text-uppercase mb-0"> <%= '⭐' * (@show.rating.round / 2) %> </p>
           <p><%= @show.summary %></p>
           <p>Seasons: <%= @show.number_of_seasons %></p>
           <%= link_to 'Add to my shows', show_path(@show), class: "btn btn-success" %>
@@ -17,12 +18,16 @@
     </div>
   </div>
 </div>
-<div class="container border rounded p-3 mb-3 mt-4">
-  <p><strong>Season 1</strong></p>
-  <p><small><%= @show.summary %></small></p>
-  <p><%= link_to 'Details', show_path(@show), class: "btn btn-success" %></p>
-</div>
 
+<% count = 1 %>
+<% @show.number_of_seasons.times do %>
+  <div class="container border rounded p-3 mb-3 mt-4 text-white">
+    <p><strong>Season <%= count %></strong></p>
+    <p><small><%= @show.summary %></small></p>
+    <p><%= link_to 'Details', show_path(@show, season: count), class: "btn btn-success" %></p>
+  </div>
+    <% count += 1 %>
+<% end %>
 <%# <p><% seasons.each do |season| %>
 
 
