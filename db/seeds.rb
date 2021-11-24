@@ -7,7 +7,7 @@ Show.destroy_all
 Episode.destroy_all
 SeasonSummary.destroy_all
 
-show_ids = %w[23470 175 169 73 525 58 32 527 826 139]
+show_ids = %w[23470 175 169 73 525 58 32 527 139]
 
 puts 'Adding shows and episodes...'
 
@@ -81,3 +81,29 @@ show_ids.each do |id|
 end
 
 puts '...Finished!'
+
+
+# TEMP FOLLWED SHOWS
+puts 'creating followed shows'
+
+following = FollowedShows.create!([
+  {
+    user_id: 1,
+    show_id: 24
+  },
+  {
+    user_id: 1,
+    show_id: 25
+  },
+  {
+    user_id: 1,
+    show_id: 25
+  },
+])
+
+progresses = Progresses.create!([
+  {
+    user_id: 1,
+    episode_id:
+  }
+])
