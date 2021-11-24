@@ -15,14 +15,41 @@ followed = FollowedShow.create!({
   show_id: 1
 })
 
-episode = Episode.create!({
+episode = Episode.create!(
+  {
   show_id: 1,
   season_number: 2,
-  name: 'Jess does something quirky',
+  name: 'Success? I think not',
   episode_number: 6
-})
+  },
+  {
+  show_id: 2,
+  season_number: 4,
+  name: 'Biscuit Week',
+  episode_number: 8
+  },
+  {
+  show_id: 3,
+  season_number: 9,
+  name: 'The one where friends',
+  episode_number: 2
+  },
+)
 
-progress = Progress.create!({
+progress = Progress.create!(
+  {
   user_id: 1,
-  episode_id: 1
-})
+  episode_id: 1,
+  watched: true
+  },
+  {
+  user_id: 1,
+  episode_id: 2,
+  watched: true
+  },
+  {
+  user_id: 1,
+  episode_id: 3,
+  watched: true
+  },
+)
