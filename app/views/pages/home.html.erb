@@ -1,6 +1,7 @@
 <div class="landingpage">
-
-  <h1 class="neon" data-text="U">TE<span class="flicker-fast">L</span><span class="flicker-slow">E</span>WI<span class="flicker-fast">S</span>E</h1>
+  <a href="#top-rated" id="neon-big-logo">
+    <h1 class="neon" data-text="U">TE<span class="flicker-fast">L</span><span class="flicker-slow">E</span>WI<span class="flicker-fast">S</span>E</h1>
+  </a>
   <h2 class="quote">Never miss an episode again</h2>
 
   <%= simple_form_for :search, url: root_path, method: :get do |f| %>
@@ -13,10 +14,10 @@
   <% end %>
 
   <a class="signup-btn" href="#">Sign Up</a>
+</div>
 
-<div class="container">
+<div class="container" id="top-rated">
   <h2 class="text-center top-rated-title">TOP RATED TV-SHOWS</h2>
-
   <div class="row justify-content-center">
     <% @shows.each do |show| %>
       <a href="<%= show_path(show) %>" class="homepage-card-link card bg-dark w-75">
