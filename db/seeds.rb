@@ -7,7 +7,7 @@ Show.destroy_all
 Episode.destroy_all
 SeasonSummary.destroy_all
 
-show_ids = %w[23470 175 169 73 525 58 32 527 826 139]
+show_ids = %w[23470 175 169 73 525 58 32 527 139]
 
 puts 'Adding shows and episodes...'
 
