@@ -15,6 +15,7 @@
         <p class="hover-3-rating small text-uppercase mb-0">
           <%= '⭐' * (@show.rating.round / 2) %>
         </p>
+        <p><%= @show.summary %></p>
         <p>Seasons: <%= @show.number_of_seasons %></p>
         <% @streaming.each do |service| %>
         <ul>
