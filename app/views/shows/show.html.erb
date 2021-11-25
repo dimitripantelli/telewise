@@ -24,7 +24,7 @@
   <div class="container border rounded p-3 mb-3 mt-4 text-white">
     <p><strong>Season <%= count %></strong></p>
     <p><small><%= @show.summary %></small></p>
-    <p><%= link_to 'Details', show_path(@show, season: count), class: "btn btn-success" %></p>
+    <p><%= link_to 'Details', show_season_summaries_path(@show, season: count), class: "btn btn-success" %></p>
   </div>
     <% count += 1 %>
 <% end %>

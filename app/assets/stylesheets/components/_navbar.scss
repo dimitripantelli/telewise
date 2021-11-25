@@ -17,13 +17,14 @@
   background-color: rgb(0, 0, 0);
   padding-right: 4%;
   padding-left: 4%;
-  height: 8vh;
+  padding-top: 25px;
+  height: 10vh;
 
   .avatar {
     display: flex;
     justify-content: space-around;
     height: 100%;
-    padding-top: 7px;
+    cursor: pointer;
   }
 
   .avatar i {
@@ -38,6 +39,9 @@
   color: rgb(122, 122, 122);
   opacity: 0.8;
   transition: ease-in-out 0.25s;
+  position: absolute;
+  top: 35px;
+  right: 100px;
 }
 
 .bell:hover {
@@ -53,7 +57,7 @@
 }
 
 #neon-logo {
-  font-size: 21px;
+  font-size: 32px;
   position: absolute;
   transform: rotate(0deg);
   text-shadow: 1px 0px 4px #dbffce;
