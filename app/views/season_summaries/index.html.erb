@@ -1,0 +1,11 @@
+<div class='container text-white d-flex justify-content-between'>
+  <h1><strong><%= @show.name %></strong>, Season <%= @season %></h1>
+  <p><%= link_to 'Back', show_path(@show), class: "btn btn-success" %></p>
+</div>
+  <% @show.episodes.where(season_number: @season).each do |episode| %>
+    <div class="container border rounded p-3 mb-3 mt-4 text-white">
+      <%=  episode.name %>
+      <%=  episode.episode_number %>
+      <%=  sanitize episode.description %>
+    </div>
+  <% end %>
