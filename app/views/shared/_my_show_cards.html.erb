@@ -1,31 +1,14 @@
-<% @show_progress.each do |progress, episode| %>
-  <h5> <%= progress.show.name %> </h5>
-  <p> Season <%= episode[0].season_number %>
-    Episode <%= episode[0].episode_number %> </p>
-<% end %>
-
 <div class="card-deck show-cards">
-  <div class="card bg-dark">
-    <img class="card-img-top" src="https://variety.com/wp-content/uploads/2021/07/Succession-HBO-01.jpg?w=681&h=383&crop=1" alt="">
-    <div class="card-body">
-      <p class="card-title">Succession</p>
-      <p class="card-text">Season 2 Episode 6</p>
+  <% @show_progress.each do |progress, episode| %>
+    <div class="card bg-dark">
+      <img class="card-img-top" src="https://variety.com/wp-content/uploads/2021/07/Succession-HBO-01.jpg?w=681&h=383&crop=1" alt="">
+      <div class="card-body">
+          <h5 class="card-title"><%= progress.show.name %></h5>
+          <p class="card-text">
+            Season <%= episode[0].season_number %>
+            Episode <%= episode[0].episode_number %>
+          </p>
+      </div>
     </div>
-  </div>
-
-  <div class="card bg-dark">
-    <img class="card-img-top" src="https://variety.com/wp-content/uploads/2021/07/Succession-HBO-01.jpg?w=681&h=383&crop=1" alt="">
-    <div class="card-body">
-      <p class="card-title">New Girl</p>
-      <p class="card-text">Season 5 Episode 2</p>
-    </div>
-  </div>
-
-  <div class="card bg-dark">
-    <img class="card-img-top" src="https://variety.com/wp-content/uploads/2021/07/Succession-HBO-01.jpg?w=681&h=383&crop=1" alt="">
-    <div class="card-body">
-      <p class="card-title">Great British Bake Off</p>
-      <p class="card-text">Season 10 Episode 7</p>
-    </div>
-  </div>
+  <% end %>
 </div>
