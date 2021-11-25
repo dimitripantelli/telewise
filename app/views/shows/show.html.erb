@@ -1,6 +1,3 @@
-<div>
-
-</div>
 
 <div class="text-white">
   <div class="container py-3">
@@ -12,6 +9,7 @@
         <h1><%= @show.name %></h1>
           <p class="hover-3-rating small text-uppercase mb-0"> <%= '⭐' * (@show.rating.round / 2) %> </p>
           <p><%= @show.summary %></p>
+          <p><%= @show.streaming %></p>
           <p>Seasons: <%= @show.number_of_seasons %></p>
           <%= link_to 'Add to my shows', show_path(@show), class: "btn btn-success" %>
       </div>
