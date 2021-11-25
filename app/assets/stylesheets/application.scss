@@ -11,7 +11,12 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import "shows/show";
 
 body {
   background-color: #212121;
+}
+
+.progress-bar {
+  background-color: darkgreen;
 }

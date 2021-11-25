@@ -1,0 +1,14 @@
+<div class="card-deck show-cards">
+  <% @show_progress.each do |progress, episode| %>
+    <div class="card bg-dark">
+      <img class="card-img-top" src="https://variety.com/wp-content/uploads/2021/07/Succession-HBO-01.jpg?w=681&h=383&crop=1" alt="">
+      <div class="card-body">
+          <h5 class="card-title"><%= progress.show.name %></h5>
+          <p class="card-text">
+            Season <%= episode[0].season_number %>
+            Episode <%= episode[0].episode_number %>
+          </p>
+      </div>
+    </div>
+  <% end %>
+</div>

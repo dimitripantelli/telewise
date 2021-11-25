@@ -3,12 +3,24 @@ class ShowsController < ApplicationController
 
   def index
     if params[:query].present?
+      # Show.reindex
+      # @shows = Show.search(params[:query], fields: [:name], match: :word_start)
       sql_query = "name ILIKE :query OR summary ILIKE :query"
       @shows = Show.where(sql_query, query: "%#{params[:query]}%")
     else
       @shows = Show.all
     end
   end
+
+  # def autocomplete
+  #   render json: Show.search(params[:query], {
+  #     fields: ["name^5"],
+  #     match: :word_start,
+  #     limit: 10,
+  #     load: false,
+  #     misspellings: {below: 5}
+  #   }).map(&:name)
+  # end
 
   def show
   end

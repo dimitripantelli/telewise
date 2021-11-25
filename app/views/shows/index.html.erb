@@ -1,0 +1,28 @@
+<div id="search-result">
+  <% @shows.each do |show| %>
+    <a href="<%= show_path(show) %>">
+      <div class="col-md-4">
+        <img src="https://images2.minutemediacdn.com/image/upload/c_crop,h_358,w_640,x_0,y_29/f_auto,q_auto,w_1100/v1554990347/shape/mentalfloss/breakhed.jpg" alt="" class="w-100 rounded">
+      </div>
+      <h3><span><%= show.name %></span></h3>
+      <p><%= sanitize show.summary %></p>
+    </a>
+  <% end %>
+</div>
+
+
+<%# <script src="jquery.js"></script>
+<script src="typeahead.bundle.js"></script>
+<script>
+  var shows = new Bloodhound({
+    datumTokenizer: Bloodhound.tokenizers.whitespace,
+    queryTokenizer: Bloodhound.tokenizers.whitespace,
+    remote: {
+      url: '/shows/autocomplete?query=%QUERY',
+      wildcard: '%QUERY'
+    }
+  });
+  $('#query').typeahead(null, {
+    source: shows
+  });
+</script> %>

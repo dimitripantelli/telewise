@@ -1,4 +1,3 @@
-
 .landingpage {
   display: flex;
   flex-direction: column;
@@ -6,6 +5,8 @@
   justify-content: space-around;
   padding: 55px;
   height: 100vh;
+  position: absolute;
+  top: 50%;
 }
 
 .neon {
@@ -26,6 +27,7 @@
   20px 0vw 200px #7FFB50,
   40px 0vw 200px #7FFB50;
   color: #a6fd87;
+  padding: 50px;
 }
 
 #neon-big-logo:hover {
