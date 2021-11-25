@@ -45,7 +45,7 @@ show_ids.each do |id|
   # Create show using JSON
   new_show = Show.create!(
     name: show['name'],
-    summary: 'good show',
+    summary: response_gb['overview'],
     number_of_seasons: show['_embedded']['seasons'].count,
     streaming: streaming,
     rating: show['rating']['average']
