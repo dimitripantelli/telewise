@@ -45,7 +45,7 @@ show_ids.each do |id|
   # Create show using JSON
   new_show = Show.create!(
     name: show['name'],
-    summary: response_gb['overview'],
+    summary: 'good show',
     number_of_seasons: show['_embedded']['seasons'].count,
     streaming: streaming,
     rating: show['rating']['average']
@@ -84,26 +84,40 @@ puts '...Finished!'
 
 
 # TEMP FOLLWED SHOWS
+FollowedShow.destroy_all
+Progress.destroy_all
 puts 'creating followed shows'
 
-following = FollowedShows.create!([
+succession = Show.find_by(name: 'Succession')
+house_of_cards = Show.find_by(name: 'House of Cards')
+breaking_bad = Show.find_by(name: 'Breaking Bad')
+
+following = FollowedShow.create!([
   {
     user_id: 1,
-    show_id: 24
+    show_id: succession.id
   },
   {
     user_id: 1,
-    show_id: 25
+    show_id: house_of_cards.id
   },
   {
     user_id: 1,
-    show_id: 25
+    show_id: breaking_bad.id
   },
 ])
 
-progresses = Progresses.create!([
+progresses = Progress.create!([
   {
     user_id: 1,
-    episode_id:
-  }
+    episode_id: succession.episodes.first.id
+  },
+  {
+    user_id: 1,
+    episode_id: house_of_cards.episodes.third.id
+  },
+  {
+    user_id: 1,
+    episode_id: breaking_bad.episodes.second.id
+  },
 ])
