@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
   has_many :followed_shows
   has_many :progresses
+  has_many :notifications
 end

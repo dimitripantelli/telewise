@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :users, only: :show do
     resources :followed_shows, only: :index
   end
+  resources :notifications, only: [:index]
   get 'account', to: 'user#show'
   root to: 'pages#home'
   resources :shows, only: [:index, :show] do
