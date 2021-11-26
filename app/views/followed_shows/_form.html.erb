@@ -1,0 +1,4 @@
+<%= simple_form_for([@user, @followed_show]) do |f| %>
+  <%= f.input :show_id, :as => :hidden, :input_html => { :value => @show.id } %>
+  <%= f.submit 'Add to my shows', class: "btn btn-success" %>
+<% end %>
