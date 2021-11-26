@@ -14,13 +14,18 @@
   ></div>
 </div>
 
+
 <div class="episode_summary">
   <% @show.episodes.where(season_number: @season).each do |episode| %>
     <div class="container rounded p-3 mb-3 mt-4 text-white">
-      <%= episode.name %>
-      <%= episode.episode_number %>
-      <%= sanitize episode.description %>
-      <%= check_box_tag 'no', id:"check_box" %>
+      <h2>
+        <%= episode.episode_number %>.
+        <%= episode.name %>
+      </h2>
+      <div class="episode-box">
+        <p id="episodeinfo"><%= sanitize episode.description %></p>
+        <%= check_box_tag 'no', id:"check_box" %>
+      </div>
     </div>
   <% end %>
 </div>

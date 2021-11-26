@@ -1,9 +1,10 @@
 
 .navbar-lewagon {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   background-color: rgb(0, 0, 0);
   height: 10vh;
+  padding: 14px 48px;
 
   .avatar {
     cursor: pointer;
@@ -69,6 +70,10 @@
   5px 0px 125px,
   20px 0vw 200px #7FFB50,
   40px 0vw 200px #7FFB50;
+}
+
+.search-navbar {
+  position: absolute;
 }
 
 .login-btn {
