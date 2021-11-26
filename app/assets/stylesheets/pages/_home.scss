@@ -11,8 +11,10 @@ body {
 }
 
 .neon {
-  font-family: 'Marquee Moon', 'Train One', cursive;
-  font-size: 11vw;
+  font-family: 'Train One', cursive;
+  font-size: 8vw;
+  letter-spacing: 0.0em;
+  text-transform: uppercase;
 
   transform: translate(-50%, -50%);
   transform: rotate(-4deg);
@@ -86,6 +88,9 @@ body {
   margin: 50px 0;
 }
 
+.fa-search:before {
+  color: black;
+}
 .signup-btn {
   display: flex;
   flex-direction: row;
