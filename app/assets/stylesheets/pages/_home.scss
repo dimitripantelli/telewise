@@ -1,9 +1,5 @@
-html,
-body {
-  height: 100%;
-}
-
-.landingpage {
+.homepage {
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -19,7 +15,6 @@ body {
   transform: translate(-50%, -50%);
   transform: rotate(-4deg);
   font-weight: 400;
-  letter-spacing: 8px;
   text-shadow: 1px 0px 4px #dbffce,
   2px 0px 4px #dbffce,
   3px 0px 4px #dbffce,
@@ -30,7 +25,10 @@ body {
   20px 0vw 200px #7FFB50,
   40px 0vw 200px #7FFB50;
   color: #a6fd87;
-  padding: 50px;
+}
+
+#neon-big-logo {
+  padding-bottom: 100px;
 }
 
 #neon-big-logo:hover {

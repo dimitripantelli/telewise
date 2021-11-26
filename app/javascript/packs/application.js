@@ -18,3 +18,9 @@ require("channels")
 
 import "controllers"
 import "bootstrap"
+
+// import { scrollFunction } from 'style_navbar.js'
+
+// document.addEventListener('turbolinks:load', () => {
+//   window.onscroll = function() {scrollFunction()};
+// }

@@ -1,9 +1,26 @@
+
+.navbar-lewagon {
+  display: flex;
+  justify-content: space-around;
+  background-color: rgb(0, 0, 0);
+  height: 10vh;
+
+  .avatar {
+    cursor: pointer;
+  }
+
+  .avatar i {
+    font-size: 28px;
+    color: white;
+    position: absolute;
+    bottom: 12px;
+  }
+}
+
 .home-navbar {
   background-color: rgb(0, 0, 0);
   // /* Black background color */
   position: fixed;
-  // /* Make it stick/fixed */
-  // top: -100px;
   z-index: 1;
   // /* Hide the navbar 50 px outside of the top view */
   width: 100%;
@@ -11,30 +28,7 @@
   transition: top 0.6s;
   /* Transition effect when sliding down (and up) */
   margin-bottom: 24px;
-}
-
-.navbar-lewagon {
-  display: flex;
-  justify-content: space-between;
-  background-color: rgb(0, 0, 0);
-  height: 10vh;
-  opacity: 0.5;
-
-  .avatar {
-    display: flex;
-    justify-content: space-around;
-    height: 100%;
-    cursor: pointer;
-  }
-
-  .avatar i {
-    font-size: 28px;
-    color: white;
-  }
-}
-
-.navbar-lewagon:hover {
-  opacity: 1;
+  display: none;
 }
 
 .bell {
@@ -43,8 +37,6 @@
   color: rgb(122, 122, 122);
   opacity: 0.8;
   transition: ease-in-out 0.25s;
-  top: 35px;
-  right: 100px;
 }
 
 .bell:hover {
@@ -60,7 +52,7 @@
 }
 
 #neon-logo {
-  font-size: 32px;
+  font-size: 24px;
   transform: rotate(0deg);
   text-shadow: 1px 0px 4px #dbffce;
 }
