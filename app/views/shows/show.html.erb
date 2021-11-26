@@ -17,6 +17,11 @@
         </p>
         <p><%= @show.summary %></p>
         <p>Seasons: <%= @show.number_of_seasons %></p>
+        <% @streaming.each do |service| %>
+        <ul>
+          <li><a href="<%= service[1] %>" target="_blank"><%= service[0] %></a></li>
+        </ul>
+        <% end %>
         <%= link_to 'Add to my shows', show_path(@show), class: "btn
         btn-success" %>
       </div>

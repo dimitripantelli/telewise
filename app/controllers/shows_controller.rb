@@ -23,6 +23,11 @@ class ShowsController < ApplicationController
   # end
 
   def show
+    @streaming = {}
+    JSON.parse(@show.streaming.gsub('=>', ':')).each do |service|
+      @streaming[service.keys[0]] = service.values[0].values[0].values[0]
+    end
+    @streaming
   end
 
   # def new
