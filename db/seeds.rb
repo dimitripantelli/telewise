@@ -82,7 +82,6 @@ end
 
 puts '...Finished!'
 
-
 # TEMP FOLLWED SHOWS
 # FollowedShow.destroy_all
 # Progress.destroy_all

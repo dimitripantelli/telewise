@@ -1,9 +1,5 @@
-html,
-body {
-  height: 100%;
-}
-
-.landingpage {
+.homepage {
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -30,7 +26,10 @@ body {
   20px 0vw 200px #7FFB50,
   40px 0vw 200px #7FFB50;
   color: #a6fd87;
-  padding: 50px;
+}
+
+#neon-big-logo {
+  padding-bottom: 100px;
 }
 
 #neon-big-logo:hover {
