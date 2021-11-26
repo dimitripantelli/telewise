@@ -142,8 +142,14 @@ body {
   width: 25vw;
 }
 
-#show-img img{
-  filter: brightness(100%);
+#show-img {
+  filter: brightness(80%);
+  &:hover {
+    filter: brightness(100%);
+  }
+  object-fit: cover;
+  width: auto;
+  height: 100%;
 }
 
 .show-image:hover {
@@ -152,5 +158,22 @@ body {
 
 .show-info {
   padding: 0 auto;
+}
 
+.card {
+  background-color: transparent;
+}
+
+.show-card {
+  height: 100%;
+  border: 3px solid rgb(61, 66, 72);
+  border-radius: 5px;
+  &:hover {
+    border: 3px solid greenyellow;
+  }
+  transition: border 0.2s;
+}
+
+.card-img {
+  border-radius: 5px;
 }
