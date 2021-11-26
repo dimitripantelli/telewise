@@ -1,27 +1,30 @@
-<%= javascript_pack_tag 'style_navbar', 'data-turbolinks-track': 'reload', defer: true %>
+<html>
+  <body>
+    <%= javascript_pack_tag 'style_navbar', 'data-turbolinks-track': 'reload', defer: true %>
 
-<div class="landingpage">
-  <a href="#top-rated" id="neon-big-logo">
-    <h1 class="neon" data-text="U">TE<span class="flicker-fast">L</span><span class="flicker-slow">E</span>WI<span class="flicker-fast">S</span>E</h1>
-  </a>
-  <h2 class="quote">Never miss an episode again</h2>
+    <div class="landingpage">
+      <a href="#top-rated" id="neon-big-logo">
+        <h1 class="neon" data-text="U">TE<span class="flicker-fast">L</span><span            class="flicker-slow">E</span>WI<span class="flicker-fast">S</span>E</h1>
+        </a>
+        <h2 class="quote">Never miss an episode again</h2>
 
-<div class="container">
-  <div class="search-bar">
-    <div class="search-form-control form-group">
-      <div class="mt-3">
-        <%= form_tag shows_path, method: :get do %>
-          <%= text_field_tag :query,
-            params[:query],
-            class: "form-control string required",
-            placeholder: "Search for a show"
-          %>
-          <%= button_tag(type: 'submit', class: "btn btn-flat") do
-            "<i class='fas fa-search'></i>".html_safe
-          end %>
-        <% end %>
+      <div class="search-bar">
+        <div class="search-form-control form-group" id="landing-searchbar">
+          <div class="mt-3">
+            <%= form_tag shows_path, method: :get do %>
+              <%= text_field_tag :query,
+                params[:query],
+                class: "form-control string required",
+                placeholder: "Search for a show"
+              %>
+              <%= button_tag(type: 'submit', class: "btn btn-flat") do
+                "<i class='fas fa-search'></i>".html_safe
+              end %>
+            <% end %>
+          </div>
       </div>
     </div>
+<<<<<<< HEAD
   <a class="signup-btn" href="#">Sign Up</a>
   </div>
 </div>
@@ -38,8 +41,31 @@
           <h3 class="hover-3-title text-uppercase font-weight-bold mb-1"> <%= show.name.upcase %> </h3>
           <%= show %>
           <p class="hover-3-rating small text-uppercase mb-0"> <%= '⭐' * (show.rating.round / 2) %></p>
+=======
+
+    <div>
+      <a class="signup-btn" href="#">Sign Up</a>
+    </div>
+
+    <div id="top-rated"></div>
+
+    <h2 class="text-center top-rated-title">TOP RATED TV-SHOWS</h2>
+
+
+        <div class="show-box">
+          <% @shows.each do |show| %>
+            <a href="<%= show_path(show) %>">
+              <%# <img id="pic" src="https://images2.minutemediacdn.com/image/upload/c_crop,h_358,w_640,x_0,y_29/f_auto,q_auto,w_1100/v1554990347/shape/mentalfloss/breakhed.jpg"> %>
+              <div class="show-image" id="show-img" style="background-image: url('<%= image_path("#{show.name.gsub(/\s+/, "")}.jpg") %>')">
+                <div class="show-info">
+                  <%# <h3 class="hover-3-title"> <%= show.name.upcase %>
+                  <p class="hover-3-rating"> <%= '⭐ ' * (show.rating.round / 2) %></p>
+                </div>
+              </div>
+            </a>
+        <% end %>
+>>>>>>> master
         </div>
-      </a>
-    <% end %>
-  </div>
-</div>
+
+  </body>
+</html>

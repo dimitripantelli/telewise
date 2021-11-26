@@ -2,7 +2,7 @@
   <% @shows.each do |show| %>
     <a href="<%= show_path(show) %>">
       <div class="col-md-4">
-        <img src="https://images2.minutemediacdn.com/image/upload/c_crop,h_358,w_640,x_0,y_29/f_auto,q_auto,w_1100/v1554990347/shape/mentalfloss/breakhed.jpg" alt="" class="w-100 rounded">
+        <%= image_tag("#{show.name.gsub(/\s+/, "")}.jpg") %>
       </div>
       <h3><span><%= show.name %></span></h3>
       <p><%= sanitize show.summary %></p>
