@@ -51,11 +51,6 @@ class ShowsController < ApplicationController
   #   # end
   # end
 
-  # def destroy
-    # @show = Show.find(params[:id])
-    # redirect_to show_path
-  # end
-
   # def details
   #   # @show = Show.find(params[:id])
   # end
