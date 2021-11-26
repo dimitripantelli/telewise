@@ -1,9 +1,9 @@
 
 <div>
   <div class=" <%= params[:action] == 'home' ? 'home-navbar' : ''  %> navbar navbar-expand-sm navbar-lewagon" id="navbar">
-    <%= link_to "#", class: "navbar-brand" do %>
+
       <%= link_to "Telewise", root_path, class: "neon", id:"neon-logo" %>
-    <% end %>
+
 
   <div class="search-bar">
     <div class="search-form-control form-group">
@@ -27,7 +27,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <% if user_signed_in? %>
+         <% if user_signed_in? %>
           <li class="nav-item">
             <%= link_to account_path, class: "nav-link" do %>
               <i class="fas fa-bell bell"></i>
