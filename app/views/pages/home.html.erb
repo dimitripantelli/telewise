@@ -38,7 +38,7 @@
           <% @shows.each do |show| %>
             <a href="<%= show_path(show) %>">
               <%# <img id="pic" src="https://images2.minutemediacdn.com/image/upload/c_crop,h_358,w_640,x_0,y_29/f_auto,q_auto,w_1100/v1554990347/shape/mentalfloss/breakhed.jpg"> %>
-              <div class="show-image" id="show-img" style="background-image: url('<%= image_path(show.name.gsub(/\s+/, "")) %>')">
+              <div class="show-image" id="show-img" style="background-image: url('<%= image_path("#{show.name.gsub(/\s+/, "")}.jpg") %>')">
                 <div class="show-info">
                   <%# <h3 class="hover-3-title"> <%= show.name.upcase %>
                   <p class="hover-3-rating"> <%= '⭐ ' * (show.rating.round / 2) %></p>

@@ -1,6 +1,3 @@
 class EpisodesController < ApplicationController
-  # def index
-  #   @show = Show.find(params[:show_id])
-  #   @episode = params[:episode]
-  # end
+  skip_before_action :authenticate_user! # Add only/except to include/exclude future controller actions
 end
