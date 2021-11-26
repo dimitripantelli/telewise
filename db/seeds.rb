@@ -33,7 +33,7 @@ show_ids.each do |id|
   request_us["x-rapidapi-host"] = 'streaming-availability.p.rapidapi.com'
   request_us["x-rapidapi-key"] = ENV["RAPID_API_KEY"]
 
-  response_gb = JSON.parse(http_gb.request(request_gb).read_body)
+  p response_gb = JSON.parse(http_gb.request(request_gb).read_body)
   response_us = JSON.parse(http_us.request(request_us).read_body)
 
   streaming = []
@@ -81,7 +81,6 @@ show_ids.each do |id|
 end
 
 puts '...Finished!'
-
 
 # TEMP FOLLWED SHOWS
 # FollowedShow.destroy_all

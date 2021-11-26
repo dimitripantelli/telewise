@@ -28,7 +28,8 @@ class ShowsController < ApplicationController
     JSON.parse(@show.streaming.gsub('=>', ':')).each do |service|
       @streaming[service.keys[0]] = service.values[0].values[0].values[0]
     end
-    @streaming
+    @followed_show = FollowedShow.new
+    @user = current_user
   end
 
   # def new
@@ -63,7 +64,7 @@ class ShowsController < ApplicationController
   private
 
   def show_params
-    params.require(:show).permit(:name, :summary, :number_of_seasons, :rating, :photo)
+    params.require(:show).permit(:name, :summary, :number_of_seasons, :rating, :photo, :streaming)
   end
 
   def find_show

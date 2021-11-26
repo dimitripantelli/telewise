@@ -1,14 +1,26 @@
 <div class="card-deck show-cards">
-  <% @show_progress.each do |progress, episode| %>
-    <div class="card bg-dark">
-      <img class="card-img-top" src="https://variety.com/wp-content/uploads/2021/07/Succession-HBO-01.jpg?w=681&h=383&crop=1" alt="">
-      <div class="card-body">
-          <h5 class="card-title"><%= progress.show.name %></h5>
-          <p class="card-text">
-            Season <%= episode[0].season_number %>
-            Episode <%= episode[0].episode_number %>
-          </p>
+  <% if @user.progresses.empty? %>
+    <% @user.followed_shows.each do |show| %>
+      <div class="card bg-dark">
+        <div class="card-img-top show-image" style="background-image: url('<%= image_path("#{show.show.name.gsub(/\s+/, "")}.jpg") %>')"></div>
+        <div class="card-body">
+            <h5 class="card-title"><%= show.show.name %></h5>
+        </div>
       </div>
-    </div>
+    <% end %>
+  <% else %>
+    <% @show_progress.each do |progress, episode| %>
+      <div class="card bg-dark">
+        <div class="card-img-top show-image" style="background-image: url('<%= image_path("#{show.show.name.gsub(/\s+/, "")}.jpg") %>')"></div>
+        <div class="card-body">
+            <h5 class="card-title"><%= progress.show.name %></h5>
+            <p class="card-text">
+              Season <%= episode[0].season_number %>
+              Episode <%= episode[0].episode_number %>
+            </p>
+        </div>
+      </div>
+    <% end %>
+
   <% end %>
 </div>
