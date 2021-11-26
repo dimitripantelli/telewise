@@ -22,7 +22,8 @@
           <li><a href="<%= service[1] %>" target="_blank"><%= service[0] %></a></li>
         </ul>
         <% end %>
-        <%= link_to 'Add to my shows', show_path(@show), class: "btn
+        <%= render "followed_shows/form", locals: {show: @show, followed_show: @followed_show} %>
+        <%#= link_to 'Add to my shows', show_path(@show), class: "btn
         btn-success" %>
       </div>
     </div>
