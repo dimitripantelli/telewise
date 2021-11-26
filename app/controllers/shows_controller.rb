@@ -1,5 +1,6 @@
 class ShowsController < ApplicationController
   before_action :find_show, only: %i[show]
+  skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
     if params[:query].present?
@@ -62,7 +63,7 @@ class ShowsController < ApplicationController
   private
 
   def show_params
-    params.require(:show).permit(:name, :summary, :number_of_seasons, :rating, :photo)
+    params.require(:show).permit(:name, :summary, :number_of_seasons, :rating, :photo, :streaming)
   end
 
   def find_show
