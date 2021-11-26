@@ -33,19 +33,19 @@
 
     <h2 class="text-center top-rated-title">TOP RATED TV-SHOWS</h2>
 
-
-        <div class="show-box">
-          <% @shows.each do |show| %>
-            <a href="<%= show_path(show) %>">
-              <div class="show-image" id="show-img" style="background-image: url('<%= image_path("#{show.name.gsub(/\s+/, "")}.jpg") %>')">
-                <div class="show-info">
-                  <%# <h3 class="hover-3-title"> <%= show.name.upcase %>
-                  <p class="hover-3-rating"> <%= '⭐ ' * (show.rating.round / 2) %></p>
-                </div>
-              </div>
-            </a>
+    <div class="container">
+      <div class="row">
+        <% @shows.each do |show| %>
+          <div class="col-2 mb-4 p-1">
+          <a href="<%= show_path(show) %>">
+            <div class="card h-100 show-card">
+              <%= image_tag "#{show.name.gsub(/\s+/, "")}.jpg", class: 'card-img', id: 'show-img' %>
+            </div>
+          </a>
+          </div>
         <% end %>
-        </div>
+      </div>
+    </div>
 
   </body>
 </html>
