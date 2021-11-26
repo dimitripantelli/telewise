@@ -39,7 +39,7 @@
   <p><strong>Season <%= count %></strong></p>
   <p><small><%= @show.summary %></small></p>
   <p>
-    <%= link_to 'Details', show_path(@show, season: count), class: "btn
+    <%= link_to 'Details', show_season_summaries_path(@show, season: count), class: "btn
     btn-success" %>
   </p>
 </div>
