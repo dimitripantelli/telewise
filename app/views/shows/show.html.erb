@@ -16,13 +16,13 @@
           <li><a href="<%= service[1] %>" target="_blank"><%= service[0] %></a></li>
         </ul>
         <% end %>
-        <%= link_to 'Add to my shows', show_path(@show), class: "btn
+        <%= render "followed_shows/form", locals: {show: @show, followed_show: @followed_show} %>
+        <%#= link_to 'Add to my shows', show_path(@show), class: "btn
         btn-success" %>
       </div>
     </div>
   </div>
 </div>
-
 
 <% count = 1 %> <% @show.number_of_seasons.times do %>
 <div class="container border rounded p-3 mb-3 mt-4 text-white">
@@ -47,4 +47,3 @@
 <p>
   <% seasons.each do |season| %> <%# <%= link_to "Add a new task", new_task_path
   % %>
-</p>

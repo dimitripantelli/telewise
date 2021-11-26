@@ -29,6 +29,8 @@ class ShowsController < ApplicationController
       @streaming[service.keys[0]] = service.values[0].values[0].values[0]
     end
     @streaming
+    @followed_show = FollowedShow.new
+    @user = current_user
   end
 
   # def new

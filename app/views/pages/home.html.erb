@@ -3,6 +3,7 @@
     <%= javascript_pack_tag 'style_navbar', 'data-turbolinks-track': 'reload', defer: true %>
 
     <div class="landingpage">
+      <div class="homepage">
       <a href="#top-rated" id="neon-big-logo">
         <h1 class="neon" data-text="U">TE<span class="flicker-fast">L</span><span            class="flicker-slow">E</span>WI<span class="flicker-fast">S</span>E</h1>
         </a>
@@ -25,6 +26,7 @@
       </div>
     </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
   <a class="signup-btn" href="#">Sign Up</a>
   </div>
 </div>
@@ -43,10 +45,12 @@
           <p class="hover-3-rating small text-uppercase mb-0"> <%= '⭐' * (show.rating.round / 2) %></p>
 =======
 
+=======
+>>>>>>> master
     <div>
       <a class="signup-btn" href="#">Sign Up</a>
     </div>
-
+    </div>
     <div id="top-rated"></div>
 
     <h2 class="text-center top-rated-title">TOP RATED TV-SHOWS</h2>
@@ -55,7 +59,6 @@
         <div class="show-box">
           <% @shows.each do |show| %>
             <a href="<%= show_path(show) %>">
-              <%# <img id="pic" src="https://images2.minutemediacdn.com/image/upload/c_crop,h_358,w_640,x_0,y_29/f_auto,q_auto,w_1100/v1554990347/shape/mentalfloss/breakhed.jpg"> %>
               <div class="show-image" id="show-img" style="background-image: url('<%= image_path("#{show.name.gsub(/\s+/, "")}.jpg") %>')">
                 <div class="show-info">
                   <%# <h3 class="hover-3-title"> <%= show.name.upcase %>
@@ -64,6 +67,9 @@
               </div>
             </a>
         <% end %>
+<<<<<<< HEAD
+>>>>>>> master
+=======
 >>>>>>> master
         </div>
 
