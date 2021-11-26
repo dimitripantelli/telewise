@@ -31,6 +31,7 @@
 <div class="container">
   <h2 class="text-center top-rated-title">TOP RATED TV-SHOWS</h2>
   <div class="row justify-content-center">
+
     <% @shows.each do |show| %>
       <a href="<%= show_path(show) %>" class="homepage-card-link card bg-dark w-75">
         <div class="col-sm-6">
