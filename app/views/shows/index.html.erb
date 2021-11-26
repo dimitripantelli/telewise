@@ -1,12 +1,14 @@
 <div id="search-result">
   <% @shows.each do |show| %>
+  <div class="search-show">
     <a href="<%= show_path(show) %>">
-      <div class="col-md-4">
+      <div>
         <%= image_tag("#{show.name.gsub(/\s+/, "")}.jpg") %>
+        <h3><span><%= show.name %></span></h3>
+        <p><%= sanitize show.summary %></p>
       </div>
-      <h3><span><%= show.name %></span></h3>
-      <p><%= sanitize show.summary %></p>
     </a>
+  </div>
   <% end %>
 </div>
 
