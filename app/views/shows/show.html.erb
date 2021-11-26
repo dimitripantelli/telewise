@@ -2,7 +2,7 @@
   <div class="container py-3">
     <div class="row">
       <div class="col-md-4">
-        <%= image_tag "#{@show.name.gsub(/\s+/, '')}.jpg", class: "w-100 rounded" %>
+        <%= image_tag "#{@show.name.gsub(/\s+/, "")}.jpg", style: "width: 100%", class: 'img-fluid' %>
       </div>
       <div class="col-md-8">
         <h1><%= @show.name %></h1>
