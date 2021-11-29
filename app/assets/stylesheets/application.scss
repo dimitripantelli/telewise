@@ -12,6 +12,7 @@
 @import "components/index";
 @import "pages/index";
 @import "shows/show";
+@import "pages/devise";
 
 html {
   scroll-behavior: smooth;
@@ -19,6 +20,7 @@ html {
 
 body {
   background-color: #212121;
+  padding-top: 11vh;
 }
 
 .progress-bar {
