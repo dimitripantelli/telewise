@@ -25,6 +25,7 @@ import "bootstrap";
 // }
 
 window.checkPrevious = function (currCheckbox) {
+  if (!currCheckbox.checked) return;
   let allPrevious = Array.from(
     document.getElementsByClassName("episode-check")
   ).filter((otherCheckbox) => {

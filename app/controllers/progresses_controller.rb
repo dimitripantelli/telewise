@@ -1,7 +1,13 @@
-class ProgressController < ApplicationController
-  def new
+class ProgressesController < ApplicationController
+  def create
+    @progress = Progress.new(progress_params)
+    @progress.user = current_user
+    @progress.save
   end
 
-  def create
+  private
+
+  def progress_params
+    params.require(:progress).permit(:episode_id)
   end
 end
