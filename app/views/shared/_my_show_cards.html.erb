@@ -1,19 +1,23 @@
+
 <div class="card-deck show-cards">
   <% if @user.progresses.empty? %>
     <% @user.followed_shows.each do |show| %>
-      <div class="card bg-dark">
-        <div class="card-img-top show-image" style="background-image: url('<%= image_path("#{show.show.name.gsub(/\s+/, "")}.jpg") %>')"></div>
-        <div class="card-body">
-            <h5 class="card-title"><%= show.show.name %></h5>
+      <div class="card-box">
+      <div class="image-box">
+        <div class="show-image" style="background-image: url('<%= image_path("#{show.show.name.gsub(/\s+/, "")}.jpg") %>')"> </div>
+      </div>
+        <div class="card-body card-info">
+          <h5 class="card-title" id="my-shows-title"><%= show.show.name %></h5>
+          <%= link_to "+", user_followed_show_path(current_user, show), method: :delete, class: "danger-btn" %>
         </div>
       </div>
     <% end %>
   <% else %>
     <% @show_progress.each do |progress, episode| %>
-      <div class="card bg-dark">
-        <div class="card-img-top show-image" style="background-image: url('<%= image_path("#{show.show.name.gsub(/\s+/, "")}.jpg") %>')"></div>
-        <div class="card-body">
-            <h5 class="card-title"><%= progress.show.name %></h5>
+      <div class="card-box">
+        <div class="show-image" style="background-image: url('<%= image_path("#{show.show.name.gsub(/\s+/, "")}.jpg") %>')"></div>
+        <div class="card-body card-info">
+            <h5 class="card-title" id="my-shows-title"><%= progress.show.name %></h5>
             <p class="card-text">
               Season <%= episode[0].season_number %>
               Episode <%= episode[0].episode_number %>
@@ -21,6 +25,5 @@
         </div>
       </div>
     <% end %>
-
   <% end %>
 </div>
