@@ -1,14 +1,16 @@
 <div class="container">
   <div id="search-result" class="row">
     <% @shows.each do |show| %>
-      <div class="search-show col-2 mb-4 p-1">
-        <a href="<%= show_path(show) %>">
-          <div class="card">
-            <%= image_tag("#{show.name.gsub(/\s+/, "")}.jpg") %>
-            <h3><span><%= show.name %></span></h3>
-            <p><%= sanitize show.summary %></p>
-          </div>
-        </a>
+      <div class="col-2 mb-4 p-1">
+        <div class="search-show card bg-dark">
+          <a href="<%= show_path(show) %>">
+            <%= image_tag "#{show.name.gsub(/\s+/, "")}.jpg", class: 'card-img' %>
+            <div class="card-body">
+              <h5 class="card-title"><%= show.name %></h3>
+              <p class="card-text"><%= sanitize show.summary %></p>
+            </div>
+          </a>
+        </div>
       </div>
     <% end %>
   </div>
