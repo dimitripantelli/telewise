@@ -1,5 +1,6 @@
 .search-result {
-  margin: 50px;
+  margin: 25px;
+  position: relative;
 }
 
 #search-show {
@@ -11,3 +12,30 @@
 img {
   height: 40vh;
 }
+
+.search-link {
+  text-decoration: none;
+  color: $white;
+  &:hover {
+    text-decoration: none;
+    color: $green;
+  }
+}
+
+.search-img {
+  object-fit: cover;
+  width: 15vw;
+}
+
+.streaming-link {
+  display: block;
+}
+
+// .card .streaming-link::after {
+//   display: block;
+//   position: absolute;
+//   top: 0;
+//   bottom: 0;
+//   left: 0;
+//   right: 0;
+// }

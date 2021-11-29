@@ -1,40 +1,63 @@
 <!--
 <div class="container">
-  <div id="search-result" class="row">
-    <% @shows.each do |show| %>
-      <div class="col-2 mb-4 p-1">
-        <div class="search-show card bg-dark">
-          <a href="<%= show_path(show) %>">
-            <%= image_tag "#{show.name.gsub(/\s+/, "")}.jpg", class: 'card-img' %>
-            <div class="card-body">
-              <h5 class="card-title"><%= show.name %></h3>
-              <p class="card-text"><%= sanitize show.summary %></p>
-            </div>
-          </a>
+  <% @shows.each do |show| %>
+    <a href="<%= show_path(show) %>" class="search-link">
+      <div class="card h-100 mb-3 search-result">
+        <div class="row no-gutters">
+              <div class="col-md-2">
+                <%= image_tag "#{show.name.gsub(/\s+/, "")}.jpg", class: "search-img" %>
+              </div>
+              <div class="col-md-10">
+                <div class="card-body">
+                  <h5 class="card-title"><%= show.name %></h5>
+                  <p class="card-text"><%= sanitize show.summary %></p>
+                  <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                </div>
+              </div>
         </div>
       </div>
-    <% end %>
-  </div>
+    </a>
+  <% end %>
 </div>
 -->
 
 <div class="container">
-  <div class="card h-100 mb-3">
-    <div class="row no-gutters">
-      <% @shows.each do |show| %>
-        <div class="col-md-2">
-          <%= image_tag "#{show.name.gsub(/\s+/, "")}.jpg" %>
+  <% @shows.each do |show| %>
+      <div class="card h-100 mb-3 search-result">
+        <div class="row no-gutters">
+              <div class="col-md-2">
+              <a href="<%= show_path(show) %>" class="search-link">
+                <%= image_tag "#{show.name.gsub(/\s+/, "")}.jpg", class: "search-img" %>
+              </a>
+              </div>
+              <div class="col-md-8">
+              <a href="<%= show_path(show) %>" class="search-link d-flex">
+                <div class="col-md-4">
+                    <div class="card-body">
+                      <h5 class="card-title"><%= show.name %></h5>
+                      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <p class="card-text"><%= sanitize show.summary %></p>
+                  </div>
+                </div>
+                </a>
+              </div>
+              <div class="col-md-2">
+                <div class="card-body">
+                  <p><%= '⭐' * (show.rating.round / 2) %></p>
+                  <ul class="streaming-link">
+                    <% JSON.parse(show.streaming.gsub('=>', ':')).each do |service| %>
+                      <li class="card-text streaming-link"><a class="streaming-link" href="<%= @streaming[service.keys[0]] = service.values[0].values[0].values[0] %>"><%= service.keys[0] %></a></li>
+                    <% end %>
+                  </ul>
+                </div>
+              </div>
         </div>
-        <div class="col-md-10">
-          <div class="card-body">
-            <h5 class="card-title"><%= show.name %></h5>
-            <p class="card-text"><%= sanitize show.summary %></p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-          </div>
-        </div>
-      <% end %>
-    </div>
-  </div>
+      </div>
+  <% end %>
 </div>
 
 
