@@ -1,6 +1,8 @@
 .search-result {
   margin: 25px;
   position: relative;
+  background-color: black;
+  padding: 10px;
 }
 
 #search-show {
@@ -31,11 +33,6 @@ img {
   display: block;
 }
 
-// .card .streaming-link::after {
-//   display: block;
-//   position: absolute;
-//   top: 0;
-//   bottom: 0;
-//   left: 0;
-//   right: 0;
-// }
+.card-text {
+  font-size: 16px;
+}
