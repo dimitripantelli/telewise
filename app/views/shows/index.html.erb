@@ -5,7 +5,7 @@
         <%= image_tag("#{show.name.gsub(/\s+/, "")}.jpg") %>
       </div>
       <h3><span><%= show.name %></span></h3>
-      <p><%= sanitize show.summary %></p>
+      <p><%= strip_tags show.summary %></p>
     </a>
   <% end %>
 </div>

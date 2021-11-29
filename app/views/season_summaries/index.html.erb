@@ -1,9 +1,4 @@
-<div class='container text-white d-flex justify-content-between'>
-  <h1><strong><%= @show.name %></strong>, <%= @season %></h1>
-  <p><%= link_to 'Back', show_path(@show), class: "btn btn-success" %></p>
-</div>
-
-<div class="progress">
+<div class="progress sticky-top">
   <div
     class="progress-bar"
     role="progress-bar"
@@ -14,17 +9,26 @@
   ></div>
 </div>
 
+<div class='container text-white d-flex justify-content-between'>
+  <h1><strong><%= @show.name %></strong>, <%= @season %></h1>
+  <p><%= link_to 'Back', show_path(@show), class: "btn btn-success" %></p>
+</div>
 
 <div class="episode_summary">
   <% @show.episodes.where(season_number: @season).each do |episode| %>
-    <div class="container rounded p-3 mb-3 mt-4 text-white">
-      <h2>
+    <div class="container rounded p-1 mb-1 mt-1 text-white">
+      <h3>
         <%= episode.episode_number %>.
         <%= episode.name %>
-      </h2>
+      </h3>
       <div class="episode-box">
-        <p id="episodeinfo"><%= sanitize episode.description %></p>
-        <%= check_box_tag 'no', id:"check_box" %>
+        <p id="episodeinfo"><%= strip_tags episode.description %></p>
+        <div class="box">
+          <label for="<%= episode.episode_number %>">
+          <input id="<%= episode.episode_number %>" type="checkbox">
+          <span class="check"></span>
+          </label>
+        </div>
       </div>
     </div>
   <% end %>
