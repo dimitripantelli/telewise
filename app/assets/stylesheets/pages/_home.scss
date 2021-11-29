@@ -1,3 +1,9 @@
+.page-container {
+  display: grid;
+  min-height: 100vh;
+  grid-template-rows: auto 1fr auto;
+}
+
 .homepage {
   height: 100vh;
   display: flex;
@@ -11,9 +17,6 @@
   font-size: 8vw;
   letter-spacing: 0.0em;
   text-transform: uppercase;
-
-  transform: translate(-50%, -50%);
-  transform: rotate(-4deg);
   font-weight: 400;
   text-shadow: 1px 0px 4px #dbffce,
   2px 0px 4px #dbffce,
@@ -145,7 +148,7 @@
   width: 25vw;
 }
 
-#show-img {
+.show-img {
   filter: brightness(80%);
   &:hover {
     filter: brightness(100%);
