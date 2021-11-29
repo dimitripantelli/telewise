@@ -25,7 +25,7 @@
         <p id="episodeinfo"><%= strip_tags episode.description %></p>
         <div class="box">
           <label for="<%= episode.episode_number %>">
-          <input id="<%= episode.episode_number %>" type="checkbox">
+          <input class="episode-check" id="<%= episode.episode_number %>" type="checkbox" onclick="checkPrevious(this)">
           <span class="check"></span>
           </label>
         </div>
