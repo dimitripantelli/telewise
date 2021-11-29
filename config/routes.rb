@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   resources :users, only: :show do
     resources :followed_shows, only: [:index, :new, :create, :destroy]
   end
-  resources :notifications, only: [:index]
+  resources :notifications do
+    collection do
+      post :mark_as_read
+    end
+  end
   get 'account', to: 'user#show'
   root to: 'pages#home'
   resources :shows, only: [:index, :show] do
