@@ -9,5 +9,6 @@ class UserController < ApplicationController
       @merged = @episodes & @progresses
       @show_progress[show] = Episode.find(@merged)
     end
+    @reviews = Review.where(user: current_user)
   end
 end
