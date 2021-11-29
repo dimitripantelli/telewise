@@ -11,6 +11,12 @@ class ShowsController < ApplicationController
     else
       @shows = Show.all
     end
+    @streaming = {}
+    @shows.each do |show|
+      JSON.parse(show.streaming.gsub('=>', ':')).each do |service|
+        @streaming[service.keys[0]] = service.values[0].values[0].values[0]
+      end
+    end
   end
 
   # def autocomplete
