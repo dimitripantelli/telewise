@@ -1,0 +1,43 @@
+.title {
+  text-transform: uppercase;
+}
+
+.signup {
+  background-color: #171717;
+  margin-top: 5%;
+  border-radius: 4px;
+}
+
+#login-btn,
+.signup-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 12px;
+  text-transform: uppercase;
+  font-weight: 700;
+  width: 8vw;
+
+  border-radius: 4px;
+  color: white;
+  transition: transform .4s;
+  border: 1px solid white;
+  opacity: 0.6;
+  background-color: #171717;
+  margin-top: 5%;
+}
+
+#login-btn:hover {
+  color: white;
+  text-decoration: none;
+  // transform: scale(1.025);
+  opacity: 1;
+}
+
+#forgotpass {
+  border: none;
+  width: 15vw;
+  padding-left: 0;
+
+}
