@@ -18,3 +18,9 @@ require("channels")
 
 import "controllers"
 import "bootstrap"
+import { popup_message } from "../components/add_show_popup"
+
+
+document.addEventListener("turbolinks:load", () => {
+  popup_message()
+});

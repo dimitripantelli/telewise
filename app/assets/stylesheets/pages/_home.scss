@@ -1,22 +1,23 @@
-.landingpage {
+.page-container {
+  display: grid;
+  min-height: 100vh;
+  grid-template-rows: auto 1fr auto;
+}
+
+.homepage {
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
-  padding: 55px;
-  height: 100vh;
-  position: absolute;
-  top: 50%;
+  justify-content: center;
 }
 
 .neon {
-  font-family: 'Marquee Moon';
-  font-size: 11vw;
-
-  transform: translate(-50%, -50%);
-  transform: rotate(-4deg);
+  font-family: 'Train One', cursive;
+  font-size: 8vw;
+  letter-spacing: 0.0em;
+  text-transform: uppercase;
   font-weight: 400;
-  letter-spacing: 8px;
   text-shadow: 1px 0px 4px #dbffce,
   2px 0px 4px #dbffce,
   3px 0px 4px #dbffce,
@@ -27,15 +28,14 @@
   20px 0vw 200px #7FFB50,
   40px 0vw 200px #7FFB50;
   color: #a6fd87;
-  padding: 50px;
+}
+
+#neon-big-logo {
+  padding-bottom: 100px;
 }
 
 #neon-big-logo:hover {
   text-decoration: none;
-}
-
-#top-rated {
-  padding: 50px;
 }
 
 .flicker-slow {
@@ -85,16 +85,13 @@
   text-transform: uppercase;
 }
 
-.top-rated-title {
-  color: $white;
-  padding: 20px;
-  font-size: 48px;
+#landing-searchbar {
+  margin: 50px 0;
 }
 
-.homepage-card-link {
-  color: $white;
+.fa-search:before {
+  color: black;
 }
-
 .signup-btn {
   display: flex;
   flex-direction: row;
@@ -103,6 +100,7 @@
   padding: 16px 40px;
   text-transform: uppercase;
   font-weight: 700;
+  width: 10vw;
 
   border-radius: 4px;
   color: white;
@@ -116,4 +114,72 @@
   text-decoration: none;
   // transform: scale(1.025);
   opacity: 1;
+}
+
+#top-rated {
+  padding: 50px;
+}
+
+.top-rated-title {
+  color: $white;
+  padding: 20px;
+  font-size: 48px;
+}
+
+.hover-3-rating {
+  font-size: 48px;
+}
+
+.hover-3-rating p:hover {
+  font-size: 48px;
+  text-decoration: none;
+}
+
+.show-image{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+  filter: brightness(50%);
+  color: white;
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  height: 60vh;
+  width: 25vw;
+}
+
+.show-img {
+  filter: brightness(80%);
+  &:hover {
+    filter: brightness(100%);
+  }
+  object-fit: cover;
+  width: auto;
+  height: 100%;
+}
+
+.show-image:hover {
+  filter: brightness(100%);
+}
+
+.show-info {
+  padding: 0 auto;
+}
+
+.card {
+  background-color: transparent;
+}
+
+.show-card {
+  height: 100%;
+  border: 3px solid rgb(61, 66, 72);
+  border-radius: 5px;
+  &:hover {
+    border: 3px solid greenyellow;
+  }
+  transition: border 0.2s;
+}
+
+.card-img {
+  border-radius: 5px;
 }

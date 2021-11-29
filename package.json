@@ -10,10 +10,14 @@
     "jquery": "^3.6.0",
     "popper.js": "^1.16.1",
     "stimulus": "^3.0.1",
+    "sweetalert": "^2.1.2",
     "turbolinks": "^5.2.0"
   },
   "version": "0.1.0",
   "devDependencies": {
+    "@prettier/plugin-ruby": "^2.0.0",
+    "prettier": "^2.5.0",
+    "prettier-plugin-erb": "^0.4.0",
     "webpack-dev-server": "^4.5.0"
   }
 }

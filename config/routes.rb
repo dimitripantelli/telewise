@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get 'user/show'
   devise_for :users
   resources :users, only: :show do
-    resources :followed_shows, only: :index
+    resources :followed_shows, only: [:index, :new, :create, :destroy]
   end
   resources :notifications, only: [:index]
   get 'account', to: 'user#show'

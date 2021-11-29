@@ -1,5 +1,6 @@
 class ShowsController < ApplicationController
   before_action :find_show, only: %i[show]
+  skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
     if params[:query].present?
@@ -9,6 +10,12 @@ class ShowsController < ApplicationController
       @shows = Show.where(sql_query, query: "%#{params[:query]}%")
     else
       @shows = Show.all
+    end
+    @streaming = {}
+    @shows.each do |show|
+      JSON.parse(show.streaming.gsub('=>', ':')).each do |service|
+        @streaming[service.keys[0]] = service.values[0].values[0].values[0]
+      end
     end
   end
 
@@ -23,6 +30,12 @@ class ShowsController < ApplicationController
   # end
 
   def show
+    @streaming = {}
+    JSON.parse(@show.streaming.gsub('=>', ':')).each do |service|
+      @streaming[service.keys[0]] = service.values[0].values[0].values[0]
+    end
+    @followed_show = FollowedShow.new
+    @user = current_user
   end
 
   # def new
@@ -57,7 +70,7 @@ class ShowsController < ApplicationController
   private
 
   def show_params
-    params.require(:show).permit(:name, :summary, :number_of_seasons, :rating, :photo)
+    params.require(:show).permit(:name, :summary, :number_of_seasons, :rating, :photo, :streaming)
   end
 
   def find_show
