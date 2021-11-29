@@ -14,6 +14,11 @@ class FollowedShowsController < ApplicationController
     end
   end
 
+  def destroy
+    FollowedShow.destroy(params[:id])
+    redirect_to account_path
+  end
+
   private
 
   def find_show
