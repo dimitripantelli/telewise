@@ -1,3 +1,99 @@
 .show-header {
   margin: 50px auto;
 }
+
+.show-page-box {
+  margin: 14px 0;
+}
+
+.show-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.rating-and-name {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 6px;
+  text-transform: uppercase;
+}
+
+.hover-3-rating {
+  font-size: 28px;
+}
+
+.wheretowatch {
+  line-height: 75%;
+}
+
+#wheretowatch-title,
+#seasons {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 18px;
+}
+
+.wheretowatch a {
+  color: white;
+  font-size: 18px;
+}
+
+.wheretowatch a:hover {
+  text-decoration: none;
+  color: #7FFB50;
+}
+
+.addshow-btn {
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
+   font-size: 14px;
+   padding: 14px 37px;
+   text-transform: uppercase;
+   font-weight: 700;
+   width: 16vw;
+
+   border-radius: 4px;
+   color: white;
+   transition: transform .4s;
+   border: 1px solid white;
+  }
+
+.addshow-btn:hover {
+  color: #7FFB50;
+  border-color: #7FFB50;
+  text-decoration: none;
+  // transform: scale(1.025);
+  opacity: 1;
+}
+
+.seasons-details-box {
+  background-color: #171717;
+  padding: 28px;
+  margin-bottom: 14px;
+  border-radius: 4px;
+}
+
+.details-season {
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+#details-btn {
+  font-size: 12px;
+  padding: 14px 84px;
+  width: 8vw;
+  margin-left: 8px;
+}
+
+.summary-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between
+}
+
+#summary {
+  font-size: 14px;
+}

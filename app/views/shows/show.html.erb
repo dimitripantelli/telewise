@@ -1,21 +1,24 @@
-<div class="text-white">
+<div class="show-page-box text-white">
   <div class="container py-3">
     <div class="row">
-      <div class="col-md-4">
+      <div class="col-md-4 rounded show-details">
         <%= image_tag "#{@show.name.gsub(/\s+/, "")}.jpg", style: "width: 100%", class: 'img-fluid' %>
       </div>
-      <div class="col-md-8">
+      <div class="col-md-8 show-details">
+      <div class="rating-and-name">
         <h1><%= @show.name %></h1>
-        <p class="hover-3-rating small text-uppercase mb-0">
+        <p class="hover-3-rating">
           <%= '⭐ ' * (@show.rating.round / 2) %>
         </p>
+      </div>
         <p><%= @show.summary %></p>
-        <p>Seasons: <%= @show.number_of_seasons %></p>
-        <% @streaming.each do |service| %>
-        <ul>
-          <li><a href="<%= service[1] %>" target="_blank"><%= service[0] %></a></li>
-        </ul>
-        <% end %>
+        <p> <span id="seasons">Seasons:</span> <%= @show.number_of_seasons %></p>
+        <div class="wheretowatch">
+          <p id="wheretowatch-title">Where to Watch</p>
+          <p> <% @streaming.each do |service| %>
+          <a href="<%= service[1] %>" target="_blank"><%= service[0] %> </a> </p>
+          <% end %>
+        </div>
         <%= render "followed_shows/form", locals: {show: @show, followed_show: @followed_show} %>
         <div>
           <% if current_user %>
@@ -30,7 +33,12 @@
 </div>
 
 <% count = 1 %> <% @show.number_of_seasons.times do %>
-<div class="container border rounded p-3 mb-3 mt-4 text-white">
+<div class="container seasons-details-box">
+  <p class="details-season">Season <%= count %></p>
+  <div class="summary-button">
+    <p id="summary"> <%= @show.summary %> </p>
+    <p> <%= link_to 'Details', show_season_summaries_path(@show, season: count), class: "addshow-btn", id: "details-btn" %> </p>
+  </div>
   <div class="progress">
     <div
       class="progress-bar"
@@ -41,12 +49,6 @@
       style="width: 30%"
     ></div>
   </div>
-  <p><strong>Season <%= count %></strong></p>
-  <p><small><%= @show.summary %></small></p>
-  <p>
-    <%= link_to 'Details', show_season_summaries_path(@show, season: count), class: "btn
-    btn-success" %>
-  </p>
 </div>
 <% count += 1 %>
 <% end %>
