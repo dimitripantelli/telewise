@@ -17,5 +17,12 @@ class SeasonSummariesController < ApplicationController
     else
       @progress = progress.episode.episode_number
     end
+    @percentage =
+      (
+        100 *
+          [0, @progress].max.fdiv(
+            @show.episodes.where(season_number: @season.to_i).count
+          )
+      ).round
   end
 end

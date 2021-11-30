@@ -41,3 +41,10 @@ window.checkPrevious = function (currCheckbox) {
   });
   allLater.forEach((input) => (input.checked = false));
 };
+
+window.updateProgress = function () {
+  let dividend = document.querySelectorAll('input[type="checkbox"]:checked').length;
+  let divisor = document.querySelectorAll(".episode-check").length;
+  let width = Math.round(100 * dividend / divisor);
+  document.querySelector(".progress-bar").style.width = `${width}%`;
+};
