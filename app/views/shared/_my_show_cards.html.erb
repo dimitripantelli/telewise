@@ -2,15 +2,11 @@
   <% if @user.progresses.empty? %>
     <% @user.followed_shows.each do |show| %>
       <div class="card-box">
-        <div class="my-show-image-wrapper" id="myshow-image">
-          <%# <div id="myshow-image" style="background-image: url('= image_path("#{show.show.name.gsub(/\s+/, "")}.jpg")')"> </div> %>
-          <%= image_tag("#{show.show.name.gsub(/\s+/, '')}.jpg") %>
+        <div class="show-image" id="myshow-image" style="background-image: url('<%= image_path("#{show.show.name.gsub(/\s+/, "")}.jpg") %>')">
         </div>
-        <div class="card-body">
-          <a href="<%= show_path(show.show) %>" class="search-link d-flex">
-          <div class="title-date">
-            <div class="title-delete">
-              <h5 class="card-title"><%= show.show.name %> </h5>
+        <a href="<%= show_path(show) %>" class="search-link d-flex">
+          <div class="card-body">
+            <h5 class="card-title"> <%= show.show.name %> (<%= show.show.episodes.first.airing_date.year %>)</h5>
               <%= link_to "+", user_followed_show_path(current_user, show), method: :delete, class: "danger-btn" %>
             </div>
             <% future_episodes = show.show.episodes.select do |episode| %>
@@ -19,7 +15,6 @@
             <% past_episodes = show.show.episodes.select do |episode| %>
               <% episode.airing_date < DateTime.now %>
             <% end %>
-
             <div class="text-muted airing-date-text">
               <% if future_episodes.empty? %>
                 <p><small>Last episode date: <%= show.show.episodes.last.airing_date.strftime("%d.%m.%Y") %></small></p>
