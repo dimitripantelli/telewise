@@ -11,7 +11,12 @@ class FollowedShowsController < ApplicationController
     @followed_show.user = current_user
     if @followed_show.save
       future_airing = check_air_date(@followed_show)
-      # and for each episode with an air_date today or after today, create a new Notification.
+      future_airing.each do |episode|
+        Notification.create(
+          episode_id: episode.id,
+          user_id: current_user
+        )
+      end
     end
   end
 
