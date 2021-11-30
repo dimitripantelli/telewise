@@ -1,14 +1,31 @@
 <div class="card-deck show-cards">
   <% if @user.progresses.empty? %>
     <% @user.followed_shows.each do |show| %>
-      <div class="card bg-dark">
-        <div class="card-img-top show-image" style="background-image: url('<%= image_path("#{show.show.name.gsub(/\s+/, "")}.jpg") %>')"></div>
-        <div class="card-body">
-            <h5 class="card-title"><%= show.show.name %></h5>
+      <div class="card-box">
+        <div class="show-image" id="myshow-image" style="background-image: url('<%= image_path("#{show.show.name.gsub(/\s+/, "")}.jpg") %>')"> </div>
+        <a href="<%= show_path(show) %>" class="search-link d-flex">
+          <div class="card-body">
+            <h5 class="card-title"> <%= show.show.name %> (<%= show.show.episodes.first.airing_date.year %>)</h5>
+              <%= link_to "+", user_followed_show_path(current_user, show), method: :delete, class: "danger-btn" %>
+            <% future_episodes = show.show.episodes.select do |episode| %>
+              <% episode.airing_date > DateTime.now %>
+            <% end %>
+            <% past_episodes = show.show.episodes.select do |episode| %>
+              <% episode.airing_date < DateTime.now %>
+            <% end %>
+            <% if future_episodes.empty? %>
+              <p class="card-text"><small class="text-muted">Last episode date: <%= show.show.episodes.last.airing_date.strftime("%d.%m.%Y") %></small></p>
+            <% else %>
+              <p class="card-text"><small class="text-muted">Last episode date: <%= past_episodes.last.airing_date.strftime("%d.%m.%Y") %></small></p>
+              <p class="card-text"><small class="text-muted">Next episode date: <%= future_episodes.first.airing_date.strftime("%d.%m.%Y") %></small></p>
+            <% end %>
+            </div>
+          </div>
+        </a>
         </div>
       </div>
     <% end %>
-  <% else %>
+   <% else %>
     <% @show_progress.each do |progress, episode| %>
       <div class="card bg-dark">
         <div class="card-img-top show-image" style="background-image: url('<%= image_path("#{show.show.name.gsub(/\s+/, "")}.jpg") %>')"></div>
