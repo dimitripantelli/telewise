@@ -1,12 +1,17 @@
-<div class="row">
-  <div class="col-12 col-sm-6">
-   <h1>Hello</h1>
-    <h3>Reviews</h3>
-      <% @reviews.each do |review| %>
-        <div>
-          <small><em class="text-muted"><%= distance_of_time_in_words_to_now(review.created_at) %> ago</em></small>
-          <p class="mb-0"><%= review.content %></p>
-        </div>
-      <% end %>
-  </div>
+
+<div class="card-deck show-cards">
+  <% @reviews.each do |review| %>
+    <div class="card-box">
+        <%#= link_to "+", user_followed_show_path(current_user, show), method: :delete, class: "danger-btn" %>
+        <a href="<%= show_path(review.show) %>" class="search-link">
+          <div class="show-image" id="myshow-image" style="background-image: url('<%= image_path("#{review.show.name.gsub(/\s+/, "")}.jpg") %>')">
+          </div>
+        </a>
+          <div class="card-body">
+      <h5 class="card-title"> <%= review.show.name %> (<%= review.show.episodes.first.airing_date.year %>)</h5>
+            <small><em class="text-muted"><%= distance_of_time_in_words_to_now(review.created_at) %> ago</em></small>
+            <p class="card-text"><%= review.content %></p>
+          </div>
+    </div>
+  <% end %>
 </div>
