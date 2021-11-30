@@ -6,7 +6,7 @@ class ShowsController < ApplicationController
     if params[:query].present?
       # Show.reindex
       # @shows = Show.search(params[:query], fields: [:name], match: :word_start)
-      sql_query = "name ILIKE :query OR summary ILIKE :query"
+      sql_query = 'name ILIKE :query OR summary ILIKE :query'
       @shows = Show.where(sql_query, query: "%#{params[:query]}%")
     else
       @shows = Show.all
@@ -25,11 +25,33 @@ class ShowsController < ApplicationController
 
   def show
     @streaming = {}
-    JSON.parse(@show.streaming.gsub('=>', ':')).each do |service|
-      @streaming[service.keys[0]] = service.values[0].values[0].values[0]
-    end
+    JSON
+      .parse(@show.streaming.gsub('=>', ':'))
+      .each do |service|
+        @streaming[service.keys[0]] = service.values[0].values[0].values[0]
+      end
     @followed_show = FollowedShow.new
     @user = current_user
+    progress =
+      Progress
+      .where(user: current_user)
+      .select { |prog| prog.episode.show == @show }
+    @percentage = []
+    (1..@show.number_of_seasons).each do |n|
+      season_progress = progress.select { |prog| prog.episode.season_number == n }
+      if season_progress.empty?
+        season_progress = -1
+      else
+        season_progress = season_progress.last.episode.episode_number
+      end
+      @percentage[n] =
+        (
+          100 *
+            [0, season_progress].max.fdiv(
+              @show.episodes.where(season_number: n).count
+            )
+        )
+    end
   end
 
   # def new
@@ -53,8 +75,8 @@ class ShowsController < ApplicationController
   # end
 
   # def destroy
-    # @show = Show.find(params[:id])
-    # redirect_to show_path
+  # @show = Show.find(params[:id])
+  # redirect_to show_path
   # end
 
   # def details
@@ -64,7 +86,9 @@ class ShowsController < ApplicationController
   private
 
   def show_params
-    params.require(:show).permit(:name, :summary, :number_of_seasons, :rating, :photo, :streaming)
+    params
+      .require(:show)
+      .permit(:name, :summary, :number_of_seasons, :rating, :photo, :streaming)
   end
 
   def find_show
