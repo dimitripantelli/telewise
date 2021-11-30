@@ -4,5 +4,18 @@ class SeasonSummariesController < ApplicationController
   def index
     @show = Show.find(params[:show_id])
     @season = params[:season]
+    progress =
+      Progress
+      .where(user: current_user)
+      .select do |prog|
+        prog.episode.show == @show &&
+          prog.episode.season_number == @season.to_i
+      end
+      .last
+    if progress.nil?
+      @progress = -1
+    else
+      @progress = progress.episode.episode_number
+    end
   end
 end

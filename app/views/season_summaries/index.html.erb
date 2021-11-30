@@ -31,6 +31,7 @@
               type="checkbox"
               onclick="checkPrevious(this)"
               onchange="this.form.submit()"
+              <%= (@progress >= episode.episode_number) ? "checked" : "" %>
             />
             <span class="check"></span>
           </label>

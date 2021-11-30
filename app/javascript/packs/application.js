@@ -25,11 +25,19 @@ import "bootstrap";
 // }
 
 window.checkPrevious = function (currCheckbox) {
-  if (!currCheckbox.checked) return;
-  let allPrevious = Array.from(
+  let episodeCheckboxes = Array.from(
     document.getElementsByClassName("episode-check")
-  ).filter((otherCheckbox) => {
-    return parseInt(otherCheckbox.id,10) < parseInt(currCheckbox.id,10);
+  );
+
+  // Check all previous inputs
+  let allPrevious = episodeCheckboxes.filter((otherCheckbox) => {
+    return parseInt(otherCheckbox.id, 10) < parseInt(currCheckbox.id, 10);
   });
-  allPrevious.forEach((input) => input.checked = true);
+  allPrevious.forEach((input) => (input.checked = true));
+
+  // Uncheck all later inputs
+  let allLater = episodeCheckboxes.filter((otherCheckbox) => {
+    return parseInt(otherCheckbox.id, 10) > parseInt(currCheckbox.id, 10);
+  });
+  allLater.forEach((input) => (input.checked = false));
 };
