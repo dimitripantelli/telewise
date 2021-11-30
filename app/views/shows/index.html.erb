@@ -58,7 +58,7 @@
               </div>
               <div class="col-md-2">
                 <div class="card-body">
-                  <p><%= '⭐' * (show.rating.round / 2) %></p>
+                  <p><%= '⭐ ' * (show.rating.round / 2) %></p>
                   <ul class="streaming-link">
                     <% JSON.parse(show.streaming.gsub('=>', ':')).each do |service| %>
                       <li class="card-text streaming-link"><a class="streaming-link" href="<%= @streaming[service.keys[0]] = service.values[0].values[0].values[0] %>"><%= service.keys[0] %></a></li>
