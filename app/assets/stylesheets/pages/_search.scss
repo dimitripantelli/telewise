@@ -11,10 +11,6 @@
   width: 100
 }
 
-img {
-  height: 40vh;
-}
-
 .search-link {
   text-decoration: none;
   color: $white;
@@ -27,6 +23,7 @@ img {
 .search-img {
   object-fit: cover;
   width: 15vw;
+  height: 40vh;
 }
 
 .streaming-link {
