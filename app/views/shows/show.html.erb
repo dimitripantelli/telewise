@@ -3,16 +3,16 @@
 
     <div class="row">
       <div class="col-md-4 rounded show-details">
-        <%= image_tag "#{@show.name.gsub(/\s+/, "")}.jpg", style: "width: 100%", class: 'img-fluid' %>
+        <%= image_tag "#{@show.name.gsub(/\s+/, "")}.jpg", style: "width: 85%", class: 'img-fluid' %>
       </div>
       <div class="col-md-8 show-details">
       <div class="rating-and-name">
-        <h1><%= @show.name %></h1>
+        <h1 class="series-title"><%= @show.name %></h1>
         <p class="hover-3-rating">
           <%= '⭐ ' * (@show.rating.round / 2) %>
         </p>
       </div>
-        <p><%= @show.summary %></p>
+        <p class="series-summary"><%= @show.summary %></p>
         <p> <span id="seasons">Seasons:</span> <%= @show.number_of_seasons %></p>
         <div class="wheretowatch">
           <p id="wheretowatch-title">Where to Watch</p>
@@ -23,7 +23,7 @@
         <%= render "followed_shows/form", locals: {show: @show, followed_show: @followed_show} %>
         <div>
           <% if current_user %>
-            <%= render "reviews/review_modal", locals: {show: @show, followed_show: @followed_show} %>
+            <%= render "reviews/review_modal", locals: {show: @show, followed_show: @followed_show}, class: "addshow-btn" %>
           <% else %>
             <p><%= link_to 'Add Review', new_user_registration_path, class: "addshow-btn" %></p>
           <% end %>

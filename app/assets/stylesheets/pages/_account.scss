@@ -31,6 +31,16 @@
   transition: border 0.2s;
 }
 
+.myaccount-image {
+  height: 35vh;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+  filter: brightness(50%);
+  color: white;
+}
+
 #myshow-image > img {
   display: flex;
   max-height: 267px;
@@ -45,7 +55,6 @@
 .card-body {
   display: flex;
   flex-direction: column;
-  align-items:flex-start;
 }
 
 .danger-btn {

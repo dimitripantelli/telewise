@@ -11,9 +11,10 @@
             <%= text_field_tag :query,
               params[:query],
               class: "form-control string required",
+              style:"height:40px; margin-top:14px;",
               placeholder: "Search for a TV-Show"
             %>
-            <%= button_tag(type: 'submit', class: "btn btn-flat") do
+            <%= button_tag(type: 'submit', class: "btn btn-flat", id:"navbar-searchbtn") do
               "<i class='fas fa-search'></i>".html_safe
             end %>
           <% end %>
@@ -34,7 +35,7 @@
             </li>
 
             <li class="nav-item dropdown avatar">
-              <i class="fas fa-bars dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ></i>
+              <img class="fas fa-bars dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ></i>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                 <%= link_to "My Shows", account_path, class: "dropdown-item" %>
                 <%= link_to "Find a Show", shows_path, class: "dropdown-item" %>
