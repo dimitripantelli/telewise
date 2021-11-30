@@ -1,5 +1,9 @@
-<% @notifications.each do |notification| %>
-  <a class="dropdown-item" href="#">Action</a>
-<% end %>
+<% if @notifications.present? %>
+  <% airing_today = @notifications.select do |notification| %>
+  <%  notification.episode.airing_date == DateTime.now && notification.read_at == nil %>
+  <% end %>
 
-<%# A new episode of SHOW is out today! %>
+  <% airing_today.each do |notification| %>
+    <a class="dropdown-item" href="#">A new episode of <%= notification.episode.show.name %> is out today!</a>
+  <% end %>
+<% end %>
