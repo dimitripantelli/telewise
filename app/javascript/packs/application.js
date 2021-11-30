@@ -15,10 +15,9 @@ require("channels");
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
-import "controllers";
-import "bootstrap";
-
-// import { scrollFunction } from 'style_navbar.js'
+import "controllers"
+import "bootstrap"
+import { popup_message } from "../components/add_show_popup"
 
 // document.addEventListener('turbolinks:load', () => {
 //   window.onscroll = function() {scrollFunction()};
@@ -48,3 +47,7 @@ window.updateProgress = function () {
   let width = Math.round(100 * dividend / divisor);
   document.querySelector(".progress-bar").style.width = `${width}%`;
 };
+
+document.addEventListener("turbolinks:load", () => {
+  popup_message()
+});

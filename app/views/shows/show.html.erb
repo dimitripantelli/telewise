@@ -7,7 +7,7 @@
       <div class="col-md-8">
         <h1><%= @show.name %></h1>
         <p class="hover-3-rating small text-uppercase mb-0">
-          <%= '⭐' * (@show.rating.round / 2) %>
+          <%= '⭐ ' * (@show.rating.round / 2) %>
         </p>
         <p><%= @show.summary %></p>
         <p>Seasons: <%= @show.number_of_seasons %></p>
@@ -17,8 +17,27 @@
         </ul>
         <% end %>
         <%= render "followed_shows/form", locals: {show: @show, followed_show: @followed_show} %>
-        <%#= link_to 'Add to my shows', show_path(@show), class: "btn
-        btn-success" %>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+          Add Review
+        </button>
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content text-dark">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add Review</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body text-dark">
+                <%= render "reviews/review_form", locals: {show: @show, review: @review} %>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -43,8 +62,20 @@
     btn-success" %>
   </p>
 </div>
-<% count += 1 %> <% end %> <%#
-<p>
-  <% seasons.each do |season| %> <%# <%= link_to "Add a new task", new_task_path
-  % %>
-</p>
+<% count += 1 %>
+<% end %>
+
+<div class="container">
+  <div class="col-12 col-sm-6">
+    <h3>Reviews</h3>
+    <% if @reviews.empty? %>
+      <small><em class="text-muted">Be the first one to review this show</em></small>
+    <% end %>
+    <% @reviews.each do |review| %>
+      <div>
+        <small><em class="text-muted"><%= review.user.name %><%= distance_of_time_in_words_to_now(review.created_at) %> ago</em></small>
+        <p class="mb-0"><%= review.content %></p>
+      </div>
+    <% end %>
+  </div>
+</div>

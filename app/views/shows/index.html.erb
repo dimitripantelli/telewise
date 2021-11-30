@@ -1,12 +1,73 @@
-<div id="search-result">
+<!--
+<div class="container">
   <% @shows.each do |show| %>
-    <a href="<%= show_path(show) %>">
-      <div class="col-md-4">
-        <%= image_tag("#{show.name.gsub(/\s+/, "")}.jpg") %>
+    <a href="<%= show_path(show) %>" class="search-link">
+      <div class="card h-100 mb-3 search-result">
+        <div class="row no-gutters">
+              <div class="col-md-2">
+                <%= image_tag "#{show.name.gsub(/\s+/, "")}.jpg", class: "search-img" %>
+              </div>
+              <div class="col-md-10">
+                <div class="card-body">
+                  <h5 class="card-title"><%= show.name %></h5>
+                  <p class="card-text"><%= strip_tags show.summary %></p>
+                  <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                </div>
+              </div>
+        </div>
       </div>
-      <h3><span><%= show.name %></span></h3>
-      <p><%= strip_tags show.summary %></p>
     </a>
+  <% end %>
+</div>
+-->
+
+<div class="container">
+  <% @shows.each do |show| %>
+      <div class="card h-100 mb-3 search-result">
+        <div class="row no-gutters">
+              <div class="col-md-2">
+              <a href="<%= show_path(show) %>" class="search-link">
+                <%= image_tag "#{show.name.gsub(/\s+/, "")}.jpg", class: "search-img" %>
+              </a>
+              </div>
+              <div class="col-md-8">
+              <a href="<%= show_path(show) %>" class="search-link d-flex">
+                <div class="col-md-5">
+                    <div class="card-body">
+                      <h5 class="card-title"><%= show.name %> (<%= show.episodes.first.airing_date.year %>)</h5>
+                      <% future_episodes = show.episodes.select do |episode| %>
+                        <% episode.airing_date > DateTime.now %>
+                      <% end %>
+                      <% past_episodes = show.episodes.select do |episode| %>
+                        <% episode.airing_date < DateTime.now %>
+                      <% end %>
+                      <% if future_episodes.empty? %>
+                        <p class="card-text"><small class="text-muted">Last episode date: <%= show.episodes.last.airing_date.strftime("%d.%m.%Y") %></small></p>
+                      <% else %>
+                        <p class="card-text"><small class="text-muted">Last episode date: <%= past_episodes.last.airing_date.strftime("%d.%m.%Y") %></small></p>
+                        <p class="card-text"><small class="text-muted">Next episode date: <%= future_episodes.first.airing_date.strftime("%d.%m.%Y") %></small></p>
+                      <% end %>
+                    </div>
+                </div>
+                <div class="col-md-7">
+                  <div class="card-body">
+                    <p class="card-text"><%= sanitize show.summary %></p>
+                  </div>
+                </div>
+                </a>
+              </div>
+              <div class="col-md-2">
+                <div class="card-body">
+                  <p><%= '⭐' * (show.rating.round / 2) %></p>
+                  <ul class="streaming-link">
+                    <% JSON.parse(show.streaming.gsub('=>', ':')).each do |service| %>
+                      <li class="card-text streaming-link"><a class="streaming-link" href="<%= @streaming[service.keys[0]] = service.values[0].values[0].values[0] %>"><%= service.keys[0] %></a></li>
+                    <% end %>
+                  </ul>
+                </div>
+              </div>
+        </div>
+      </div>
   <% end %>
 </div>
 

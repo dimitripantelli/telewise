@@ -1,0 +1,38 @@
+.search-result {
+  margin: 25px;
+  position: relative;
+  background-color: black;
+  padding: 10px;
+}
+
+#search-show {
+  display: flex;
+  flex-direction: column;
+  width: 100
+}
+
+img {
+  height: 40vh;
+}
+
+.search-link {
+  text-decoration: none;
+  color: $white;
+  &:hover {
+    text-decoration: none;
+    color: $green;
+  }
+}
+
+.search-img {
+  object-fit: cover;
+  width: 15vw;
+}
+
+.streaming-link {
+  display: block;
+}
+
+.card-text {
+  font-size: 16px;
+}
