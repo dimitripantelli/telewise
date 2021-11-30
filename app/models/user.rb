@@ -6,5 +6,6 @@ class User < ApplicationRecord
 
   has_many :followed_shows
   has_many :progresses
-  has_many :notifications, foreign_key: :recipient_id
+  has_many :notifications
+  has_many :episodes, through: :notifications
 end

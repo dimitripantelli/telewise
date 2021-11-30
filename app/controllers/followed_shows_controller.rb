@@ -10,7 +10,8 @@ class FollowedShowsController < ApplicationController
     @followed_show.show = @show
     @followed_show.user = current_user
     if @followed_show.save
-      # show message saying you've added
+      future_airing = check_air_date(@followed_show)
+      # and for each episode with an air_date today or after today, create a new Notification.
     end
   end
 
@@ -23,5 +24,9 @@ class FollowedShowsController < ApplicationController
 
   def find_show
     @show = Show.find(params[:followed_show][:show_id])
+  end
+
+  def check_air_date(show)
+    show.show.episodes.select { |episode| episode.airing_date > DateTime.now }
   end
 end

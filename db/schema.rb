@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_29_164329) do
+ActiveRecord::Schema.define(version: 2021_11_30_100205) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,10 +37,11 @@ ActiveRecord::Schema.define(version: 2021_11_29_164329) do
   end
 
   create_table "notifications", force: :cascade do |t|
-    t.integer "recipient_id"
     t.datetime "read_at"
-    t.integer "notifiable_id"
-    t.string "notifiable_type"
+    t.bigint "episode_id"
+    t.bigint "user_id"
+    t.index ["episode_id"], name: "index_notifications_on_episode_id"
+    t.index ["user_id"], name: "index_notifications_on_user_id"
   end
 
   create_table "progresses", force: :cascade do |t|
@@ -99,6 +100,8 @@ ActiveRecord::Schema.define(version: 2021_11_29_164329) do
   add_foreign_key "episodes", "shows"
   add_foreign_key "followed_shows", "shows"
   add_foreign_key "followed_shows", "users"
+  add_foreign_key "notifications", "episodes"
+  add_foreign_key "notifications", "users"
   add_foreign_key "progresses", "episodes"
   add_foreign_key "progresses", "users"
   add_foreign_key "reviews", "shows"
