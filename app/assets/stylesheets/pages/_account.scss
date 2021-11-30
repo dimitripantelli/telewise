@@ -11,7 +11,7 @@
     border-radius: 4px;
     margin-right: 14px;
     width: 18vw;
-    margin: 0 8px 16px 8px;;
+    margin: 8px 8px 16px 8px;
 
 
   &:hover {
@@ -38,7 +38,6 @@
   align-items:flex-start;
 }
 
-
 .danger-btn {
   transform: rotate(45deg);
   font-size: 32px;
@@ -55,6 +54,10 @@
 
 .card-title {
   text-transform: uppercase;
+
+    &:hover {
+      color: #7FFB50;
+    }
 }
 
 .title-delete {
