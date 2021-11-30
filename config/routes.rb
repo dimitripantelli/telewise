@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  post 'progresses/create'
   get 'user/show'
   devise_for :users
   resources :users, only: :show do
