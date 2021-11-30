@@ -2,7 +2,8 @@
   <% if @user.progresses.empty? %>
     <% @user.followed_shows.each do |show| %>
       <div class="card-box">
-        <div class="show-image" id="myshow-image" style="background-image: url('<%= image_path("#{show.show.name.gsub(/\s+/, "")}.jpg") %>')"> </div>
+        <div class="show-image" id="myshow-image" style="background-image: url('<%= image_path("#{show.show.name.gsub(/\s+/, "")}.jpg") %>')">
+        </div>
         <a href="<%= show_path(show) %>" class="search-link d-flex">
           <div class="card-body">
             <h5 class="card-title"> <%= show.show.name %> (<%= show.show.episodes.first.airing_date.year %>)</h5>
@@ -19,10 +20,8 @@
               <p class="card-text"><small class="text-muted">Last episode date: <%= past_episodes.last.airing_date.strftime("%d.%m.%Y") %></small></p>
               <p class="card-text"><small class="text-muted">Next episode date: <%= future_episodes.first.airing_date.strftime("%d.%m.%Y") %></small></p>
             <% end %>
-            </div>
           </div>
         </a>
-        </div>
       </div>
     <% end %>
    <% else %>
