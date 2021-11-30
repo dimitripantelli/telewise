@@ -30,9 +30,10 @@
          <% if user_signed_in? %>
           <li class="nav-item">
             <div class="dropdown">
-              <%= link_to account_path, class: "nav-link" do %>
-                <i class="fas fa-bell bell dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="false"></i>
-              <% end %>
+              <a class="dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
+                <i class="fas fa-bell bell" ></i>
+              </a>
+
               <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                 <%= render "notifications/index" %>
               </div>

@@ -1,6 +1,6 @@
-<% if @notifications.present? %>
-  <% airing_today = @notifications.select do |notification| %>
-  <%  notification.episode.airing_date == DateTime.now && notification.read_at == nil %>
+<% if current_user.notifications.present? %>
+  <% airing_today = current_user.notifications.select do |notification| %>
+  <%  notification.episode.airing_date == Date.today && notification.read_at == nil %>
   <% end %>
 
   <% airing_today.each do |notification| %>

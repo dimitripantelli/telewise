@@ -11,12 +11,14 @@ class FollowedShowsController < ApplicationController
     @followed_show.user = current_user
     if @followed_show.save
       future_airing = check_air_date(@followed_show)
+      p future_airing
       future_airing.each do |episode|
-        Notification.create(
+        notification = Notification.create!(
           episode_id: episode.id,
-          user_id: current_user
+          user_id: current_user.id
         )
       end
+      raise
     end
   end
 
@@ -31,7 +33,8 @@ class FollowedShowsController < ApplicationController
     @show = Show.find(params[:followed_show][:show_id])
   end
 
-  def check_air_date(show)
-    show.show.episodes.select { |episode| episode.airing_date > DateTime.now }
+  def check_air_date(followed_show)
+    p followed_show.show.episodes
+    followed_show.show.episodes.select { |episode| episode.airing_date >= Date.today }
   end
 end
