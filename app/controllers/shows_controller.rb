@@ -36,6 +36,8 @@ class ShowsController < ApplicationController
     end
     @followed_show = FollowedShow.new
     @user = current_user
+    @review = Review.new
+    @reviews = Review.where(show: @show)
   end
 
   # def new
