@@ -23,11 +23,20 @@
   font-size: 28px;
 }
 
-.wheretowatch {
-  line-height: 75%;
+.streaming-logos {
+  width: 50px;
+  border-radius: 10px;
 }
 
-#wheretowatch-title,
+#streaming-links {
+  text-align: center;
+  list-style: none;
+}
+
+#streaming-links li {
+  display: inline;
+}
+
 #seasons {
   font-weight: 700;
   text-transform: uppercase;
@@ -41,29 +50,29 @@
 
 .wheretowatch a:hover {
   text-decoration: none;
-  color: #7FFB50;
+  color: #7ffb50;
 }
 
 .addshow-btn {
-   display: flex;
-   flex-direction: row;
-   justify-content: center;
-   align-items: center;
-   font-size: 14px;
-   padding: 14px 37px;
-   text-transform: uppercase;
-   font-weight: 700;
-   width: 16vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  padding: 14px 37px;
+  text-transform: uppercase;
+  font-weight: 700;
+  width: 16vw;
 
-   border-radius: 4px;
-   color: white;
-   transition: transform .4s;
-   border: 1px solid white;
-  }
+  border-radius: 4px;
+  color: white;
+  transition: transform 0.4s;
+  border: 1px solid white;
+}
 
 .addshow-btn:hover {
-  color: #7FFB50;
-  border-color: #7FFB50;
+  color: #7ffb50;
+  border-color: #7ffb50;
   text-decoration: none;
   // transform: scale(1.025);
   opacity: 1;
@@ -91,7 +100,7 @@
 .summary-button {
   display: flex;
   flex-direction: row;
-  justify-content: space-between
+  justify-content: space-between;
 }
 
 #summary {

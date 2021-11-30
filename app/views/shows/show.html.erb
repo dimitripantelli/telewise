@@ -2,10 +2,15 @@
   <div class="container py-3">
 
     <div class="row">
-      <div class="col-md-4 rounded show-details">
-        <%= image_tag "#{@show.name.gsub(/\s+/, "")}.jpg", style: "width: 100%", class: 'img-fluid' %>
+      <div class="col-md-3" id="streaming-links-wrapper">
+        <%= image_tag "#{@show.name.gsub(/\s+/, "")}.jpg", style: "width: 100%", class: 'img-fluid rounded' %>
+          <ul class="mt-2" id="streaming-links">
+            <% @streaming.each do |service| %>
+            <li><a href="<%= service[1] %>" target="_blank"><%= image_tag "#{service[0]}.webp", class: "streaming-logos"%></a></li>
+            <% end %>
+          </ul>
       </div>
-      <div class="col-md-8 show-details">
+      <div class="col-md-9 show-details">
       <div class="rating-and-name">
         <h1><%= @show.name %></h1>
         <p class="hover-3-rating">
@@ -14,12 +19,6 @@
       </div>
         <p><%= @show.summary %></p>
         <p> <span id="seasons">Seasons:</span> <%= @show.number_of_seasons %></p>
-        <div class="wheretowatch">
-          <p id="wheretowatch-title">Where to Watch</p>
-          <p> <% @streaming.each do |service| %>
-          <a href="<%= service[1] %>" target="_blank"><%= service[0] %> </a> </p>
-          <% end %>
-        </div>
         <%= render "followed_shows/form", locals: {show: @show, followed_show: @followed_show} %>
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
           Add Review
