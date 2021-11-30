@@ -1,5 +1,9 @@
-<%= simple_form_for [@show, @review] do |f| %>
-  <%= f.input :content %>
-  <%= f.input :rating, input_html: { min: '0', step: '1' }%>
-  <%= f.submit 'Add a review', class: "btn btn-primary" %>
+<% if current_user %>
+  <%= simple_form_for([@show, @review]) do |f| %>
+    <%= f.input :content %>
+    <%= f.input :rating, input_html: { min: '0', step: '1' }%>
+    <%= f.submit 'Add Review', class: "btn btn-primary" %>
+  <% end %>
+<% else %>
+  <p><%= link_to 'Add Review', new_user_registration_path %></p>
 <% end %>
