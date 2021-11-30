@@ -9,7 +9,6 @@
 .show-details {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
 }
 
 .rating-and-name {
@@ -17,6 +16,11 @@
   justify-content: space-between;
   margin-right: 6px;
   text-transform: uppercase;
+}
+
+.show-summary {
+  font-size: 16px;
+  margin: 0;
 }
 
 .hover-3-rating {
@@ -31,6 +35,7 @@
 #streaming-links {
   text-align: center;
   list-style: none;
+  padding: 0;
 }
 
 #streaming-links li {
@@ -70,6 +75,14 @@
   border: 1px solid white;
 }
 
+#addreview {
+  height: 51px;
+  }
+
+.form-group {
+  margin-bottom: 0;
+}
+
 .addshow-btn:hover {
   color: #7ffb50;
   border-color: #7ffb50;
@@ -105,4 +118,12 @@
 
 #summary {
   font-size: 14px;
+}
+
+#poster {
+  border-radius: 6px;
+}
+
+.addshow-btn.bg-transparent {
+  margin-left: 15px;
 }

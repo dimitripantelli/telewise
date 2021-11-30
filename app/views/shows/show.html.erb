@@ -3,7 +3,7 @@
 
     <div class="row">
       <div class="col-md-3" id="streaming-links-wrapper">
-        <%= image_tag "#{@show.name.gsub(/\s+/, "")}.jpg", style: "width: 100%", class: 'img-fluid rounded' %>
+        <%= image_tag "#{@show.name.gsub(/\s+/, "")}.jpg", style: "width: 100%", class: 'img-fluid', id: "poster"%>
           <ul class="mt-2" id="streaming-links">
             <% @streaming.each do |service| %>
             <li><a href="<%= service[1] %>" target="_blank"><%= image_tag "#{service[0]}.webp", class: "streaming-logos"%></a></li>
@@ -11,18 +11,18 @@
           </ul>
       </div>
       <div class="col-md-9 show-details">
-      <div class="rating-and-name">
-        <h1><%= @show.name %></h1>
-        <p class="hover-3-rating">
-          <%= '⭐ ' * (@show.rating.round / 2) %>
-        </p>
-      </div>
-        <p><%= @show.summary %></p>
+        <div class="rating-and-name">
+          <h2><%= @show.name %></h2>
+          <p class="hover-3-rating">
+            <%= '⭐ ' * (@show.rating.round / 2) %>
+          </p>
+        </div>
+        <p class="show-summary"><%= @show.summary %></p>
         <p> <span id="seasons">Seasons:</span> <%= @show.number_of_seasons %></p>
-        <%= render "followed_shows/form", locals: {show: @show, followed_show: @followed_show} %>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-          Add Review
-        </button>
+        <div class="row">
+          <%= render "followed_shows/form", locals: {show: @show, followed_show: @followed_show}, class: "addmyshows-btn" %>
+          <input type="button" value="Add Review" class="addshow-btn bg-transparent" data-toggle="modal" data-target="#exampleModal" id="addreview">
+        </div>
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content text-dark">
