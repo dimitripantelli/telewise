@@ -33,8 +33,8 @@
 
         <div class="card-body">
           <a href="<%= show_path(show) %>" class="search-link d-flex">
-            <h5 class="card-title"><%= show.name %> (<%= show.episodes.first.airing_date.year %>)</h5>
-            <p>Seasons: <%= show.number_of_seasons %></p>
+            <h5> <span class="card-title"><%= show.name %></span> (<%= show.episodes.first.airing_date.year %>)</h5>
+            <p id="search-seasons-number"><span id="search-seasons">Seasons: </span> <%= show.number_of_seasons %></p>
             <% future_episodes = show.episodes.select do |episode| %>
               <% episode.airing_date > DateTime.now %>
             <% end %>
@@ -42,10 +42,10 @@
               <% episode.airing_date < DateTime.now %>
             <% end %>
             <% if future_episodes.empty? %>
-              <p class="card-text"><small class="text-muted">Last episode date: <%= show.episodes.last.airing_date.strftime("%d.%m.%Y") %></small></p>
+              <p class="card-text"><span class="episode-date">Last episode date:</span> <%= show.episodes.last.airing_date.strftime("%d.%m.%Y") %></p>
             <% else %>
-              <p class="card-text"><small class="text-muted">Last episode date: <%= past_episodes.last.airing_date.strftime("%d.%m.%Y") %></small></p>
-              <p class="card-text"><small class="text-muted">Next episode date: <%= future_episodes.first.airing_date.strftime("%d.%m.%Y") %></small></p>
+              <p class="card-text"><span class="episode-date">Last episode date:</span> <%= past_episodes.last.airing_date.strftime("%d.%m.%Y") %></p>
+              <p class="card-text"><span class="episode-date">Next episode date:</span> <%= future_episodes.first.airing_date.strftime("%d.%m.%Y") %></p>
             <% end %>
 
             <p><%= '⭐ ' * (show.rating.round / 2) %></p>

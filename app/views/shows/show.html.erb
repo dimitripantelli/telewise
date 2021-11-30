@@ -16,8 +16,8 @@
         <p> <span id="seasons">Seasons:</span> <%= @show.number_of_seasons %></p>
         <div class="wheretowatch">
           <p id="wheretowatch-title">Where to Watch</p>
-          <p> <% @streaming.each do |service| %>
-          <a href="<%= service[1] %>" target="_blank"><%= service[0] %> </a> </p>
+          <p><% @streaming.each do |service| %>
+          <a href="<%= service[1] %>" target="_blank">> <%= service[0] %> </a> </p>
           <% end %>
         </div>
         <%= render "followed_shows/form", locals: {show: @show, followed_show: @followed_show} %>
@@ -25,7 +25,7 @@
           <% if current_user %>
             <%= render "reviews/review_modal", locals: {show: @show, followed_show: @followed_show} %>
           <% else %>
-            <p><%= link_to 'Add Review', new_user_registration_path, class: "btn btn-primary" %></p>
+            <p><%= link_to 'Add Review', new_user_registration_path, class: "addshow-btn" %></p>
           <% end %>
         </div>
       </div>

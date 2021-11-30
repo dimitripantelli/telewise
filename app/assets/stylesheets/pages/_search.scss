@@ -33,7 +33,6 @@
   }
 }
 
-
 .search-img img {
   display: flex;
   max-height: 267px;
@@ -43,8 +42,25 @@
   align-content: center;
 }
 
+#search-seasons-number {
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+#search-seasons {
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
 .search-streaming-info {
   line-height: 50%;
+}
+
+.episode-date {
+  color: rgb(255, 255, 255);
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 600;
 }
 
 .streaming-link a {
@@ -65,16 +81,16 @@
 }
 
 .card-text {
-  font-size: 16px;
+  font-size: 14px;
 }
 
-div
 .search-summary {
   width: 37.5vw;
-  padding-top: 14px;
-  padding-right: 14px;
+  padding-right: 21px;
+  display: flex;
 
   p {
+    font-size: 16px;
     justify-self: center;
     align-self: center;
   }
