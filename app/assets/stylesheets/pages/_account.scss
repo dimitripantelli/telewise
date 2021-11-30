@@ -1,9 +1,10 @@
 .myshow-body {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
-.card-box {
+.card-review {
   background-color: #171717;
   border-radius: 4px;
   margin-top: 14px;
@@ -13,22 +14,40 @@
   width: 100vw;
 }
 
-#myshow-image {
-  height: 30vh;
-  margin: 14px 18px;
-  width: 11.5vw;
+.card-box {
+    height: 421px;
+    background-color: #171717;
+    border: 2px solid #171717;
+    border-radius: 4px;
+    margin-right: 14px;
+    width: 18vw;
+    margin: 0 8px 16px 8px;;
+
+
+  &:hover {
+    border: 2px solid #7FFB50;
+  }
+
+  transition: border 0.2s;
 }
 
-.card-info {
+#myshow-image > img {
+  display: flex;
+  max-height: 267px;
+  margin: 14px auto;
+  filter: brightness(100%);
+  flex-wrap: wrap;
+  object-fit: cover;
+  justify-content: center;
+  max-width: 100%;
+}
+
+.card-body {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  // justify-content: flex-end;
+  align-items:flex-start;
 }
 
-#my-shows-title {
-  margin: 0;
-}
 
 .danger-btn {
   transform: rotate(45deg);
@@ -36,10 +55,26 @@
   color: rgb(112, 112, 112);
   opacity: 0.75;
   margin-right: 4px;
-  // text-shadow: 2px 4px 3px rgb(255, 255, 255);
+  line-height: 75%;
 }
 
 .danger-btn:hover {
   text-decoration: none;
   color: #fb5050;
+}
+
+.card-title {
+  text-transform: uppercase;
+}
+
+.title-delete {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
+
+.airing-date-text {
+  font-size: 16px;
+  line-height: 50%;
+  margin: 2px 0;
 }
