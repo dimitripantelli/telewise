@@ -29,7 +29,7 @@
 <div class="container seasons-details-box">
   <p class="details-season">Season <%= count %></p>
   <div class="summary-button">
-    <p id="summary"><%= @show.summary %></p>
+    <p id="summary"> <%= @show.summary %> </p>
     <p> <%= link_to 'Details', show_season_summaries_path(@show, season: count), class: "addshow-btn", id: "details-btn" %> </p>
   </div>
   <div class="progress">

@@ -1,7 +1,7 @@
 <% if current_user %>
   <%= simple_form_for([@user, @followed_show]) do |f| %>
     <%= f.input :show_id, :as => :hidden, :input_html => { :value => @show.id } %>
-    <%= f.submit 'Add to my shows', class: "addshow-btn", id: "test" %>
+    <%= f.submit 'Add to my shows', class: "addshow-btn bg-transparent ", id: "test" %>
   <% end %>
 <% else %>
   <p><%= link_to 'Add to my shows', new_user_registration_path, class: "addshow-btn" %></p>
