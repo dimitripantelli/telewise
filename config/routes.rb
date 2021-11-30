@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   resources :shows, only: [:index, :show] do
     resources :season_summaries, only: [:index]
+    resources :reviews, only: [:create]
   end
+  delete 'reviews/:id', to: 'reviews#destroy', as: :review
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
 # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
