@@ -33,21 +33,21 @@
 
     <div id="top-rated"></div>
 
-    <h2 class="text-center top-rated-title">TOP RATED TV-SHOWS</h2>
-
-    <div class="container">
-      <div class="row">
-        <% @shows.each do |show| %>
-          <div class="col-2 mb-4 p-1">
-          <a href="<%= show_path(show) %>">
-            <div class="card h-100 show-card">
-              <%= image_tag "#{show.name.gsub(/\s+/, "")}.jpg", class: 'card-img', class: 'show-img' %>
+      <h2 class="quote">Top rated shows</h2>
+      <div class="container">
+        <div class="toprated-body">
+          <div class="row">
+            <% @shows.each do |show| %>
+              <div class="col-2 mb-4 p-1">
+              <a href="<%= show_path(show) %>">
+                <div class="card h-100 show-card">
+                  <%= image_tag "#{show.name.gsub(/\s+/, "")}.jpg", class: 'card-img', class: 'show-img' %>
+                </div>
+              </a>
             </div>
-          </a>
-          </div>
-        <% end %>
+          <% end %>
+        </div>
       </div>
-    </div>
-
+      </div>
   </body>
 </html>

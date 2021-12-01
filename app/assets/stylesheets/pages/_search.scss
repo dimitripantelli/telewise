@@ -68,6 +68,7 @@
   color: rgb(146, 146, 146);
   font-size: 14px;
 
+
   &:hover {
     text-decoration: none;
     color: #7FFB50;
@@ -82,11 +83,11 @@
 
 .card-text {
   font-size: 14px;
+
 }
 
 .search-summary {
   width: 37.5vw;
-  padding-right: 21px;
   display: flex;
 
   p {
