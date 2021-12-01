@@ -9,7 +9,9 @@ class FollowedShowsController < ApplicationController
     @followed_show = FollowedShow.new
     @followed_show.show = @show
     @followed_show.user = current_user
-    if @followed_show.save
+    user_shows = current_user.followed_shows.map(&:show_id)
+    if user_shows.exclude?(@followed_show.show.id)
+      @followed_show.save
       # show message saying you've added
     end
   end
