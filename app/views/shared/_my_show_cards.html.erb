@@ -2,16 +2,16 @@
   <% if @user.progresses.empty? %>
     <% @user.followed_shows.each do |show| %>
       <div class="card-box">
-        <a href="<%= show_path(progress.show) %>" class="search-link">
+        <a href="<%= show_path(show) %>" class="search-link">
         <div class="my-show-image-wrapper" id="myshow-image">
+          <%= image_tag("#{show.show.name.gsub(/\s+/, '')}.jpg") %>
         </div>
 
         <div class="card-body">
           <a href="<%= show_path(show.show) %>" class="search-link d-flex">
           <div class="title-date">
             <div class="title-delete">
-              <h5 class="card-title"><%= show.show.name %> </h5>
-
+              <h5 class="card-title"><%= show.show.name %></h5>
               <%= link_to "+", user_followed_show_path(current_user, show), method: :delete, class: "danger-btn" %>
             </div>
             <% future_episodes = show.show.episodes.select do |episode| %>
