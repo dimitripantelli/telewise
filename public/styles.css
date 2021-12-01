@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Train+One&display=swap');
+
+body {
+  background-color: black;
+  color: white;
+  font-family: 'Ruda',
+    sans-serif;
+}
+
+.rails-default-error-page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.neon {
+  font-family: 'Train One', cursive;
+  font-size: 8vw;
+  letter-spacing: 0.0em;
+  text-transform: uppercase;
+  font-weight: 400;
+  text-shadow: 1px 0px 4px #dbffce,
+    2px 0px 4px #dbffce,
+    3px 0px 4px #dbffce,
+    2px 0px 3px #7FFB50,
+    2px 3px 15px #7FFB50,
+    2px 0px 15px,
+    5px 0px 125px,
+    20px 0vw 200px #7FFB50,
+    40px 0vw 200px #7FFB50;
+  color: #a6fd87;
+}
+
+#neon-big-logo {
+  padding-bottom: 100px;
+}
+
+#neon-big-logo:hover {
+  text-decoration: none;
+}
+
+.flicker-slow {
+  animation: flicker 3s linear infinite;
+}
+
+.flicker-fast {
+  animation: flicker 1s linear infinite;
+}
+
+@keyframes flicker {
+
+  0%,
+  19.999%,
+  22%,
+  62.999%,
+  64%,
+  64.999%,
+  70%,
+  100% {
+    //text-shadow: none;
+    opacity: .99;
+
+  }
+
+  20%,
+  21.999%,
+  63%,
+  63.999%,
+  65%,
+  69.999% {
+    opacity: 0.4;
+  }
+}
+
+.quote {
+  max-width: 70vw;
+  height: 83px;
+  color: white;
+  text-align: center;
+
+  font-family: Ruda;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 3.75vw;
+  line-height: 78px;
+  text-transform: uppercase;
+}
