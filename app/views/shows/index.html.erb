@@ -1,26 +1,4 @@
 <div class="container">
-  <% @shows.each do |show| %>
-      <div class="card h-100 mb-3 search-result">
-        <div class="row no-gutters">
-              <div class="col-md-2">
-
-                <%= image_tag "#{show.name.gsub(/\s+/, "")}.jpg", class: "search-img" %>
-              </div>
-              <div class="col-md-10">
-                <div class="card-body">
-                  <h5 class="card-title"><%= show.name %></h5>
-                  <p class="card-text"><%= strip_tags show.summary %></p>
-                  <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-              </div>
-        </div>
-      </div>
-    </a>
-  <% end %>
-</div>
-
-
-<div class="container">
 
   <% @shows.each do |show| %>
 
