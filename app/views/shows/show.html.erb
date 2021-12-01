@@ -1,7 +1,7 @@
 <div class="container py-3 seasonpage">
 
   <div class="row">
-    <div class="col-md-2 position-fixed">
+    <div class="col-md-2 poster-column">
       <%= image_tag "#{@show.name.gsub(/\s+/, "")}.jpg", style: "width: 100%", class: 'img-fluid', id: "poster"%>
       <p class="hover-3-rating">
       <%= '★' * (@show.rating.round / 2) %>

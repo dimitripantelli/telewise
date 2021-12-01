@@ -131,5 +131,20 @@
 }
 
 .show-details {
-  margin-left: 18vw;
+  margin-left: 17vw;
+}
+
+@media only screen and (max-width: 768px) {
+  .poster-column {
+    position: relative !important;
+    width: 50%;
+    margin: 0 auto;
+  }
+  .show-details {
+    margin: 0;
+  }
+}
+
+.poster-column {
+  position: fixed;
 }
