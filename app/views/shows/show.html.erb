@@ -19,7 +19,9 @@
       <p> <span id="seasons">Seasons:</span> <%= @show.number_of_seasons %></p>
       <div class="container">
         <div class="row mb-3">
-          <%= render "followed_shows/form", locals: {show: @show, followed_show: @followed_show}, class: "addmyshows-btn" %>
+          <% if current_user.followed_shows.where(show_id: @show.id).empty? %>
+            <%= render "followed_shows/form", locals: {show: @show, followed_show: @followed_show}, class: "addmyshows-btn" %>
+          <% end %>
           <% if current_user %>
             <%= render "reviews/review_modal", locals: {show: @show, followed_show: @followed_show}, class: "addshow-btn" %>
           <% else %>
