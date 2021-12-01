@@ -18,6 +18,7 @@ class FollowedShowsController < ApplicationController
         )
       end
     end
+    # redirect_to show_path(@show)
   end
 
   def destroy

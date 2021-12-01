@@ -82,11 +82,12 @@ end
 
 puts '...Finished!'
 
-#TEMP NOTIFICATIONS
+# TEMP NOTIFICATIONS
 
 # succession = Show.find_by(name: 'Succession')
-# succession.episodes[-3].airing_date = Date.today
-# succession.episodes[-3].save
+# today_episode = succession.episodes.find(5617)
+# today_episode.airing_date = Date.today
+# today_episode.save
 
 
 # TEMP FOLLWED SHOWS
