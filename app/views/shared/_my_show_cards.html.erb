@@ -2,11 +2,17 @@
   <% if @user.progresses.empty? %>
     <% @user.followed_shows.each do |show| %>
       <div class="card-box">
-        <div class="show-image" id="myshow-image" style="background-image: url('<%= image_path("#{show.show.name.gsub(/\s+/, "")}.jpg") %>')">
+
+        <div class="my-show-image-wrapper" id="myshow-image">
+          <%# <div id="myshow-image" style="background-image: url('= image_path("#{show.show.name.gsub(/\s+/, "")}.jpg")')"> </div> %>
+          <%= image_tag("#{show.show.name.gsub(/\s+/, '')}.jpg") %>
         </div>
-        <a href="<%= show_path(show) %>" class="search-link d-flex">
-          <div class="card-body">
-            <h5 class="card-title"> <%= show.show.name %> (<%= show.show.episodes.first.airing_date.year %>)</h5>
+        <div class="card-body">
+          <a href="<%= show_path(show.show) %>" class="search-link d-flex">
+          <div class="title-date">
+            <div class="title-delete">
+              <h5 class="card-title"><%= show.show.name %> </h5>
+
               <%= link_to "+", user_followed_show_path(current_user, show), method: :delete, class: "danger-btn" %>
             </div>
             <% future_episodes = show.show.episodes.select do |episode| %>
@@ -32,13 +38,17 @@
   <% else %>
       <% @show_progress.each do |progress, episode| %>
       <div class="card-box">
-        <div class="show-image" id="myshow-image" style="background-image: url('<%=
-        image_path("#{progress.show.name.gsub(/\s+/, "")}.jpg") %>')"></div>
+      <div class="my-show-image-wrapper" id="myshow-image">
+        <%= image_tag("#{progress.show.name.gsub(/\s+/, '')}.jpg") %>
+      </div>
         <div class="card-body">
-          <h5 class="card-title"><%= progress.show.name %></h5>
-          <p class="card-text">
+          <div class="title-delete">
+            <h5 class="card-title"><%= progress.show.name %></h5>
+            <%= link_to "+", user_followed_show_path(current_user, progress.show), method: :delete, class: "danger-btn" %>
+          </div>
           <% if episode.empty? %>
-            <p>No progress so far</p>
+            <p class="card-text" id="noprogress">No progress so far</p>
+            <p class="card-text">
           <% else %>
             Season <%= episode[0].season_number %>
             Episode <%= episode[0].episode_number %>
