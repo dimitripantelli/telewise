@@ -12,16 +12,15 @@ class FollowedShowsController < ApplicationController
     if @followed_show.save
       future_airing = check_air_date(@followed_show)
       future_airing.each do |episode|
-        notification = Notification.create!(
+        Notification.create!(
           episode_id: episode.id,
           user_id: current_user.id
         )
       end
-    user_shows = current_user.followed_shows.map(&:show_id)
-    if user_shows.exclude?(@followed_show.show.id)
-      @followed_show.save
-      # show message saying you've added
     end
+    user_shows = current_user.followed_shows.map(&:show_id)
+    @followed_show.save if user_shows.exclude?(@followed_show.show.id)
+    # show message saying you've added
     # redirect_to show_path(@show)
   end
 
