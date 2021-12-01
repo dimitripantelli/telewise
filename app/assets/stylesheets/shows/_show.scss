@@ -31,7 +31,7 @@
 .hover-3-rating {
   font-size: 28px;
   text-align: center;
-  color: rgb(0, 255, 134);
+  color: $green;
   margin-bottom: 0;
 }
 
@@ -97,8 +97,8 @@
 }
 
 .addshow-btn:hover {
-  color: #7ffb50;
-  border-color: #7ffb50;
+  color: $green;
+  border-color: $green;
   text-decoration: none;
   // transform: scale(1.025);
   opacity: 1;
