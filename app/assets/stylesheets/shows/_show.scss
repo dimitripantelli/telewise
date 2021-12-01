@@ -3,7 +3,17 @@
 }
 
 .show-page-box {
-  margin: 14px 0;
+  margin: 8px 0;
+}
+
+.show-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.series-title {
+  font-size: 34px;
 }
 
 .showname {
@@ -34,6 +44,11 @@
   text-align: center;
   list-style: none;
   padding: 0;
+  font-size: 26px;
+}
+
+.series-summary {
+  font-size: 16px;
 }
 
 #streaming-links li {
@@ -43,12 +58,12 @@
 #seasons {
   font-weight: 700;
   text-transform: uppercase;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .wheretowatch a {
   color: white;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .wheretowatch a:hover {
@@ -105,7 +120,7 @@
   font-size: 12px;
   padding: 14px 84px;
   width: 8vw;
-  margin-left: 8px;
+  margin-left: 16px;
 }
 
 .summary-button {

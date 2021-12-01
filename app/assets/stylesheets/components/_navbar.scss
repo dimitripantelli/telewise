@@ -2,7 +2,7 @@
 .navbar-lewagon {
   display: flex;
   justify-content: space-between;
-  background-color: rgb(0, 0, 0);
+  background-color: #171717;
   height: 8vh;
   padding: 14px 48px;
   z-index: 1;
@@ -16,14 +16,14 @@
 
   .avatar i {
     font-size: 28px;
-    color: white;
+    color: rgb(122, 122, 122);
     position: absolute;
     bottom: 12px;
   }
 }
 
 .home-navbar {
-  transition: top 0.6s;
+  transition: bottom 0.6s;
   display: none;
 }
 
@@ -39,6 +39,17 @@
   transform: rotate(+15deg);
 }
 
+.bell-container {
+  position: relative;
+}
+
+.fa-circle {
+  color: $green;
+  font-size: 0.6rem;
+  position: absolute;
+  right: 15px;
+}
+
 .dropdown-toggle::after {
   display: none;
 }
@@ -49,7 +60,6 @@
 
 #neon-logo {
   font-size: 24px;
-  transform: rotate(0deg);
   text-shadow: 1px 0px 4px #dbffce;
 }
 
@@ -67,8 +77,9 @@
   40px 0vw 200px #7FFB50;
 }
 
-.search-navbar {
+#navbar-searchbtn {
   position: absolute;
+  top: 1px;
 }
 
 .login-btn {

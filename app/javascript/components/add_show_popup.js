@@ -11,8 +11,11 @@ const popup_message = () => {
           text: "You will get a notification when a new episode is out",
           icon: "success",
         }).then(function () {
+          // setTimeout(() => {
+            // document.querySelector('#new_show').submit();
+            location.reload()
+          // }, 2000);
 
-          document.querySelector('#new_show').submit();
         });
       })
     }

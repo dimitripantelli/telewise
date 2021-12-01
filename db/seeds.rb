@@ -82,6 +82,14 @@ end
 
 puts '...Finished!'
 
+# TEMP NOTIFICATIONS
+
+# succession = Show.find_by(name: 'Succession')
+# today_episode = succession.episodes.find(5617)
+# today_episode.airing_date = Date.today
+# today_episode.save
+
+
 # TEMP FOLLWED SHOWS
 # FollowedShow.destroy_all
 # Progress.destroy_all

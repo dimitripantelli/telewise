@@ -4,6 +4,16 @@
   flex-wrap: wrap;
 }
 
+.card-review {
+  background-color: #171717;
+  border-radius: 4px;
+  margin-top: 14px;
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  width: 100vw;
+}
+
 .card-box {
     height: 421px;
     background-color: #171717;
@@ -11,7 +21,7 @@
     border-radius: 4px;
     margin-right: 14px;
     width: 18vw;
-    margin: 0 8px 16px 8px;;
+    margin: 8px 8px 16px 8px;
 
 
   &:hover {
@@ -19,6 +29,16 @@
   }
 
   transition: border 0.2s;
+}
+
+.myaccount-image {
+  height: 35vh;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+  filter: brightness(50%);
+  color: white;
 }
 
 #myshow-image > img {
@@ -35,9 +55,7 @@
 .card-body {
   display: flex;
   flex-direction: column;
-  align-items:flex-start;
 }
-
 
 .danger-btn {
   transform: rotate(45deg);
@@ -55,6 +73,10 @@
 
 .card-title {
   text-transform: uppercase;
+
+    &:hover {
+      color: #7FFB50;
+    }
 }
 
 .title-delete {

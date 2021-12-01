@@ -9,7 +9,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  padding-top: 55px;
 }
 
 .neon {
@@ -80,13 +80,14 @@
   font-family: Ruda;
   font-style: normal;
   font-weight: normal;
-  font-size: 3.75vw;
+  font-size: 3.25vw;
   line-height: 78px;
   text-transform: uppercase;
 }
 
 #landing-searchbar {
   margin: 50px 0;
+
 }
 
 .fa-search:before {
@@ -117,13 +118,9 @@
   background-color: none;
 }
 
-#top-rated {
-  padding: 50px;
-}
-
 .top-rated-title {
   color: $white;
-  padding: 20px;
+  padding: 40p 20x;
   font-size: 48px;
 }
 
@@ -136,7 +133,7 @@
   text-decoration: none;
 }
 
-.show-image{
+.show-image {
   display: flex;
   justify-content: center;
   align-content: center;
