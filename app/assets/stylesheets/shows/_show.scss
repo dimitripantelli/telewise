@@ -16,14 +16,34 @@
   font-size: 34px;
 }
 
-.rating-and-name {
+.showname {
   display: flex;
   justify-content: space-between;
   margin-right: 6px;
   text-transform: uppercase;
 }
 
+.show-summary {
+  font-size: 16px;
+  margin: 0;
+}
+
 .hover-3-rating {
+  font-size: 28px;
+  text-align: center;
+  color: rgb(0, 255, 134);
+  margin-bottom: 0;
+}
+
+.streaming-logos {
+  width: 50px;
+  border-radius: 10px;
+}
+
+#streaming-links {
+  text-align: center;
+  list-style: none;
+  padding: 0;
   font-size: 26px;
 }
 
@@ -31,11 +51,10 @@
   font-size: 16px;
 }
 
-.wheretowatch {
-  line-height: 75%;
+#streaming-links li {
+  display: inline;
 }
 
-#wheretowatch-title,
 #seasons {
   font-weight: 700;
   text-transform: uppercase;
@@ -49,30 +68,37 @@
 
 .wheretowatch a:hover {
   text-decoration: none;
-  color: #7FFB50;
+  color: #7ffb50;
 }
 
 .addshow-btn {
-   display: flex;
-   flex-direction: row;
-   justify-content: center;
-   align-items: center;
-   font-size: 12px;
-   padding: 14px 37px;
-   text-transform: uppercase;
-   font-weight: 700;
-   width: 16vw;
-   margin-bottom: 8px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  padding: 14px 37px;
+  text-transform: uppercase;
+  font-weight: 700;
+  width: 16vw;
 
-   border-radius: 4px;
-   color: white;
-   transition: transform .4s;
-   border: 1px solid white;
+  border-radius: 4px;
+  color: white;
+  transition: transform 0.4s;
+  border: 1px solid white;
+}
+
+#addreview {
+  height: 51px;
   }
 
+.form-group {
+  margin-bottom: 0;
+}
+
 .addshow-btn:hover {
-  color: #7FFB50;
-  border-color: #7FFB50;
+  color: #7ffb50;
+  border-color: #7ffb50;
   text-decoration: none;
   // transform: scale(1.025);
   opacity: 1;
@@ -100,11 +126,40 @@
 .summary-button {
   display: flex;
   flex-direction: row;
-  justify-content: space-between
+  justify-content: space-between;
 }
 
 #summary {
   font-size: 14px;
-  line-height: 200%;
-  width: 50vw;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+#poster {
+  border-radius: 6px;
+}
+
+.addshow-btn.bg-transparent {
+  margin-left: 15px;
+}
+
+.show-details {
+  margin-left: 17vw;
+}
+
+@media only screen and (max-width: 768px) {
+  .poster-column {
+    position: relative !important;
+    width: 50%;
+    margin: 0 auto;
+  }
+  .show-details {
+    margin: 0;
+  }
+}
+
+.poster-column {
+  position: fixed;
 }
