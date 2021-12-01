@@ -2,7 +2,7 @@
   <% if @user.progresses.empty? %>
     <% @user.followed_shows.each do |show| %>
       <div class="card-box">
-        <a href="<%= show_path(show) %>" class="search-link">
+        <a href="<%= show_path(show.show) %>" class="search-link">
         <div class="my-show-image-wrapper" id="myshow-image">
           <%= image_tag("#{show.show.name.gsub(/\s+/, '')}.jpg") %>
         </div>
