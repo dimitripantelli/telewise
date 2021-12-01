@@ -16,7 +16,7 @@
               <%= text_field_tag :query,
                 params[:query],
                 class: "form-control string required",
-                style:"height:50px",
+                style:"height:50px; color: rgb(112, 112, 112)",
                 placeholder: "Search for a show"
               %>
               <%= button_tag(type: 'submit', class: "btn btn-flat") do
@@ -30,6 +30,7 @@
       <a class="signup-btn" href="users/sign_up">Sign Up</a>
     </div>
     </div>
+
     <div id="top-rated"></div>
 
     <h2 class="text-center top-rated-title">TOP RATED TV-SHOWS</h2>
