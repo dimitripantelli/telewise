@@ -1,27 +1,25 @@
-<div class="show-page-box text-white">
-  <div class="container py-3">
-
-    <div class="row">
-      <div class="col-md-4 rounded show-details">
-        <%= image_tag "#{@show.name.gsub(/\s+/, "")}.jpg", style: "width: 85%", class: 'img-fluid' %>
+<div class="container py-3 seasonpage">
+  <div class="row">
+    <div class="col-md-2 poster-column">
+      <%= image_tag "#{@show.name.gsub(/\s+/, "")}.jpg", style: "width: 100%", class: 'img-fluid', id: "poster"%>
+      <p class="hover-3-rating">
+      <%= '★' * (@show.rating.round / 2) %>
+      </p>
+      <ul class="mt-2" id="streaming-links">
+        <% @streaming.each do |service| %>
+        <li><a href="<%= service[1] %>" target="_blank"><%= image_tag "#{service[0]}.webp", class: "streaming-logos"%></a></li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="col-md-9 show-details">
+      <div class="showname">
+        <h2><%= @show.name %></h2>
       </div>
-      <div class="col-md-8 show-details">
-      <div class="rating-and-name">
-        <h1 class="series-title"><%= @show.name %></h1>
-        <p class="hover-3-rating">
-          <%= '⭐ ' * (@show.rating.round / 2) %>
-        </p>
-      </div>
-        <p class="series-summary"><%= @show.summary %></p>
-        <p> <span id="seasons">Seasons:</span> <%= @show.number_of_seasons %></p>
-        <div class="wheretowatch">
-          <p id="wheretowatch-title">Where to Watch</p>
-          <p><% @streaming.each do |service| %>
-          <a href="<%= service[1] %>" target="_blank">> <%= service[0] %> </a> </p>
-          <% end %>
-        </div>
-        <%= render "followed_shows/form", locals: {show: @show, followed_show: @followed_show} %>
-        <div>
+      <p class="show-summary"><%= @show.summary %></p>
+      <p> <span id="seasons">Seasons:</span> <%= @show.number_of_seasons %></p>
+      <div class="container">
+        <div class="row mb-3">
+          <%= render "followed_shows/form", locals: {show: @show, followed_show: @followed_show}, class: "addmyshows-btn" %>
           <% if current_user %>
             <%= render "reviews/review_modal", locals: {show: @show, followed_show: @followed_show}, class: "addshow-btn" %>
           <% else %>
@@ -29,42 +27,41 @@
           <% end %>
         </div>
       </div>
-    </div>
-  </div>
-</div>
-
-<% count = 1 %> <% @show.number_of_seasons.times do %>
-<div class="container seasons-details-box">
-  <p class="details-season">Season <%= count %></p>
-  <div class="summary-button">
-    <p id="summary"> <%= @show.summary %> </p>
-    <p> <%= link_to 'Details', show_season_summaries_path(@show, season: count), class: "addshow-btn", id: "details-btn" %> </p>
-  </div>
-  <div class="progress">
-    <div
-      class="progress-bar"
-      role="progress-bar"
-      aria-valuenow="70"
-      aria-valuemin="0"
-      aria-valuemax="100"
-      style="width: <%= @percentage[count] %>%"
-    ></div>
-  </div>
-</div>
-<% count += 1 %>
-<% end %>
-
-<div class="container">
-  <div class="col-12 col-sm-6">
-    <h3>POPULAR REVIEWS</h3>
-    <% if @reviews.empty? %>
-      <small><em class="text-muted">Be the first one to review this show</em></small>
-    <% end %>
-    <% @reviews.each do |review| %>
-      <div>
-        <em class="mb-0"><%= review.user.name %> <%= '⭐ ' * (review.rating) %> <%= distance_of_time_in_words_to_now(review.created_at) %> ago</em></small>
-        <p class="text-white"><%= review.content %></p>
+      <% count = 1 %> <% @show.number_of_seasons.times do %>
+      <div class="container seasons-details-box">
+        <p class="details-season">Season <%= count %></p>
+        <div class="summary-button">
+          <p id="summary"> <%= strip_tags @season_summaries[count] %> </p>
+          <p> <%= link_to 'Details', show_season_summaries_path(@show, season: count), class: "addshow-btn", id: "details-btn" %> </p>
+        </div>
+        <div class="progress">
+          <div
+            class="progress-bar"
+            role="progress-bar"
+            aria-valuenow="70"
+            aria-valuemin="0"
+            aria-valuemax="100"
+            style="width: <%= @percentage[count] %>%"
+          ></div>
+        </div>
       </div>
-    <% end %>
+      <% count += 1 %>
+      <% end %>
+
+      <div class="container">
+        <div class="col-12 col-sm-6">
+          <h3>POPULAR REVIEWS</h3>
+          <% if @reviews.empty? %>
+            <small><em class="text-muted">Be the first one to review this show</em></small>
+          <% end %>
+          <% @reviews.each do |review| %>
+            <div>
+              <em class="mb-0"><%= review.user.name %> <%= '⭐ ' * (review.rating) %> <%= distance_of_time_in_words_to_now(review.created_at) %> ago</em></small>
+              <p class="text-white"><%= review.content %></p>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

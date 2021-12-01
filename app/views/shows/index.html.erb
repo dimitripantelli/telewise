@@ -1,10 +1,9 @@
-<!--
 <div class="container">
   <% @shows.each do |show| %>
-    <a href="<%= show_path(show) %>" class="search-link">
       <div class="card h-100 mb-3 search-result">
         <div class="row no-gutters">
               <div class="col-md-2">
+
                 <%= image_tag "#{show.name.gsub(/\s+/, "")}.jpg", class: "search-img" %>
               </div>
               <div class="col-md-10">
@@ -19,7 +18,7 @@
     </a>
   <% end %>
 </div>
--->
+
 
 <div class="container">
 

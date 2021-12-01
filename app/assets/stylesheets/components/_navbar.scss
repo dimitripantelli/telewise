@@ -39,6 +39,17 @@
   transform: rotate(+15deg);
 }
 
+.bell-container {
+  position: relative;
+}
+
+.fa-circle {
+  color: $green;
+  font-size: 0.6rem;
+  position: absolute;
+  right: 15px;
+}
+
 .dropdown-toggle::after {
   display: none;
 }

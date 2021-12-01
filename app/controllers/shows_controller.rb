@@ -60,6 +60,10 @@ class ShowsController < ApplicationController
     end
     @review = Review.new
     @reviews = Review.where(show: @show)
+    @season_summaries = {}
+    (1..@show.number_of_seasons).to_a.each do |n|
+      @season_summaries[n] = @show.season_summaries.find_by(season_number: n).summary
+    end
   end
 
   # def new
