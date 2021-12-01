@@ -6,12 +6,12 @@
 
     <div class="search-bar">
       <div class="search-form-control form-group">
-        <div id="search-navbar">
+        <div id="search-navbar login-btn navbarsearch">
           <%= form_tag shows_path, method: :get do %>
             <%= text_field_tag :query,
               params[:query],
               class: "form-control string required",
-              style:"height:40px; margin-top:14px;",
+              style:"height:40px; margin-top:14px; background-color: #171717; border-color: rgb(112, 112, 112); color: rgb(112, 112, 112);",
               placeholder: "Search for a TV-Show"
             %>
             <%= button_tag(type: 'submit', class: "btn btn-flat", id:"navbar-searchbtn") do
