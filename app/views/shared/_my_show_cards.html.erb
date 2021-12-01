@@ -7,6 +7,7 @@
           <%# <div id="myshow-image" style="background-image: url('= image_path("#{show.show.name.gsub(/\s+/, "")}.jpg")')"> </div> %>
           <%= image_tag("#{show.show.name.gsub(/\s+/, '')}.jpg") %>
         </div>
+
         <div class="card-body">
           <a href="<%= show_path(show.show) %>" class="search-link d-flex">
           <div class="title-date">
@@ -39,7 +40,7 @@
       <% @show_progress.each do |progress, episode| %>
       <div class="card-box">
       <div class="my-show-image-wrapper" id="myshow-image">
-        <%= image_tag("#{progress.show.name.gsub(/\s+/, '')}.jpg") %>
+      <%= image_tag("#{progress.show.name.gsub(/\s+/, '')}.jpg") %>
       </div>
         <div class="card-body">
           <div class="title-delete">
@@ -48,12 +49,12 @@
           </div>
           <% if episode.empty? %>
             <p class="card-text" id="noprogress">No progress so far</p>
-            <p class="card-text">
           <% else %>
-            Season <%= episode[0].season_number %>
-            Episode <%= episode[0].episode_number %>
+            <p class="card-text season-episode">
+              Season <%= episode[0].season_number %>
+              Episode <%= episode[0].episode_number %>
+            </p>
           <% end %>
-          </p>
         </div>
       </div>
     <% end %>

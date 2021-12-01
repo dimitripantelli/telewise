@@ -1,0 +1,64 @@
+.myreview-body {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.card-review {
+  width: 18vw;
+  margin: 8px 8px;
+  background-color: #171717;
+  border: 2px solid #171717;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  transition: border 0.2s;
+  justify-content: baseline;
+
+  &:hover {
+    border: 2px solid #7FFB50;
+  }
+
+  transition: border 0.2s;
+}
+
+// #myreview-img {
+//   height: 64vh;
+//   max-width: 100%;
+//   margin: 14px;
+//   align-items: flex-end;
+// }
+
+.myreview-img img {
+  display: flex;
+  max-height: 267px;
+  margin: 14px auto;
+  filter: brightness(100%);
+  flex-wrap: wrap;
+  object-fit: cover;
+  justify-content: center;
+  max-width: 100%;
+}
+
+
+.review-body {
+    text-decoration: none;
+    color: $white;
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+}
+
+.review-info {
+  line-height: 10px;
+}
+
+#timeago {
+  font-size: 12px;
+  color: rgb(146, 146, 146);
+}
+
+#review-content {
+  font-size: 14px;
+  font-weight: 600;
+}

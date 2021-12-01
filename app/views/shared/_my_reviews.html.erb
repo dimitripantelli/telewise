@@ -1,17 +1,25 @@
-
-<div class="card-deck show-cards">
+<div class="myreview-body">
   <% @reviews.each do |review| %>
     <div class="card-review">
         <%#= link_to "+", user_followed_show_path(current_user, show), method: :delete, class: "danger-btn" %>
-        <a href="<%= show_path(review.show) %>" class="search-link">
-          <div class="show-image" id="myshow-image" style="background-image: url('<%= image_path("#{review.show.name.gsub(/\s+/, "")}.jpg") %>')">
-          </div>
-        </a>
-          <div class="card-body">
-      <h5 class="card-title"> <%= review.show.name %> (<%= review.show.episodes.first.airing_date.year %>)</h5>
-            <small><em class="text-muted"><%= distance_of_time_in_words_to_now(review.created_at) %> ago</em></small>
-            <p class="card-text"><%= review.content %></p>
-          </div>
+      <div class="my-show-image-wrapper">
+        <div class="myreview-img">
+          <a href="<%= show_path(review.show) %>" class="search-link">
+            <%= image_tag "#{review.show.name.gsub(/\s+/, "")}.jpg" %>
+          </a>
+        </div>
+      </div>
+
+      <div class="review-body">
+        <h5>
+          <span class="card-title"> <%= review.show.name %> </span>
+        </h5>
+        <div class="review-info">
+          <p id="timeago"><%= distance_of_time_in_words_to_now(review.created_at) %> ago</p>
+          <p class="card-text" id="review-content">'<%= review.content %>'</p>
+          <p class="card-text"><%= '⭐ ' * (review.rating) %></p>
+        </div>
+      </div>
     </div>
   <% end %>
 </div>
