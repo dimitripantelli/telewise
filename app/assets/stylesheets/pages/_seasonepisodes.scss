@@ -1,5 +1,66 @@
 @import url('https://fonts.googleapis.com/css?family=Quicksand:400,700&display=swap');
 
+.season-title {
+//   color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+//   font-size: 3.25vw;
+//   margin: 20px 0;
+}
+
+#back-btn {
+  text-decoration: none;
+  z-index: 0;
+
+  &:hover {
+    z-index: 0;
+  }
+}
+
+#episode-title {
+  margin-right: 12px;
+}
+
+.episode-container {
+  border-radius: 4px;
+  color: white;
+  background-color: #171717;
+  display: flex;
+  flex-direction: column;
+  padding: 28px;
+  margin-bottom: 14px;
+}
+
+.episode-heading {
+  font-size: 20px;
+}
+
+#episode-name {
+  text-transform: uppercase;
+}
+
+#episodeinfo > p {
+  width: 50vw;
+}
+
+#episodeinfo {
+  font-size: 14px;
+  justify-self: center;
+  align-self: center;
+  line-height: 200%;
+}
+
+.item {
+  position: sticky;
+}
+
+.progress {
+  top: 4.2rem;
+  z-index: 10;
+}
+
 .box {
     width: 300px;
     margin: 25px 0;
@@ -11,7 +72,7 @@
         font-size: 26px;
         color: #4D4D4D;
         position: absolute;
-        z-index: 10;
+        // z-index: 10;
         padding-left: 50px;
         cursor: pointer;
     }
@@ -68,5 +129,5 @@
 
 p#episodeinfo {
   font-size: 16px;
-  width: 180em;
+  width: 160em;
 }
