@@ -16,7 +16,7 @@ class FollowedShowsController < ApplicationController
 
   def destroy
     FollowedShow.destroy(params[:id])
-    redirect_to account_path
+    redirect_to user_followed_shows_path
   end
 
   private
