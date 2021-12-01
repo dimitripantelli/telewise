@@ -6,6 +6,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: baseline;
+  margin-top: 21px;
 //   font-size: 3.25vw;
 //   margin: 20px 0;
 }
@@ -21,6 +22,12 @@
 
 #episode-title {
   margin-right: 12px;
+  text-transform: uppercase;
+  font-size: 32px;
+}
+
+#season-number {
+  font-size: 26px;
 }
 
 .episode-container {

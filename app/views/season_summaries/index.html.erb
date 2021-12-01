@@ -11,7 +11,7 @@
 
 <div class="container">
   <div class="season-title">
-    <h1><span class="quote" id="episode-title"><%= @show.name %></span>  season <%= @season %></h1>
+    <h1><span id="episode-title"><%= @show.name %></span><span id="season-number"> season <%= @season %></span></h1>
     <p><%= link_to 'Back', show_path(@show), class: "login-btn", id: "back-btn" %></p>
   </div>
 
