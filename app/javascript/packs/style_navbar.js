@@ -3,8 +3,8 @@ window.onscroll = function() {scrollFunction()};
 function scrollFunction() {
   let homeNavbar = document.querySelector(".home-navbar")
   if (document.body.scrollTop > 720 || document.documentElement.scrollTop > 720) {
-    homeNavbar.style.display = "flex";
+    homeNavbar.style.backgroundColor = "#171717";
   } else {
-    homeNavbar.style.display = "none";
+    homeNavbar.style.backgroundColor = "transparent";
   }
 }

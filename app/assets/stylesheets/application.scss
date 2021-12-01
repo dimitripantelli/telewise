@@ -20,10 +20,12 @@ html {
 }
 
 body {
-  background-color: #212121;
-  padding-top: 11vh;
+  background-color: #030303;
 }
 
+.body-padding {
+  padding-top: 11vh;
+}
 .progress-bar {
   background-color: rgb(0, 244, 140);
   transition: width 1s;
