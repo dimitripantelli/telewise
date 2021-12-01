@@ -18,9 +18,11 @@
       </div>
       <p class="show-summary"><%= @show.summary %></p>
       <p> <span id="seasons">Seasons:</span> <%= @show.number_of_seasons %></p>
-      <div class="row mb-3">
-        <%= render "followed_shows/form", locals: {show: @show, followed_show: @followed_show}, class: "addmyshows-btn" %>
-        <input type="button" value="Add Review" class="addshow-btn bg-transparent" data-toggle="modal" data-target="#exampleModal" id="addreview">
+      <div class="container">
+        <div class="row mb-3">
+          <%= render "followed_shows/form", locals: {show: @show, followed_show: @followed_show}, class: "addmyshows-btn" %>
+          <input type="button" value="Add Review" class="addshow-btn bg-transparent" data-toggle="modal" data-target="#exampleModal" id="addreview">
+        </div>
       </div>
       <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
