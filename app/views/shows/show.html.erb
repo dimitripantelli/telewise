@@ -3,7 +3,7 @@
     <div class="col-md-2 poster-column">
       <%= image_tag "#{@show.name.gsub(/\s+/, "")}.jpg", style: "width: 100%", class: 'img-fluid', id: "poster"%>
       <p class="hover-3-rating">
-      <%= '★' * (@show.rating.round / 2) %>
+      <%= '★ ' * (@show.rating.round / 2) %>
       </p>
       <ul class="mt-2" id="streaming-links">
         <% @streaming.each do |service| %>
@@ -16,7 +16,7 @@
         <h2><%= @show.name %></h2>
       </div>
       <p class="show-summary"><%= @show.summary %></p>
-      <p> <span id="seasons">Seasons:</span> <%= @show.number_of_seasons %></p>
+      <p id="seasons">Seasons: <%= @show.number_of_seasons %></p>
       <div class="container">
         <div class="row mb-3">
           <%= render "followed_shows/form", locals: {show: @show, followed_show: @followed_show}, class: "addmyshows-btn" %>
