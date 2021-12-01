@@ -87,6 +87,7 @@
   font-size: 3.25vw;
   line-height: 78px;
   text-transform: uppercase;
+  margin: 0 auto;
 }
 
 #landing-searchbar {
@@ -121,9 +122,13 @@
   background-color: none;
 }
 
+.toprated-body {
+  margin: 20px 0;
+}
+
 .top-rated-title {
   color: $white;
-  padding: 40p 20x;
+  padding: 60px 20px;
   font-size: 48px;
 }
 

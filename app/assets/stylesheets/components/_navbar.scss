@@ -1,14 +1,13 @@
-
 .navbar-lewagon {
   display: flex;
   justify-content: space-between;
   background-color: #171717;
-  height: 8vh;
   padding: 14px 48px;
   z-index: 1;
   width: 100%;
   position: fixed;
   top: 0;
+  animation: slidein 0.4s;
 
   .avatar {
     cursor: pointer;
@@ -17,8 +16,12 @@
   .avatar i {
     font-size: 28px;
     color: rgb(122, 122, 122);
-    position: absolute;
-    bottom: 12px;
+    transition: ease-in-out 0.25s;
+    opacity: 0.8;
+
+    &:hover {
+      color: white;
+    }
   }
 }
 
@@ -29,7 +32,7 @@
 
 .bell {
   font-size: 28px;
-  padding-right: 14px;
+  padding-right: 28px;
   color: rgb(122, 122, 122);
   opacity: 0.8;
   transition: ease-in-out 0.25s;
@@ -37,6 +40,7 @@
 
 .bell:hover {
   transform: rotate(+15deg);
+  color: white;
 }
 
 .bell-container {
@@ -103,4 +107,14 @@
 .login-btn:hover {
   color: white;
   opacity: 1;
+}
+
+@keyframes slidein {
+  from {
+    transform: translateY(-100%);
+  }
+
+  to {
+    transform: translateY(0%);
+  }
 }

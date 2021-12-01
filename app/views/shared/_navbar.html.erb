@@ -11,8 +11,8 @@
             <%= text_field_tag :query,
               params[:query],
               class: "form-control string required",
-              style:"height:40px; margin-top:14px; background-color: #171717; border-color: rgb(112, 112, 112); color: rgb(112, 112, 112);",
-              placeholder: "Search for a TV-Show"
+              style:"height:40px; background-color: #171717; border-color: rgb(112, 112, 112); color: rgb(112, 112, 112);",
+              placeholder: "Search for a show"
             %>
             <%= button_tag(type: 'submit', class: "btn btn-flat", id:"navbar-searchbtn") do
               "<i class='fas fa-search'></i>".html_safe
@@ -41,7 +41,7 @@
                 <%= render "notifications/index" %>
             </div>
           </li>
-        
+
             <li class="nav-item dropdown avatar">
               <i class="fas fa-bars dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ></i>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
