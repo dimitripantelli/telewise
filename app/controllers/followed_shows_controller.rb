@@ -17,6 +17,10 @@ class FollowedShowsController < ApplicationController
           user_id: current_user.id
         )
       end
+    user_shows = current_user.followed_shows.map(&:show_id)
+    if user_shows.exclude?(@followed_show.show.id)
+      @followed_show.save
+      # show message saying you've added
     end
     # redirect_to show_path(@show)
   end

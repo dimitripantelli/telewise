@@ -1,7 +1,7 @@
 
 <div class="card-deck show-cards">
   <% @reviews.each do |review| %>
-    <div class="card-box">
+    <div class="card-review">
         <%#= link_to "+", user_followed_show_path(current_user, show), method: :delete, class: "danger-btn" %>
         <a href="<%= show_path(review.show) %>" class="search-link">
           <div class="show-image" id="myshow-image" style="background-image: url('<%= image_path("#{review.show.name.gsub(/\s+/, "")}.jpg") %>')">
