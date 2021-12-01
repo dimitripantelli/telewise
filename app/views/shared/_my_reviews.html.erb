@@ -4,21 +4,19 @@
         <%#= link_to "+", user_followed_show_path(current_user, show), method: :delete, class: "danger-btn" %>
       <div class="my-show-image-wrapper">
         <div class="myreview-img">
-          <a href="<%= show_path(review.show) %>" class="search-link">
-            <%= image_tag "#{review.show.name.gsub(/\s+/, "")}.jpg" %>
-          </a>
+        <a href="<%= show_path(review.show) %>" class="search-link">
+          <%= image_tag "#{review.show.name.gsub(/\s+/, "")}.jpg" %>
         </div>
       </div>
 
       <div class="review-body">
-        <h5>
-          <span class="card-title"> <%= review.show.name %> </span>
-        </h5>
+        <h5 class="card-title"><%= review.show.name %></h5>
         <div class="review-info">
           <p id="timeago"><%= distance_of_time_in_words_to_now(review.created_at) %> ago</p>
           <p class="card-text" id="review-content">'<%= review.content %>'</p>
           <p class="card-text"><%= '⭐ ' * (review.rating) %></p>
         </div>
+        </a>
       </div>
     </div>
   <% end %>
