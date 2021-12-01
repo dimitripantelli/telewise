@@ -1,83 +1,80 @@
-<div class="show-page-box text-white">
-  <div class="container py-3">
+<div class="container py-3 seasonpage">
 
-    <div class="row">
-      <div class="col-md-3" id="streaming-links-wrapper">
-        <%= image_tag "#{@show.name.gsub(/\s+/, "")}.jpg", style: "width: 100%", class: 'img-fluid', id: "poster"%>
-          <ul class="mt-2" id="streaming-links">
-            <% @streaming.each do |service| %>
-            <li><a href="<%= service[1] %>" target="_blank"><%= image_tag "#{service[0]}.webp", class: "streaming-logos"%></a></li>
-            <% end %>
-          </ul>
+  <div class="row">
+    <div class="col-md-2 position-fixed">
+      <%= image_tag "#{@show.name.gsub(/\s+/, "")}.jpg", style: "width: 100%", class: 'img-fluid', id: "poster"%>
+      <p class="hover-3-rating">
+      <%= '★' * (@show.rating.round / 2) %>
+      </p>
+      <ul class="mt-2" id="streaming-links">
+        <% @streaming.each do |service| %>
+        <li><a href="<%= service[1] %>" target="_blank"><%= image_tag "#{service[0]}.webp", class: "streaming-logos"%></a></li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="col-md-9 show-details">
+      <div class="showname">
+        <h2><%= @show.name %></h2>
       </div>
-      <div class="col-md-9 show-details">
-        <div class="rating-and-name">
-          <h2><%= @show.name %></h2>
-          <p class="hover-3-rating">
-            <%= '⭐ ' * (@show.rating.round / 2) %>
-          </p>
-        </div>
-        <p class="show-summary"><%= @show.summary %></p>
-        <p> <span id="seasons">Seasons:</span> <%= @show.number_of_seasons %></p>
-        <div class="row">
-          <%= render "followed_shows/form", locals: {show: @show, followed_show: @followed_show}, class: "addmyshows-btn" %>
-          <input type="button" value="Add Review" class="addshow-btn bg-transparent" data-toggle="modal" data-target="#exampleModal" id="addreview">
-        </div>
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content text-dark">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Add Review</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body text-dark">
-                <%= render "reviews/review_form", locals: {show: @show, review: @review} %>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              </div>
+      <p class="show-summary"><%= @show.summary %></p>
+      <p> <span id="seasons">Seasons:</span> <%= @show.number_of_seasons %></p>
+      <div class="row mb-3">
+        <%= render "followed_shows/form", locals: {show: @show, followed_show: @followed_show}, class: "addmyshows-btn" %>
+        <input type="button" value="Add Review" class="addshow-btn bg-transparent" data-toggle="modal" data-target="#exampleModal" id="addreview">
+      </div>
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content text-dark">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Add Review</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body text-dark">
+              <%= render "reviews/review_form", locals: {show: @show, review: @review} %>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</div>
-
-<% count = 1 %> <% @show.number_of_seasons.times do %>
-<div class="container seasons-details-box">
-  <p class="details-season">Season <%= count %></p>
-  <div class="summary-button">
-    <p id="summary"> <%= strip_tags @season_summaries[count] %> </p>
-    <p> <%= link_to 'Details', show_season_summaries_path(@show, season: count), class: "addshow-btn", id: "details-btn" %> </p>
-  </div>
-  <div class="progress">
-    <div
-      class="progress-bar"
-      role="progress-bar"
-      aria-valuenow="70"
-      aria-valuemin="0"
-      aria-valuemax="100"
-      style="width: <%= @percentage[count] %>%"
-    ></div>
-  </div>
-</div>
-<% count += 1 %>
-<% end %>
-
-<div class="container">
-  <div class="col-12 col-sm-6">
-    <h3>Reviews</h3>
-    <% if @reviews.empty? %>
-      <small><em class="text-muted">Be the first one to review this show</em></small>
-    <% end %>
-    <% @reviews.each do |review| %>
-      <div>
-        <small><em class="text-muted"><%= review.user.name %><%= distance_of_time_in_words_to_now(review.created_at) %> ago</em></small>
-        <p class="mb-0"><%= review.content %></p>
+      <% count = 1 %> <% @show.number_of_seasons.times do %>
+      <div class="container seasons-details-box">
+        <p class="details-season">Season <%= count %></p>
+        <div class="summary-button">
+          <p id="summary"> <%= strip_tags @season_summaries[count] %> </p>
+          <p> <%= link_to 'Details', show_season_summaries_path(@show, season: count), class: "addshow-btn", id: "details-btn" %> </p>
+        </div>
+        <div class="progress">
+          <div
+            class="progress-bar"
+            role="progress-bar"
+            aria-valuenow="70"
+            aria-valuemin="0"
+            aria-valuemax="100"
+            style="width: <%= @percentage[count] %>%"
+          ></div>
+        </div>
       </div>
-    <% end %>
+      <% count += 1 %>
+      <% end %>
+
+      <div class="container">
+        <div class="col-12 col-sm-6">
+          <h3>Reviews</h3>
+          <% if @reviews.empty? %>
+          <small><em class="text-muted">Be the first one to review this show</em></small>
+          <% end %>
+          <% @reviews.each do |review| %>
+          <div>
+            <small><em class="text-muted"><%= review.user.name %><%= distance_of_time_in_words_to_now(review.created_at) %> ago</em></small>
+            <p class="mb-0"><%= review.content %></p>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

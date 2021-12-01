@@ -6,12 +6,7 @@
   margin: 14px 0;
 }
 
-.show-details {
-  display: flex;
-  flex-direction: column;
-}
-
-.rating-and-name {
+.showname {
   display: flex;
   justify-content: space-between;
   margin-right: 6px;
@@ -25,6 +20,9 @@
 
 .hover-3-rating {
   font-size: 28px;
+  text-align: center;
+  color: rgb(0, 255, 134);
+  margin-bottom: 0;
 }
 
 .streaming-logos {
@@ -130,4 +128,8 @@
 
 .addshow-btn.bg-transparent {
   margin-left: 15px;
+}
+
+.show-details {
+  margin-left: 18vw;
 }
