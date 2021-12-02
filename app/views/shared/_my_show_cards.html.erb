@@ -47,7 +47,7 @@
           <%= link_to "+", user_followed_show_path(current_user, progress.show), method: :delete, class: "danger-btn" %>
         </div>
       <% if episode.empty? %>
-        <p class="card-text" id="noprogress">No progress so far</p>
+        <p class="card-text" id="noprogress">Start tracking this show</p>
       <% else %>
         <p class="card-text season-episode">
           Season <strong><%= episode.last.season_number %></strong>
