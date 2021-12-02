@@ -1,5 +1,5 @@
   <%= simple_form_for([@show, @review]) do |f| %>
-    <%= f.input :content %>
-    <%= f.input :rating, collection: (1..5).to_a %>
+    <%= f.input :content, label: false, placeholder: "What do you think of #{@show.name} ?" %>
+    <%= f.input :rating, collection: (1..5).to_a, label: false %>
     <%= f.submit 'Add Review', class: "signup-btn", id: "addreview-btn" %>
   <% end %>
