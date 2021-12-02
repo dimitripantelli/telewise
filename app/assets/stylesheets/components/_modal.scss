@@ -12,13 +12,16 @@
   }
 }
 
-.br-theme-css-stars, .br-widget {
-  margin-bottom: 18px;
-  color: white;
+.modal-dialog {
+  border-radius: 5px;
+  border: 1px solid rgb(198, 198, 198);
 }
+
 
 textarea, .form-control {
   margin: 4px 0;
+  background-color: $black !important;
+  color: white !important;
 }
 
 .select {
@@ -37,4 +40,9 @@ textarea, .form-control {
 
 #addreview-btn {
   font-size: 12px;
+}
+
+.br-theme-css-stars, .br-widget {
+  margin-bottom: 18px;
+  color: white;
 }
