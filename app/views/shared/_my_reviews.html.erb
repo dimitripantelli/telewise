@@ -14,7 +14,7 @@
         <div class="review-info">
           <p id="timeago"><%= distance_of_time_in_words_to_now(review.created_at) %> ago</p>
           <p class="card-text" id="review-content">'<%= review.content %>'</p>
-          <p class="card-text"><span class="hover-3-rating"> <%= '★ ' * (review.rating) %></span></p>
+          <p class="card-text"><span class="hover-3-rating" id="myaccount-rating">  <%= '★ ' * (review.rating) %></span></p>
         </div>
         </a>
       </div>
