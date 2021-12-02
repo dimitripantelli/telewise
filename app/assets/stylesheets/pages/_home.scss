@@ -4,12 +4,17 @@
   grid-template-rows: auto 1fr auto;
 }
 
+.page-wrapper {
+  position:relative;
+  top: -400px;
+}
+
 .homepage {
-  height: 92vh;
+  // height: 92vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 55px;
+  padding-top: 40px;
 }
 
 #top-rated {
@@ -35,7 +40,7 @@
 }
 
 #neon-big-logo {
-  padding-bottom: 8vh;
+  padding-bottom: 20px;
 }
 
 #neon-big-logo:hover {

@@ -18,7 +18,7 @@
     />
   </head>
 
-  <body>
+  <body class="<% 'body-padding' unless params[:action] == 'home' %>">
     <div class="page-container">
       <div class="navbar-container"><%= render "shared/navbar" %></div>
       <div class="content-container"><%= yield %></div>
