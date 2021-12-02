@@ -25,7 +25,8 @@ class FollowedShowsController < ApplicationController
   end
 
   def destroy
-    FollowedShow.destroy(params[:id])
+    show = Show.find(params[:id])
+    show.followed_shows.find_by(user: params[:user_id]).destroy
     redirect_to account_path
   end
 
