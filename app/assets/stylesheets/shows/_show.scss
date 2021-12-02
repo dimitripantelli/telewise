@@ -32,7 +32,7 @@
   font-size: 28px;
   text-align: center;
   color: $green;
-  margin-bottom: 0;
+  margin: 14px;
 }
 
 .rating-review-display {
@@ -42,6 +42,7 @@
 .streaming-logos {
   width: 50px;
   border-radius: 10px;
+  margin-right: 4px;
 }
 
 #streaming-links {
@@ -53,6 +54,7 @@
 
 .series-summary {
   font-size: 16px;
+  line-height: 200%;
 }
 
 #streaming-links li {
@@ -63,6 +65,7 @@
   font-weight: 700;
   text-transform: uppercase;
   font-size: 16px;
+  margin-top: 14px;
 }
 
 .season-para {
@@ -72,6 +75,7 @@
 .wheretowatch a {
   color: white;
   font-size: 16px;
+  transition: ease-in-out 0.25s;
 }
 
 .wheretowatch a:hover {
@@ -88,19 +92,12 @@
   padding: 14px 37px;
   text-transform: uppercase;
   font-weight: 700;
-  width: 200px;
+  width: 16vw;
+  transition: ease-in-out 0.25s;
   border-radius: 4px;
   color: white;
   transition: transform 0.4s;
   border: 1px solid white;
-}
-
-#addreview {
-  height: 51px;
-  }
-
-.form-group {
-  margin-bottom: 0;
 }
 
 .addshow-btn:hover {
@@ -109,6 +106,15 @@
   text-decoration: none;
   // transform: scale(1.025);
   opacity: 1;
+}
+
+#addreview {
+  height: 51px;
+  transition: ease-in-out 0.25s;
+  }
+
+.form-group {
+  margin-bottom: 0;
 }
 
 .seasons-details-box {
@@ -120,7 +126,6 @@
 
 .details-season {
   text-transform: uppercase;
-  font-weight: 700;
 }
 
 #details-btn {
@@ -128,6 +133,7 @@
   padding: 14px 84px;
   width: 8vw;
   margin-left: 16px;
+  transition: ease-in-out 0.25s;
 }
 
 .summary-button {
@@ -150,6 +156,7 @@
 
 .addshow-btn.bg-transparent {
   margin-right: 15px;
+  transition: ease-in-out 0.25s;
 }
 
 .show-details {

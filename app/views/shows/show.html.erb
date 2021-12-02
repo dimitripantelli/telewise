@@ -3,7 +3,7 @@
     <div class="col-md-2 poster-column">
       <%= image_tag "#{@show.name.gsub(/\s+/, "")}.jpg", style: "width: 100%", class: 'img-fluid', id: "poster"%>
       <p class="hover-3-rating">
-      <%= '★' * (@show.rating.round / 2) %>
+      <%= '★ ' * (@show.rating.round / 2) %>
       </p>
       <ul class="mt-2" id="streaming-links">
         <% @streaming.each do |service| %>
