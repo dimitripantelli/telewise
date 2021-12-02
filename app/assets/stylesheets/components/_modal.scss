@@ -1,35 +1,40 @@
-.modal-header {
-  background-color: #212121;
-  // display: flex;
-  // flex-direction: row;
-  // justify-content: center;
-  // align-items: center;
-  // font-size: 12px;
-  // padding: 14px 37px;
-  // text-transform: uppercase;
-  // font-weight: 700;
-  // width: 16vw;
-  // margin-bottom: 8px;
+.modal-content {
+  background-color: #171717;
 
-  //  border-radius: 4px;
-  //  color: white;
-  //  transition: transform .4s;
-  //  border: 1px solid white;
+  h5, label {
+    color: white;
+    margin: 2px 0;
+    text-transform: uppercase;
   }
 
+  label {
+    font-size: 12px;
+  }
+}
 
-// .modal-btn :hover {
-//   color: #7FFB50;
-//   border-color: #7FFB50;
-//   text-decoration: none;
-//   // transform: scale(1.025);
-//   opacity: 1;
-// }
+.br-theme-css-stars, .br-widget {
+  margin-bottom: 18px;
+  color: white;
+}
 
-.modal-body {
-  background-color: #212121;
-  // border-color: #7FFB50;
-  // text-decoration: none;
-  // // transform: scale(1.025);
-  // opacity: 1;
+textarea, .form-control {
+  margin: 4px 0;
+}
+
+.select {
+  margin-top: 4px;
+}
+
+.close {
+  color: #fb5050;
+  text-shadow: none;
+  opacity: 1;
+
+  &:hover {
+    color: #fb5050;
+  }
+}
+
+#addreview-btn {
+  font-size: 12px;
 }
