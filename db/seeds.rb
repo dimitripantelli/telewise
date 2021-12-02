@@ -84,10 +84,12 @@ puts '...Finished!'
 
 # TEMP NOTIFICATIONS
 
+# puts "Changing an episode of Succession to today's date"
 # succession = Show.find_by(name: 'Succession')
 # today_episode = succession.episodes.find(5617)
 # today_episode.airing_date = Date.today
 # today_episode.save
+# puts "Done :)"
 
 
 # TEMP FOLLWED SHOWS
