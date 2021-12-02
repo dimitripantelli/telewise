@@ -1,0 +1,41 @@
+.modal-content {
+  background-color: #171717;
+  border-radius: 4px;
+
+  h5, label {
+    color: white;
+    margin: 2px 0;
+    text-transform: uppercase;
+  }
+
+  label {
+    font-size: 12px;
+  }
+}
+
+.br-theme-css-stars, .br-widget {
+  margin-bottom: 18px;
+  color: white;
+}
+
+textarea, .form-control {
+  margin: 4px 0;
+}
+
+.select {
+  margin-top: 4px;
+}
+
+.close {
+  color: #fb5050;
+  text-shadow: none;
+  opacity: 1;
+
+  &:hover {
+    color: #fb5050;
+  }
+}
+
+#addreview-btn {
+  font-size: 12px;
+}

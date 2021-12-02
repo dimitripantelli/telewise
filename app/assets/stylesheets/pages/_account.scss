@@ -5,13 +5,14 @@
 }
 
 .card-box {
-    height: 421px;
+    height: 430px;
     background-color: #171717;
     border: 2px solid #171717;
     border-radius: 4px;
     margin-right: 14px;
     width: 18vw;
     margin: 8px 8px 16px 8px;
+    transition: ease-in-out 0.25s;
 
 
   &:hover {
@@ -45,6 +46,11 @@
 .card-body {
   display: flex;
   flex-direction: column;
+  padding-top: 8px;
+}
+
+#noprogress {
+  color: rgb(112, 112, 112);
 }
 
 .danger-btn {
@@ -54,6 +60,7 @@
   opacity: 0.75;
   margin-right: 4px;
   line-height: 75%;
+  transition: ease-in-out 0.25s;
 }
 
 .danger-btn:hover {
@@ -63,6 +70,7 @@
 
 .card-title {
   text-transform: uppercase;
+  transition: ease-in-out 0.25s;
 
     &:hover {
       color: $green;

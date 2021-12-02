@@ -12,6 +12,7 @@
   border-radius: 4px;
   display: flex;
   flex-direction: row;
+  transition: ease-in-out 0.25s;
 
   &:hover {
     border: 2px solid #7FFB50;
@@ -67,6 +68,8 @@
   display: block;
   color: rgb(146, 146, 146);
   font-size: 14px;
+  transition: ease-in-out 0.25s;
+  line-height: 50%;
 
 
   &:hover {
@@ -79,6 +82,7 @@
   text-transform: uppercase;
   font-size: 14px;
   font-weight: 600;
+  margin-bottom: 8px;
 }
 
 .card-text {

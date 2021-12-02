@@ -3,7 +3,7 @@
   justify-content: space-between;
   background-color: #171717;
   padding: 14px 48px;
-  z-index: 1;
+  z-index: 11;
   width: 100%;
   position: fixed;
   top: 0;
@@ -27,7 +27,8 @@
 
 .home-navbar {
   transition: bottom 0.6s;
-  display: none;
+  background-color: #171717;
+
 }
 
 .bell {
@@ -65,6 +66,7 @@
 #neon-logo {
   font-size: 24px;
   text-shadow: 1px 0px 4px #dbffce;
+  transition: ease-in-out 0.25s;
 }
 
 #neon-logo:hover {
@@ -102,6 +104,7 @@
   border: 1px solid white;
   opacity: 0.6;
   font-size: 14px;
+  transition: ease-in-out 0.25s;
 }
 
 .login-btn:hover {
