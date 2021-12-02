@@ -50,8 +50,8 @@
         <p class="card-text" id="noprogress">No progress so far</p>
       <% else %>
         <p class="card-text season-episode">
-          Season <strong><%= episode[0].season_number %></strong>
-          Episode <strong><%= episode[0].episode_number %></strong>
+          Season <strong><%= episode.last.season_number %></strong>
+          Episode <strong><%= episode.last.episode_number %></strong>
         </p>
       <% end %>
         </a>
