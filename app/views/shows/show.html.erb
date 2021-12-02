@@ -16,10 +16,12 @@
         <h2><%= @show.name %></h2>
       </div>
       <p class="show-summary"><%= @show.summary %></p>
-      <p id="seasons">Seasons: <%= @show.number_of_seasons %></p>
+      <p class="season-para"> <span id="seasons">Seasons:</span> <%= @show.number_of_seasons %></p>
       <div class="container">
         <div class="row mb-3">
-          <%= render "followed_shows/form", locals: {show: @show, followed_show: @followed_show}, class: "addmyshows-btn" %>
+          <% if current_user.followed_shows.where(show_id: @show.id).empty? %>
+            <%= render "followed_shows/form", locals: {show: @show, followed_show: @followed_show}, class: "addmyshows-btn" %>
+          <% end %>
           <% if current_user %>
             <%= render "reviews/review_modal", locals: {show: @show, followed_show: @followed_show}, class: "addshow-btn" %>
           <% else %>
@@ -49,14 +51,18 @@
       <% end %>
 
       <div class="container">
-        <div class="col-12 col-sm-6">
+        <div class="reviews-container">
           <h3>POPULAR REVIEWS</h3>
           <% if @reviews.empty? %>
             <small><em class="text-muted">Be the first one to review this show</em></small>
           <% end %>
           <% @reviews.each do |review| %>
             <div>
-              <em class="mb-0"><%= review.user.name %> <%= '⭐ ' * (review.rating) %> <%= distance_of_time_in_words_to_now(review.created_at) %> ago</em></small>
+              <p class="mb-0">
+              <em><small> Review by <%= review.user.name %></em>
+              <span class="hover-3-rating rating-review-display"> <%= '★' * (review.rating) %></span>
+              <em><%= distance_of_time_in_words_to_now(review.created_at) %> ago </em></small>
+              </p>
               <p class="text-white"><%= review.content %></p>
             </div>
           <% end %>

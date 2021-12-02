@@ -35,6 +35,10 @@
   margin: 14px;
 }
 
+.rating-review-display {
+  font-size: 1rem;
+}
+
 .streaming-logos {
   width: 50px;
   border-radius: 10px;
@@ -64,6 +68,10 @@
   margin-top: 14px;
 }
 
+.season-para {
+  margin-top: 8px;
+}
+
 .wheretowatch a {
   color: white;
   font-size: 16px;
@@ -86,7 +94,6 @@
   font-weight: 700;
   width: 16vw;
   transition: ease-in-out 0.25s;
-
   border-radius: 4px;
   color: white;
   transition: transform 0.4s;
