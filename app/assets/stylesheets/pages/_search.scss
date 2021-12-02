@@ -69,6 +69,7 @@
   color: rgb(146, 146, 146);
   font-size: 14px;
   transition: ease-in-out 0.25s;
+  line-height: 50%;
 
 
   &:hover {
@@ -81,6 +82,7 @@
   text-transform: uppercase;
   font-size: 14px;
   font-weight: 600;
+  margin-bottom: 8px;
 }
 
 .card-text {

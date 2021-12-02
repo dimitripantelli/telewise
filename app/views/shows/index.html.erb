@@ -25,11 +25,13 @@
               <p class="card-text"><span class="episode-date">Next episode date:</span> <%= future_episodes.first.airing_date.strftime("%d.%m.%Y") %></p>
             <% end %>
             <p><%= '⭐ ' * (show.rating.round / 2) %></p>
-             <p id="watchon">Watch on</p>
-             <div class="streaming-link">
-               <% JSON.parse(show.streaming.gsub('=>', ':')).each do |service| %>
-                 <p class="card-text streaming-link"><a href="<%= @streaming[service.keys[0]] = service.values[0].values[0].values[0] %>">> <%= service.keys[0] %></a></p>
-               <% end %>
+            <div class="streaming-link-index">
+              <p id="watchon">Watch on</p>
+              <div class="streaming-link">
+                <% JSON.parse(show.streaming.gsub('=>', ':')).each do |service| %>
+                  <p class="card-text streaming-link"><a href="<%= @streaming[service.keys[0]] = service.values[0].values[0].values[0] %>">> <%= service.keys[0] %></a></p>
+                <% end %>
+                </div>
               </div>
             </a>
          </div>

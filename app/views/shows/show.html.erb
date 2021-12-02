@@ -50,16 +50,17 @@
       <% count += 1 %>
       <% end %>
 
-      <div class="container">
+      <div class="container mt-4 mb-2 pl-0">
         <div class="reviews-container">
           <h3>POPULAR REVIEWS <span class="review-count"><i class="fas fa-comment-alt" id="review-bubble"></i><%= @reviews.count %></span></h3>
           <% if @reviews.empty? %>
             <small><em class="text-muted">Be the first one to review this show</em></small>
           <% end %>
+
           <% @reviews.each do |review| %>
-            <div>
+            <div id="reviews-content">
               <p class="mb-0">
-              <em><small> Review by <%= review.user.name.capitalize %></em>
+              <em><small> Review by <%= review.user.name %></em>
               <span class="hover-3-rating rating-review-display"> <%= '★ ' * (review.rating) %></span>
               <em><%= distance_of_time_in_words_to_now(review.created_at) %> ago </em></small>
               </p>
