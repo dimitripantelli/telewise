@@ -1,8 +1,16 @@
 class ProgressesController < ApplicationController
   def create
-    @progress = Progress.new(progress_params)
-    @progress.user = current_user
-    @progress.save
+    if params.key?(:progress)
+      @progress = Progress.new(progress_params)
+      @progress.user = current_user
+      @progress.save
+    else
+      Progress.where(user: current_user).each do |prog|
+        if prog.episode.show.id == params[:show].to_i && prog.episode.season_number == params[:season].to_i
+          prog.destroy!
+        end
+      end
+    end
   end
 
   private
