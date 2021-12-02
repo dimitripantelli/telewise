@@ -1,0 +1,5 @@
+meta_product_name: "Telewise"
+meta_title: "Telewise - Never miss an episode again"
+meta_description: "Track your favourite TV shows in one place"
+meta_image: "cover.png" # should exist in `app/assets/images/`
+twitter_account: "@telewise"   # required for Twitter Cards

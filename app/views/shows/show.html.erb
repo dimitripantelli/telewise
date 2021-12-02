@@ -1,3 +1,7 @@
+<!-- app/views/offers/show.html.erb -->
+<% content_for :meta_title, "#{@show.name} is on #{DEFAULT_META["meta_product_name"]}" %>
+<% content_for :meta_description, @show.summary %>
+
 <div class="container py-3 seasonpage">
   <div class="row">
     <div class="col-md-2 poster-column">
