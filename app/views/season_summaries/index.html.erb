@@ -17,7 +17,7 @@
 
   <div class="episode_summary">
     <form action="/progresses/create" method="post">
-      <% @show.episodes.where(season_number: @season).each do |episode| %>
+      <% @show.episodes.where(season_number: @season).order(episode_number: :asc).each do |episode| %>
 
       <div class="container episode-container">
         <h3 class="episode-heading"><%= episode.episode_number %>. <span id="episode-name"><%= episode.name %></span></h3>
