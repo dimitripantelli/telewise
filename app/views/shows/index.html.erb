@@ -2,42 +2,50 @@
 
   <% @shows.each do |show| %>
 
-      <div class="search-result">
-        <div class="search-img">
-          <a href="<%= show_path(show) %>" class="search-link">
-            <%= image_tag "#{show.name.gsub(/\s+/, "")}.jpg" %></a>
-        </div>
+  <div class="search-result">
+    <div class="search-img">
+      <a href="<%= show_path(show) %>" class="search-link">
+        <%= image_tag "#{show.name.gsub(/\s+/, "")}.jpg" %></a>
+    </div>
 
-        <div class="card-body">
-          <a href="<%= show_path(show) %>" class="search-link d-flex">
-            <h5> <span class="card-title"><%= show.name %></span> (<%= show.episodes.first.airing_date.year %>)</h5>
-            <p id="search-seasons-number"><span id="search-seasons">Seasons: </span> <%= show.number_of_seasons %></p>
-            <% future_episodes = show.episodes.select do |episode| %>
-              <% episode.airing_date > DateTime.now %>
+    <div class="card-body" id="cardbody-searchpage">
+      <a href="<%= show_path(show) %>" class="search-link d-flex">
+        <h5> <span class="card-title"><%= show.name %></span> (<%= show.episodes.first.airing_date.year %>)</h5>
+
+        <p id="search-seasons-number"><span id="search-seasons">Seasons: </span> <%= show.number_of_seasons %></p>
+
+        <% future_episodes = show.episodes.select do |episode| %>
+        <% episode.airing_date > DateTime.now %>
+        <% end %>
+        <% past_episodes = show.episodes.select do |episode| %>
+        <% episode.airing_date < DateTime.now %>
+        <% end %>
+        <% if future_episodes.empty? %>
+        <p class="card-text"><span class="episode-date">Last episode date:</span>
+          <%= show.episodes.last.airing_date.strftime("%d.%m.%Y") %></p>
+        <% else %>
+        <p class="card-text"><span class="episode-date">Last episode date:</span>
+          <%= past_episodes.last.airing_date.strftime("%d.%m.%Y") %></p>
+        <p class="card-text"><span class="episode-date">Next episode date:</span>
+          <%= future_episodes.first.airing_date.strftime("%d.%m.%Y") %></p>
+        <% end %>
+
+        <p class="rating-searchpage"><%= '★ ' * (show.rating.round / 2) %></p>
+
+        <div class="streaming-link-searchpage">
+          <div id="streaming-links">
+            <% JSON.parse(show.streaming.gsub('=>', ':')).each do |service| %>
+            <p class="card-text streaming-link">
+              <%= image_tag "#{service.keys[0]}.webp", class: "streaming-logos"%></p>
             <% end %>
-            <% past_episodes = show.episodes.select do |episode| %>
-              <% episode.airing_date < DateTime.now %>
-            <% end %>
-            <% if future_episodes.empty? %>
-              <p class="card-text"><span class="episode-date">Last episode date:</span> <%= show.episodes.last.airing_date.strftime("%d.%m.%Y") %></p>
-            <% else %>
-              <p class="card-text"><span class="episode-date">Last episode date:</span> <%= past_episodes.last.airing_date.strftime("%d.%m.%Y") %></p>
-              <p class="card-text"><span class="episode-date">Next episode date:</span> <%= future_episodes.first.airing_date.strftime("%d.%m.%Y") %></p>
-            <% end %>
-            <p><%= '⭐ ' * (show.rating.round / 2) %></p>
-            <div class="streaming-link-index">
-              <p id="watchon">Watch on</p>
-              <div class="streaming-link">
-                <% JSON.parse(show.streaming.gsub('=>', ':')).each do |service| %>
-                  <p class="card-text streaming-link"><a href="<%= @streaming[service.keys[0]] = service.values[0].values[0].values[0] %>">> <%= service.keys[0] %></a></p>
-                <% end %>
-                </div>
-              </div>
-            </a>
-         </div>
-         <div class="search-summary">
-          <p><%= show.summary %></p>
+          </div>
         </div>
     </div>
-<% end %>
+
+    <div class="search-summary">
+      <p><%= show.summary %></p>
+    </div>
+    </a>
+  </div>
+  <% end %>
 </div>

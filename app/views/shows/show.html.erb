@@ -3,11 +3,12 @@
     <div class="col-md-2 poster-column">
       <%= image_tag "#{@show.name.gsub(/\s+/, "")}.jpg", style: "width: 100%", class: 'img-fluid', id: "poster"%>
       <p class="hover-3-rating">
-      <%= '★ ' * (@show.rating.round / 2) %>
+        <%= '★ ' * (@show.rating.round / 2) %>
       </p>
       <ul class="mt-2" id="streaming-links">
         <% @streaming.each do |service| %>
-        <li><a href="<%= service[1] %>" target="_blank"><%= image_tag "#{service[0]}.webp", class: "streaming-logos"%></a></li>
+        <li><a href="<%= service[1] %>"
+            target="_blank"><%= image_tag "#{service[0]}.webp", class: "streaming-logos"%></a></li>
         <% end %>
       </ul>
     </div>
@@ -21,9 +22,9 @@
         <div class="row mb-3">
           <%= render "followed_shows/form", locals: {show: @show, followed_show: @followed_show}, class: "addmyshows-btn" %>
           <% if current_user %>
-            <%= render "reviews/review_modal", locals: {show: @show, followed_show: @followed_show}, class: "addshow-btn" %>
+          <%= render "reviews/review_modal", locals: {show: @show, followed_show: @followed_show}, class: "addshow-btn" %>
           <% else %>
-            <p><%= link_to 'Add Review', new_user_registration_path, class: "addshow-btn" %></p>
+          <p><%= link_to 'Add Review', new_user_registration_path, class: "addshow-btn" %></p>
           <% end %>
         </div>
       </div>
@@ -32,17 +33,13 @@
         <p class="details-season">Season <%= count %></p>
         <div class="summary-button">
           <p id="summary"> <%= strip_tags @season_summaries[count] %> </p>
-          <p> <%= link_to 'Details', show_season_summaries_path(@show, season: count), class: "addshow-btn", id: "details-btn" %> </p>
+          <p>
+            <%= link_to 'Details', show_season_summaries_path(@show, season: count), class: "addshow-btn", id: "details-btn" %>
+          </p>
         </div>
         <div class="progress">
-          <div
-            class="progress-bar"
-            role="progress-bar"
-            aria-valuenow="70"
-            aria-valuemin="0"
-            aria-valuemax="100"
-            style="width: <%= @percentage[count] %>%"
-          ></div>
+          <div class="progress-bar" role="progress-bar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"
+            style="width: <%= @percentage[count] %>%"></div>
         </div>
       </div>
       <% count += 1 %>
@@ -50,20 +47,21 @@
 
       <div class="container mt-4 mb-2 pl-0">
         <div class="reviews-container">
-          <h3>POPULAR REVIEWS <span class="review-count"><i class="fas fa-comment-alt" id="review-bubble"></i><%= @reviews.count %></span></h3>
+          <h3>POPULAR REVIEWS <span class="review-count"><i class="fas fa-comment-alt"
+                id="review-bubble"></i><%= @reviews.count %></span></h3>
           <% if @reviews.empty? %>
-            <small><em class="text-muted">Be the first one to review this show</em></small>
+          <small><em class="text-muted">Be the first one to review this show</em></small>
           <% end %>
 
           <% @reviews.each do |review| %>
-            <div id="reviews-content">
-              <p class="mb-0">
+          <div id="reviews-content">
+            <p class="mb-0">
               <em><small> Review by <%= review.user.name %></em>
               <span class="hover-3-rating rating-review-display"> <%= '★ ' * (review.rating) %></span>
               <em><%= distance_of_time_in_words_to_now(review.created_at) %> ago </em></small>
-              </p>
-              <p class="text-white"><%= review.content %></p>
-            </div>
+            </p>
+            <p class="text-white"><%= review.content %></p>
+          </div>
           <% end %>
         </div>
       </div>

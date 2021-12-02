@@ -43,6 +43,10 @@
   align-content: center;
 }
 
+#cardbody-searchpage {
+  margin: auto 0;
+}
+
 #search-seasons-number {
   font-size: 14px;
   margin-top: 8px;
@@ -64,25 +68,22 @@
   font-weight: 600;
 }
 
-.streaming-link a {
-  display: block;
-  color: rgb(146, 146, 146);
-  font-size: 14px;
-  transition: ease-in-out 0.25s;
-  line-height: 50%;
+.streaming-link-searchpage {
+  display: flex;
+  align-items: baseline;
+  padding-top: 4px;
 
-
-  &:hover {
-    text-decoration: none;
-    color: #7FFB50;
+  img {
+    margin-right: 8px;
   }
 }
 
-#watchon {
-  text-transform: uppercase;
-  font-size: 14px;
-  font-weight: 600;
-  margin-bottom: 8px;
+#streaming-links {
+  display: flex;
+}
+
+.rating-searchpage {
+  color: #7FFB50;
 }
 
 .card-text {
