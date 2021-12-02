@@ -5,6 +5,6 @@ function scrollFunction() {
   if (document.body.scrollTop > 720 || document.documentElement.scrollTop > 720) {
     homeNavbar.style.backgroundColor = "#171717";
   } else {
-    homeNavbar.style.backgroundColor = "transparent";
+    homeNavbar.style.backgroundColor = "171717";
   }
 }
