@@ -1,5 +1,5 @@
   <%= simple_form_for([@show, @review]) do |f| %>
     <%= f.input :content %>
     <%= f.input :rating, collection: (1..5).to_a %>
-    <%= f.submit 'Add Review', class: "btn btn-success" %>
+    <%= f.submit 'Add Review', class: "signup-btn", id: "addreview-btn" %>
   <% end %>
