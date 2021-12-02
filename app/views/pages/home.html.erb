@@ -7,19 +7,16 @@
         <h1 class="neon" data-text="U">TE<span class="flicker-fast">L</span><span class="flicker-slow">E</span>WI<span class="flicker-fast">S</span>E</h1>
       </a>
       <h2 class="quote">Never miss an episode again</h2>
+      <% if !current_user %>
       <div class="d-flex justify-content-center align-items-center pt-3 pb-5">
         <a class="signup-btn m-0" href="users/sign_up">Sign Up</a>
       </div>
-      <% if !current_user %>
-        <div>
-          <a class="signup-btn" href="users/sign_up">Sign Up</a>
-        </div>
       <% end %>
     </div>
   </div>
+  <div id="top-rated"></div>
 
   <h2 class="text-center top-rated-title">TOP RATED SHOWS</h2>
-
   <div class="container">
     <div class="row">
       <% @shows.each do |show| %>
