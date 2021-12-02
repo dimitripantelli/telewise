@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users, only: :show do
     resources :followed_shows, only: [:index, :new, :create, :destroy]
+    resources :notifications, only: [:update]
   end
+  resources :notifications
   get 'account', to: 'user#show'
   root to: 'pages#home'
   resources :shows, only: [:index, :show] do

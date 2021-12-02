@@ -1,14 +1,13 @@
-
 .navbar-lewagon {
   display: flex;
   justify-content: space-between;
   background-color: #171717;
-  height: 8vh;
   padding: 14px 48px;
   z-index: 1;
   width: 100%;
   position: fixed;
   top: 0;
+  animation: slidein 0.4s;
 
   .avatar {
     cursor: pointer;
@@ -17,8 +16,12 @@
   .avatar i {
     font-size: 28px;
     color: rgb(122, 122, 122);
-    position: absolute;
-    bottom: 12px;
+    transition: ease-in-out 0.25s;
+    opacity: 0.8;
+
+    &:hover {
+      color: white;
+    }
   }
 }
 
@@ -30,7 +33,7 @@
 
 .bell {
   font-size: 28px;
-  padding-right: 14px;
+  padding-right: 28px;
   color: rgb(122, 122, 122);
   opacity: 0.8;
   transition: ease-in-out 0.25s;
@@ -38,6 +41,18 @@
 
 .bell:hover {
   transform: rotate(+15deg);
+  color: white;
+}
+
+.bell-container {
+  position: relative;
+}
+
+.fa-circle {
+  color: $green;
+  font-size: 0.6rem;
+  position: absolute;
+  right: 15px;
 }
 
 .dropdown-toggle::after {
@@ -51,6 +66,7 @@
 #neon-logo {
   font-size: 24px;
   text-shadow: 1px 0px 4px #dbffce;
+  transition: ease-in-out 0.25s;
 }
 
 #neon-logo:hover {
@@ -59,12 +75,12 @@
   text-shadow: 1px 0px 4px #dbffce,
   2px 0px 4px #dbffce,
   3px 0px 4px #dbffce,
-  2px 0px 3px #7FFB50,
-  2px 3px 15px #7FFB50,
+  2px 0px 3px $green,
+  2px 3px 15px $green,
   2px 0px 15px,
   5px 0px 125px,
-  20px 0vw 200px #7FFB50,
-  40px 0vw 200px #7FFB50;
+  20px 0vw 200px $green,
+  40px 0vw 200px $green;
 }
 
 #navbar-searchbtn {
@@ -88,9 +104,20 @@
   border: 1px solid white;
   opacity: 0.6;
   font-size: 14px;
+  transition: ease-in-out 0.25s;
 }
 
 .login-btn:hover {
   color: white;
   opacity: 1;
+}
+
+@keyframes slidein {
+  from {
+    transform: translateY(-100%);
+  }
+
+  to {
+    transform: translateY(0%);
+  }
 }

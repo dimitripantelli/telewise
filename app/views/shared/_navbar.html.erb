@@ -3,16 +3,15 @@
 
         <%= link_to "Telewise", root_path, class: "neon", id:"neon-logo" %>
 
-
     <div class="search-bar">
       <div class="search-form-control form-group">
-        <div id="search-navbar">
+        <div id="search-navbar login-btn navbarsearch">
           <%= form_tag shows_path, method: :get do %>
             <%= text_field_tag :query,
               params[:query],
               class: "form-control string required",
-              style:"height:40px; margin-top:14px;",
-              placeholder: "Search for a TV-Show"
+              style:"height:40px; background-color: #171717; border-color: rgb(112, 112, 112); color: rgb(112, 112, 112);",
+              placeholder: "Search for a show"
             %>
             <%= button_tag(type: 'submit', class: "btn btn-flat", id:"navbar-searchbtn") do
               "<i class='fas fa-search'></i>".html_safe
@@ -22,17 +21,25 @@
       </div>
     </div>
 
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <% if user_signed_in? %>
-            <li class="nav-item">
-              <%= link_to account_path, class: "nav-link" do %>
-                <i class="fas fa-bell bell"></i>
-              <% end %>
-            </li>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+         <% if user_signed_in? %>
+          <li class="nav-item">
+            <div class="dropdown">
+              <a class="dropdown-toggle bell-container" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
+                <i class="fas fa-bell bell" ></i>
+                <% notify_today = current_user.notifications.select { |n| n.episode.airing_date == Date.today && n.read_at == nil} %>
+                <% if notify_today.present? %>
+                  <i class="fas fa-solid fa-circle"></i>
+                <% end %>
+              </a>
+                <%= render "notifications/index" %>
+            </div>
+          </li>
 
             <li class="nav-item dropdown avatar">
               <i class="fas fa-bars dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ></i>

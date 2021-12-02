@@ -27,6 +27,6 @@ body {
   padding-top: 11vh;
 }
 .progress-bar {
-  background-color: rgb(0, 244, 140);
+  background-color: $green;
   transition: width 1s;
 }
