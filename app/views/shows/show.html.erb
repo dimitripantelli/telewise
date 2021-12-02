@@ -58,7 +58,7 @@
           <% end %>
 
           <% @reviews.each do |review| %>
-            <div class="reviews-content">
+            <div id="reviews-content">
               <p class="mb-0">
               <em><small> Review by <%= review.user.name %></em>
               <span class="hover-3-rating rating-review-display"> <%= '★ ' * (review.rating) %></span>
