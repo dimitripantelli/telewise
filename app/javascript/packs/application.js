@@ -51,5 +51,6 @@ window.updateProgress = function () {
 };
 
 document.addEventListener("turbolinks:load", () => {
-  popup_message()
+  popup_message();
+  $(document).on("turbolinks:load", initStarRating);
 });

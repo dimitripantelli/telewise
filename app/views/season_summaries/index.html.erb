@@ -1,4 +1,4 @@
-<div class="progress sticky-top">
+<div class="item progress">
   <div
     class="progress-bar"
     role="progress-bar"
@@ -9,36 +9,43 @@
   ></div>
 </div>
 
-<div class="container text-white d-flex justify-content-between">
-  <h1><strong><%= @show.name %></strong>, <%= @season %></h1>
-  <p><%= link_to 'Back', show_path(@show), class: "btn btn-success" %></p>
-</div>
+<div class="container">
+  <div class="season-title">
+    <h1><span id="episode-title"><%= @show.name %></span><span id="season-number"> season <%= @season %></span></h1>
+    <p><%= link_to 'Back', show_path(@show), class: "login-btn", id: "back-btn" %></p>
+  </div>
 
-<div class="episode_summary">
-  <form action="/progresses/create" method="post">
-    <% @show.episodes.where(season_number: @season).each do |episode| %>
-    <div class="container rounded p-1 mb-1 mt-1 text-white">
-      <h3><%= episode.episode_number %>. <%= episode.name %></h3>
-      <div class="episode-box">
-        <p id="episodeinfo"><%= strip_tags episode.description %></p>
-        <div class="box">
-          <label for="<%= episode.episode_number %>">
-            <input
-              class="episode-check"
-              id="<%= episode.episode_number %>"
-              name="progress[episode_id]"
-              value="<%= episode.id %>"
-              type="checkbox"
-              onclick="checkPrevious(this);updateProgress()"
-              onchange="this.form.submit()"
-              <%= (@progress >= episode.episode_number) ? "checked" : "" %>
-            />
-            <span class="check"></span>
-          </label>
+  <div class="episode_summary">
+    <form action="/progresses/create" method="post">
+      <% @show.episodes.where(season_number: @season).order(episode_number: :asc).each do |episode| %>
+
+      <div class="container episode-container">
+        <h3 class="episode-heading"><%= episode.episode_number %>. <span id="episode-name"><%= episode.name %></span></h3>
+        <div class="episode-box">
+          <% if episode.airing_date < Date.today %>
+            <p id="episodeinfo"><%= strip_tags episode.description %></p>
+          <% else %>
+            <p id="episodeinfo"><small>Coming soon on <%= episode.airing_date.strftime("%d.%m.%Y") %></small></p>
+          <% end %>
+          <div class="box">
+            <label for="<%= episode.episode_number %>">
+              <input
+                class="episode-check"
+                id="<%= episode.episode_number %>"
+                name="progress[episode_id]"
+                value="<%= episode.id %>"
+                type="checkbox"
+                onclick="checkPrevious(this);updateProgress()"
+                onchange="this.form.submit()"
+                <%= (@progress >= episode.episode_number) ? "checked" : "" %>
+              />
+              <span class="check"></span>
+            </label>
+          </div>
         </div>
       </div>
-    </div>
-    <% end %>
-    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  </form>
+      <% end %>
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    </form>
+  </div>
 </div>

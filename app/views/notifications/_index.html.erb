@@ -1,0 +1,12 @@
+<% if current_user.notifications.present? %>
+  <% airing_today = current_user.notifications.select do |notification| %>
+  <%  notification.episode.airing_date == Date.today && notification.read_at == nil %>
+  <% end %>
+  <% if airing_today.size > 0 %>
+    <div id="dropdown-notification" class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+      <% airing_today.each do |notification| %>
+        <%= link_to "A new episode of #{notification.episode.show.name} is out today!", show_season_summaries_path(notification.episode.show, season: notification.episode.season_number, update_notification: notification.id), class: "dropdown-item" %>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>

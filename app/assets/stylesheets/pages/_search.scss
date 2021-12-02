@@ -12,6 +12,7 @@
   border-radius: 4px;
   display: flex;
   flex-direction: row;
+  transition: ease-in-out 0.25s;
 
   &:hover {
     border: 2px solid #7FFB50;
@@ -67,6 +68,8 @@
   display: block;
   color: rgb(146, 146, 146);
   font-size: 14px;
+  transition: ease-in-out 0.25s;
+
 
   &:hover {
     text-decoration: none;
@@ -82,11 +85,11 @@
 
 .card-text {
   font-size: 14px;
+
 }
 
 .search-summary {
   width: 37.5vw;
-  padding-right: 21px;
   display: flex;
 
   p {

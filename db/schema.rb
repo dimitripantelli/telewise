@@ -36,6 +36,14 @@ ActiveRecord::Schema.define(version: 2021_12_01_104155) do
     t.index ["user_id"], name: "index_followed_shows_on_user_id"
   end
 
+  create_table "notifications", force: :cascade do |t|
+    t.datetime "read_at"
+    t.bigint "episode_id"
+    t.bigint "user_id"
+    t.index ["episode_id"], name: "index_notifications_on_episode_id"
+    t.index ["user_id"], name: "index_notifications_on_user_id"
+  end
+
   create_table "progresses", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "episode_id", null: false
@@ -93,6 +101,8 @@ ActiveRecord::Schema.define(version: 2021_12_01_104155) do
   add_foreign_key "episodes", "shows"
   add_foreign_key "followed_shows", "shows"
   add_foreign_key "followed_shows", "users"
+  add_foreign_key "notifications", "episodes"
+  add_foreign_key "notifications", "users"
   add_foreign_key "progresses", "episodes"
   add_foreign_key "progresses", "users"
   add_foreign_key "reviews", "shows"

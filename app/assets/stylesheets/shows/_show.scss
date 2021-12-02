@@ -16,68 +16,106 @@
   font-size: 34px;
 }
 
-.rating-and-name {
+.showname {
   display: flex;
   justify-content: space-between;
   margin-right: 6px;
   text-transform: uppercase;
 }
 
+.show-summary {
+  font-size: 16px;
+  margin: 0;
+}
+
 .hover-3-rating {
+  font-size: 28px;
+  text-align: center;
+  color: $green;
+  margin: 14px;
+}
+
+.rating-review-display {
+  font-size: 1rem;
+}
+
+.streaming-logos {
+  width: 50px;
+  border-radius: 10px;
+  margin-right: 4px;
+}
+
+#streaming-links {
+  text-align: center;
+  list-style: none;
+  padding: 0;
   font-size: 26px;
 }
 
 .series-summary {
   font-size: 16px;
+  line-height: 200%;
 }
 
-.wheretowatch {
-  line-height: 75%;
+#streaming-links li {
+  display: inline;
 }
 
-#wheretowatch-title,
 #seasons {
   font-weight: 700;
   text-transform: uppercase;
   font-size: 16px;
+  margin-top: 14px;
+}
+
+.season-para {
+  margin-top: 8px;
 }
 
 .wheretowatch a {
   color: white;
   font-size: 16px;
+  transition: ease-in-out 0.25s;
 }
 
 .wheretowatch a:hover {
   text-decoration: none;
-  color: #7FFB50;
+  color: #7ffb50;
 }
 
 .addshow-btn {
-   display: flex;
-   flex-direction: row;
-   justify-content: center;
-   align-items: center;
-   font-size: 12px;
-   padding: 14px 37px;
-   text-transform: uppercase;
-   font-weight: 700;
-   width: 16vw;
-   margin-bottom: 8px;
-
-   border-radius: 4px;
-   color: white;
-   transition: transform .4s;
-   border: 1px solid white;
-  }
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  padding: 14px 37px;
+  text-transform: uppercase;
+  font-weight: 700;
+  width: 16vw;
+  transition: ease-in-out 0.25s;
+  border-radius: 4px;
+  color: white;
+  transition: transform 0.4s;
+  border: 1px solid white;
+}
 
 .addshow-btn:hover {
-  color: #7FFB50;
-  border-color: #7FFB50;
+  color: $green;
+  border-color: $green;
   text-decoration: none;
   // transform: scale(1.025);
   opacity: 1;
 }
 
+#addreview {
+  height: 51px;
+  transition: ease-in-out 0.25s;
+  }
+
+.form-group {
+  margin-bottom: 0;
+}
 
 .seasons-details-box {
   background-color: #171717;
@@ -88,7 +126,6 @@
 
 .details-season {
   text-transform: uppercase;
-  font-weight: 700;
 }
 
 #details-btn {
@@ -96,16 +133,63 @@
   padding: 14px 84px;
   width: 8vw;
   margin-left: 16px;
+  transition: ease-in-out 0.25s;
 }
 
 .summary-button {
   display: flex;
   flex-direction: row;
-  justify-content: space-between
+  justify-content: space-between;
 }
 
 #summary {
   font-size: 14px;
-  line-height: 200%;
-  width: 50vw;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+#poster {
+  border-radius: 6px;
+}
+
+.addshow-btn.bg-transparent {
+  margin-right: 15px;
+  transition: ease-in-out 0.25s;
+}
+
+.show-details {
+  margin-left: 17vw;
+}
+
+.review-count {
+  font-size: 21px;
+}
+
+#review-bubble {
+  margin-left: 16px;
+  margin-right: 8px;
+  transform: rotate(180deg);
+  -moz-transform: scale(-1, 1);
+  -webkit-transform: scale(-1, 1);
+  -o-transform: scale(-1, 1);
+  -ms-transform: scale(-1, 1);
+  transform: scale(-1, 1);
+  font-size: 18px;
+}
+
+@media only screen and (max-width: 768px) {
+  .poster-column {
+    position: relative !important;
+    width: 50%;
+    margin: 0 auto;
+  }
+  .show-details {
+    margin: 0;
+  }
+}
+
+.poster-column {
+  position: fixed;
 }

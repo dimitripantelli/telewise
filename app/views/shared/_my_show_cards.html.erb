@@ -2,17 +2,16 @@
   <% if @user.progresses.empty? %>
     <% @user.followed_shows.each do |show| %>
       <div class="card-box">
-
+        <a href="<%= show_path(show.show) %>" class="search-link">
         <div class="my-show-image-wrapper" id="myshow-image">
-          <%# <div id="myshow-image" style="background-image: url('= image_path("#{show.show.name.gsub(/\s+/, "")}.jpg")')"> </div> %>
           <%= image_tag("#{show.show.name.gsub(/\s+/, '')}.jpg") %>
         </div>
+
         <div class="card-body">
           <a href="<%= show_path(show.show) %>" class="search-link d-flex">
           <div class="title-date">
             <div class="title-delete">
-              <h5 class="card-title"><%= show.show.name %> </h5>
-
+              <h5 class="card-title"><%= show.show.name %></h5>
               <%= link_to "+", user_followed_show_path(current_user, show), method: :delete, class: "danger-btn" %>
             </div>
             <% future_episodes = show.show.episodes.select do |episode| %>
@@ -38,23 +37,25 @@
   <% else %>
       <% @show_progress.each do |progress, episode| %>
       <div class="card-box">
-      <div class="my-show-image-wrapper" id="myshow-image">
+        <a href="<%= show_path(progress.show) %>" class="search-link">
+        <div class="my-show-image-wrapper" id="myshow-image">
         <%= image_tag("#{progress.show.name.gsub(/\s+/, '')}.jpg") %>
       </div>
-        <div class="card-body">
-          <div class="title-delete">
-            <h5 class="card-title"><%= progress.show.name %></h5>
-            <%= link_to "+", user_followed_show_path(current_user, progress.show), method: :delete, class: "danger-btn" %>
-          </div>
-          <% if episode.empty? %>
-            <p class="card-text" id="noprogress">No progress so far</p>
-            <p class="card-text">
-          <% else %>
-            Season <%= episode[0].season_number %>
-            Episode <%= episode[0].episode_number %>
-          <% end %>
-          </p>
+      <div class="card-body">
+        <div class="title-delete">
+          <h5 class="card-title"><%= progress.show.name %></h5>
+          <%= link_to "+", user_followed_show_path(current_user, progress.show), method: :delete, class: "danger-btn" %>
         </div>
+      <% if episode.empty? %>
+        <p class="card-text" id="noprogress">No progress so far</p>
+      <% else %>
+        <p class="card-text season-episode">
+          Season <strong><%= episode[0].season_number %></strong>
+          Episode <strong><%= episode[0].episode_number %></strong>
+        </p>
+      <% end %>
+        </a>
+      </div>
       </div>
     <% end %>
   <% end %>
