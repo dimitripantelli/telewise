@@ -52,7 +52,7 @@
 
       <div class="container">
         <div class="reviews-container">
-          <h3>POPULAR REVIEWS</h3>
+          <h3>POPULAR REVIEWS <span id="reviews-count">(<%= @reviews.count %>)</span></h3>
           <% if @reviews.empty? %>
             <small><em class="text-muted">Be the first one to review this show</em></small>
           <% end %>
