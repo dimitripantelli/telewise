@@ -59,6 +59,14 @@
   display: none;
 }
 
+.dropdown-menu {
+  background-color: black !important;
+}
+
+.dropdown-item {
+  color: white !important;
+}
+
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
