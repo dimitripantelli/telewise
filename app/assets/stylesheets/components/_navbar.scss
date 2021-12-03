@@ -60,11 +60,31 @@
 }
 
 .dropdown-menu {
-  background-color: black !important;
+  background-color: #171717 !important;
+  border-radius: 4px;
+  border: 1px solid rgb(122, 122, 122);
+
 }
 
 .dropdown-item {
-  color: white !important;
+  color: rgb(122, 122, 122);
+
+  &:hover {
+    background-color: #00000096;
+    color: white;
+  }
+}
+
+#currentusername {
+  border-bottom: 1px solid rgb(122, 122, 122);
+  font-size: 16px;
+  margin-bottom: 4px;
+  padding-bottom: 8px;
+
+  &:hover {
+    background-color: #171717;
+    color: rgb(122, 122, 122);
+  }
 }
 
 .navbar-lewagon .navbar-collapse {
