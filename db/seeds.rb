@@ -7,7 +7,7 @@ require 'openssl'
 # Episode.destroy_all
 # SeasonSummary.destroy_all
 
-show_ids = %w[43687 2705 28276 299 56942 3594 26856 39892 1871064]
+show_ids = %w[35846]
 
 puts 'Adding shows and episodes...'
 
