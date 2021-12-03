@@ -60,11 +60,19 @@
 }
 
 .dropdown-menu {
-  background-color: black !important;
+  background-color: #171717 !important;
+  border-radius: 4px;
+  border: 1px solid rgb(122, 122, 122);
+
 }
 
 .dropdown-item {
-  color: white !important;
+  color: rgb(122, 122, 122);
+
+  &:hover {
+    background-color: #00000096;
+    color: white;
+  }
 }
 
 .navbar-lewagon .navbar-collapse {
