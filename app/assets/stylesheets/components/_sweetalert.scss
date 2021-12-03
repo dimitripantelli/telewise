@@ -1,0 +1,53 @@
+.swal-modal {
+  background-color: #212121 !important;
+  border-color: white;
+}
+.swal-title {
+  color: #ffffff !important;
+}
+.swal-text {
+  color: #ffffff !important;
+}
+.swal-button {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: center !important;
+  align-items: center !important;
+  font-size: 14px !important;
+  padding: 14px 37px !important;
+  text-transform: uppercase !important;
+  font-weight: 500 !important;
+  width: 16vw !important;
+  transition: ease-in-out 0.25s !important;
+  border-radius: 4px !important;
+  color: white !important;
+  transition: transform 0.4s !important;
+  border: 1px solid white !important;
+  background-color: #212121 !important;
+}
+
+.swal-button:hover {
+  color: $green !important;
+  border-color: $green !important;
+  border: 1px solid $green !important;
+  text-decoration: none !important;
+  opacity: 1 !important;
+}
+.swal-button:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+.swal-button:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.swal-footer {
+    text-align: center;
+}
+
+.swal-icon img {
+    max-width: 90px;
+;
+    max-height: 90px;
+}
