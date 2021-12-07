@@ -1,4 +1,4 @@
-![Telewise Banner](/home/alison/code/dimitri_pantelli/telewise/app/assets/images/telewise-screenshot-home.PNG)
+![Telewise Banner](app/assets/images/telewise-screenshot-home.PNG)
 
 # Telewise
 
