@@ -213,3 +213,13 @@
   left: 50%;
   transform: translate(-50%, 10%);
 }
+
+.guest-login {
+  color: white;
+  margin: 0 2rem;
+  font-size: 10pt;
+  a {
+    color: #7FFB50;
+    text-decoration: none;
+  }
+}

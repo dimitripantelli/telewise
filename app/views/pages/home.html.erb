@@ -17,6 +17,7 @@
         <% if !current_user %>
         <div class="d-flex justify-content-center align-items-center pt-3 pb-5">
           <a class="signup-btn m-0" href="users/sign_up">Sign Up</a>
+          <p class="guest-login">...or use our <%= link_to "dummy acount",  users_guest_sign_in_path, method: :post %></p>
         </div>
         <% end %>
       </div>

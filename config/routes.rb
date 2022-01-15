@@ -6,6 +6,13 @@ Rails.application.routes.draw do
     resources :followed_shows, only: [:index, :new, :create, :destroy]
     resources :notifications, only: [:update]
   end
+  # devise_for :users, :controllers => {
+  #   registrations: 'users/registrations',
+  #   sessions: 'users/sessions'
+  # }
+  devise_scope :user do
+    post 'users/guest_sign_in', to: 'users/sessions#new_guest'
+  end
   resources :notifications
   get 'account', to: 'user#show'
   root to: 'pages#home'
