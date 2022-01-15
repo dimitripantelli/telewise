@@ -85,8 +85,6 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
-    devise-guests (0.8.1)
-      devise
     dotenv (2.7.6)
     dotenv-rails (2.7.6)
       dotenv (= 2.7.6)
@@ -284,7 +282,6 @@ DEPENDENCIES
   byebug
   capybara (>= 2.15)
   devise
-  devise-guests
   dotenv-rails
   elasticsearch (< 7.14)
   font-awesome-sass
