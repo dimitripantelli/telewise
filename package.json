@@ -5,20 +5,20 @@
     "@rails/actioncable": "^6.0.0",
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
-    "@rails/webpacker": "4.3.0",
+    "@rails/webpacker": "5.4.3",
     "bootstrap": "4.6",
     "jquery": "^3.6.0",
     "jquery-bar-rating": "^1.2.2",
+    "node-sass": "6.0.1",
     "popper.js": "^1.16.1",
+    "sass": "^1.48.0",
     "stimulus": "^3.0.1",
     "sweetalert": "^2.1.2",
-    "turbolinks": "^5.2.0"
+    "turbolinks": "^5.2.0",
+    "webpack": "^4.0.0"
   },
   "version": "0.1.0",
   "devDependencies": {
-    "@prettier/plugin-ruby": "^2.0.0",
-    "prettier": "^2.5.0",
-    "prettier-plugin-erb": "^0.4.0",
     "webpack-dev-server": "^4.5.0"
   }
 }
