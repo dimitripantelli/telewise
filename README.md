@@ -1,7 +1,5 @@
 [![Telewise banner](app/assets/images/telewise-logo.png)](https://www.telewise.co.uk)
 
-**Never miss an episode again**
-
 ### 📝 About the project
 
 Telewise is a Ruby on Rails app that allows users to keep up to date with their favourite TV shows. This programme scheduling and reviewing prototype, loaded with 18 sample shows, lets users track their watch progress, receive notifications when new episodes air, and leave a review for other users.
