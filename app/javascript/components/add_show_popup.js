@@ -1,7 +1,5 @@
 import swal from 'sweetalert'
 
-import Popcorn from '../../assets/images/popcorn.png'
-console.log(Popcorn)
 const popup_message = () => {
   document.addEventListener("turbolinks:load", () => {
     if (document.querySelector("#test")) {
