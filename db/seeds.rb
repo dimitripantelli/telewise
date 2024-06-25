@@ -3,12 +3,11 @@ require 'json'
 require 'net/http'
 require 'openssl'
 
-SeasonSummary.destroy_all
-Episode.destroy_all
-Show.destroy_all
+# Show.destroy_all
+# Episode.destroy_all
+# SeasonSummary.destroy_all
 
-show_ids = 20..23
-# https://api.tvmaze.com/shows/23?embed=seasons
+show_ids = %w[35846]
 
 puts 'Adding shows and episodes...'
 
@@ -16,9 +15,7 @@ show_ids.each do |id|
   # API requests
   show = JSON.parse(URI.open("https://api.tvmaze.com/shows/#{id}?embed=seasons").read)
   episodes = JSON.parse(URI.open("https://api.tvmaze.com/shows/#{id}/episodes").read)
-  p show
   imdb_id = show['externals']['imdb']
-  p imdb_id
   url_gb = URI("https://streaming-availability.p.rapidapi.com/get/basic?country=gb&imdb_id=#{imdb_id}&output_language=en")
   url_us = URI("https://streaming-availability.p.rapidapi.com/get/basic?country=us&imdb_id=#{imdb_id}&output_language=en")
 
@@ -38,21 +35,17 @@ show_ids.each do |id|
 
   response_gb = JSON.parse(http_gb.request(request_gb).read_body)
   response_us = JSON.parse(http_us.request(request_us).read_body)
-  p response_gb['streamingInfo']
+
   streaming = []
-  if response_gb.key?('streamingInfo') || response_us.key?('streamingInfo')
-    streaming << response_gb['streamingInfo']
-    if response_gb['streamingInfo'] && response_gb['streamingInfo'].first[0] != response_us['streamingInfo'].first[0]
-      streaming << response_us['streamingInfo']
-    end
-  else
-    streaming = nil
+  streaming << response_gb['streamingInfo']
+  if response_gb['streamingInfo'] && response_gb['streamingInfo'].first[0] != response_us['streamingInfo'].first[0]
+    streaming << response_us['streamingInfo']
   end
 
   # Create show using JSON
   new_show = Show.create!(
     name: show['name'],
-    summary: response_gb['overview'] || 'No summary available',
+    summary: response_gb['overview'],
     number_of_seasons: show['_embedded']['seasons'].count,
     streaming: streaming,
     rating: show['rating']['average']
@@ -69,7 +62,7 @@ show_ids.each do |id|
   show['_embedded']['seasons'].each do |season|
     new_show.season_summaries.create!(
       season_number: season['number'],
-      summary: season['summary'] || 'No summary available'
+      summary: season['summary']
     )
   end
 
@@ -79,7 +72,7 @@ show_ids.each do |id|
       episode_number: ep['number'],
       season_number: ep['season'],
       name: ep['name'],
-      description: ep['summary'] || 'No summary available',
+      description: ep['summary'],
       airing_date: ep['airdate']
     )
   end
